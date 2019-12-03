@@ -1,0 +1,31 @@
+.section
+  +w($tablet#{$unit})
+.mob-none
+  display: flex
+.head
+  justify-content: flex-start
+  &-logo
+    display: flex
+    align-items: center
+    margin: 0 30px
+    &:after
+      +wh(1px,50px)
+      display: table
+      content: ''
+      background-color: $head-gray
+    img
+      +wh(54px,57px)
+      margin-right: 30px
+  &-name
+    margin-right: auto
+    +w(160px)
+    font-size: 18px
+  &-language
+    &-select
+      margin: 10px
+  &-button
+    padding: 11px 14px
+    span
+      font-size: 15px
+.page-select
+  +w(75px)

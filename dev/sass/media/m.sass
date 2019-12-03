@@ -1,0 +1,109 @@
+$unit : 'px'
+.section
+  +w($mobile#{$unit})
+  margin: 0 auto
+header
+  background-color: #fff
+.head
+  display: flex
+  align-items: center
+  justify-content: space-evenly
+  padding: 17px 0
+  &-logo
+    img
+      +wh(34px,36px)
+  &-name
+    +font(12px,$f_medium,$blue-text)
+    +w(110px)
+  &-button
+    border: 1px solid $head-gray
+    border-radius: 10px
+    padding: 8px 15px
+    min-height: 33px
+    display: flex
+    align-items: center
+    &>span:first-child
+      margin-right: 9px
+    span
+      +font(13px,$f_medium,$head-dark-gray)
+  &-login
+    &>span:first-child
+      display: none
+    &-lock
+      +w(10px)
+      display: flex
+      flex-direction: column
+      align-items: center
+      span
+        display: block
+        &:first-child
+          +wh(8px,10px)
+          border: 2px solid $head-gray
+          border-radius: 4px
+        &:last-child
+          +wh(10px,7px)
+          background-color: $head-gray
+          margin-top: -4px
+  &-language
+    display: flex
+    flex-direction: column
+    &-arrow
+      +w(7px)
+      display: flex
+      justify-content: space-between
+      span
+        +wh(1px,8px)
+        display: block
+        border: 1px solid $head-gray
+        border-radius: 1px
+        transform: rotate(-45deg)
+        &:last-child
+          transform: rotate(45deg)
+    &-select
+      & *
+        transition: .35s ease
+      &.open
+        .page-select-body
+          opacity: 1
+          visibility: visible
+        .head-button
+          border-bottom-right-radius: 0
+          border-bottom-left-radius: 0
+        .head-language-arrow
+          span
+            transform: rotate(45deg)
+            &:last-child
+              transform: rotate(-45deg)
+  &-underline
+    padding: 0 20px
+    div
+      height: 1px
+      background-color: $head-gray
+.participate
+  +dfc
+  border: 1px solid #C7132A
+  border-radius: 30px
+  background-color: #fff
+  span:first-child
+    border-radius: 30px
+    background-color: #C7132A
+  span:last-child
+    +font(13px,$f_medium,#fff)
+.page-select
+  +w(70px)
+  position: relative
+  &-body
+    opacity: 0
+    visibility: hidden
+    +w(100%)
+    position: absolute
+    z-index: 99
+    .head-button
+      border-radius: 0
+      border-top: none
+      background-color: #fff
+      &:last-child
+        border-bottom-right-radius: 10px
+        border-bottom-left-radius: 10px
+.mob-none
+  display: none
