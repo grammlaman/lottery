@@ -4,3 +4,21 @@ append vars
     page_title= 'Главная страница'
 block content
     main
+      .main
+        .mainview
+          +img('logo.png').mainview-logo
+          h1
+            span This is the right time
+            span to start your dream
+          a(href='#').mainview-scroll.mob-fixed
+            span Scroll down
+            +img('arr.svg')
+          a(href='#').participate.mob-only.mob-fixed
+            span Participate now
+        .mainview.mainview-second
+          h2
+            span You'll never be younger than
+            span you are at this very moment.
+          button.mainview-video
+            span Watch the film
+            +img('youtube-icon.svg')

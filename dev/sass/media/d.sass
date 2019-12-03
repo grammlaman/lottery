@@ -27,5 +27,25 @@ $unit: 'px'
             color: #fff
           .head-language-arrow span
             border-color: #fff
+  .participate
+    overflow: hidden
+    position: relative
+    background-color: inherit
+    span
+      transition: .5s ease-in-out
+      &:first-child
+        z-index: 1
+      &:last-child
+        +wh(132px,40px)
+        border-radius: 17px
+        background-color: $red
+        position: absolute
+    &:hover
+      span
+        color: $red
+        &:last-child
+          transform: rotate(180deg) translateY(-75px)
   &-underline
     display: none
+.page-select-header:hover
+  cursor: pointer

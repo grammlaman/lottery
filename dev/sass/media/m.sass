@@ -3,7 +3,10 @@ $unit : 'px'
   +w($mobile#{$unit})
   margin: 0 auto
 header
+  +w(100%)
   background-color: #fff
+  position: fixed
+  z-index: 99
 .head
   display: flex
   align-items: center
@@ -80,14 +83,10 @@ header
       height: 1px
       background-color: $head-gray
 .participate
-  +dfc
-  border: 1px solid #C7132A
-  border-radius: 30px
-  background-color: #fff
-  span:first-child
-    border-radius: 30px
-    background-color: #C7132A
-  span:last-child
+  padding: 8px 22px
+  border-radius: 50px
+  background-color: $red
+  span
     +font(13px,$f_medium,#fff)
 .page-select
   +w(70px)
@@ -105,5 +104,57 @@ header
       &:last-child
         border-bottom-right-radius: 10px
         border-bottom-left-radius: 10px
-.mob-none
-  display: none
+.mob
+  &-none
+    display: none
+  &-fixed
+    position: fixed
+.main
+  height: 1300px
+  background-image: url("../img/mainview-mob.png")
+  background-position: bottom
+  background-size: 100%
+  background-repeat: no-repeat
+.mainview
+  +wh(100%,100vh)
+  +dfc
+  flex-direction: column
+  text-align: center
+  &-logo
+    +w(80px)
+  h1
+    span
+      font-family: $f-semi
+      color: $dark-blue-text
+      &:first-child
+        font-size: 30px
+        display: block
+      &:last-child
+        font-size: 20px
+  &-scroll
+    display: flex
+    align-items: center
+    flex-direction: column
+    color: #fff
+    font-size: 14px
+    bottom: 82px
+    img
+      margin-top: 6px
+  .participate
+    bottom: 30px
+  &-second
+    height: 50vh
+  h2
+    span
+      +font(24px,$f_medium,#fff)
+      display: block
+  &-video
+    display: flex
+    align-items: center
+    color: #fff
+    margin-top: 15px
+    span
+      font-family: $f_medium
+      font-size: 18px
+      margin-right: 10px
+      text-decoration: underline
