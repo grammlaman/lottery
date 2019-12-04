@@ -4,9 +4,12 @@
 $font_body: 14px
 
 +font_inc($f_reg,'SFProDisplayRegular.ttf')
++font_inc($f_light,'SFProDisplayLight.ttf')
++font_inc($f_thin,'SFProDisplayThin.ttf')
 +font_inc($f_medium,'SFProDisplayMedium.ttf')
 +font_inc($f_bold,'SFProDisplayBold.ttf')
 +font_inc($f_semi,'SFProDisplaySemibold.ttf')
++font_inc($f_georgia,'georgiaz.ttf')
 .set
 	+wh(100%)
 html,body
@@ -14,7 +17,7 @@ html,body
 	overflow-x: hidden
 body
 	+wh(100%)
-	+font($font_body,$f_reg,#000)
+	+font($font_body,$f_reg,#303030)
 $unit: 'px'
 @import "media/m"
 +mq($mobile-large#{$unit})

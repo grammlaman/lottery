@@ -1,5 +1,5 @@
 .section
-  +w($tablet#{$unit})
+  +w(728px)
 .mob-none
   display: flex
 .mob-only
@@ -40,3 +40,43 @@
       font-size: 15px
 .page-select
   +w(75px)
+.main
+  background-image: url('../img/mainview-large.jpg')
+  height: 170vh
+.mainview
+  &-scroll
+    bottom: 30px
+  h1
+    span:first-child
+      font-size: 70px
+    span:last-child
+      font-size: 50px
+  h2
+    span
+      font-size: 50px
+  &-video
+    margin-top: 25px
+.program
+  &-cont
+    display: flex
+  &-text
+    margin-right: 50px
+  &-steps
+    flex: 0 0 173px
+    margin-top: 0
+.statistic
+  &-slider
+    &-cont
+      +w(600px)
+      margin: auto
+      padding: 20px 0
+      justify-content: space-between
+      &-label
+        display: none
+  &-slide
+    flex: inherit
+    &-line
+      +wh(1px,60px)
+      background-color: $head-border-gray
+    &-i
+      right: -10px

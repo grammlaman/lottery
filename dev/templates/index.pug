@@ -3,24 +3,95 @@ append vars
   -
     page_title= 'Главная страница'
 block content
-    main
-      .main
-        .youtube
-        .mainview
-          +img('logo.png').mainview-logo
-          h1
-            span This is the right time
-            span to start your dream
-          a(href='#second-view').mainview-scroll.mob-fixed
-            span Scroll down
-            +img('arr.svg')
-          a(href='#').participate.mob-only.mob-fixed
-            span Participate now
-        .mainview.mainview-second#second-view
-          h2
-            span You'll never be younger than
-            span you are at this very moment.
-          button.mainview-video
-            span Watch the film
-            +img('youtube-icon.svg')
-
+  main
+    .main
+      .youtube
+      .mainview
+        .section
+          .mainview-cont
+            +img('logo.png').mainview-logo
+            h1
+              span This is the right time
+              span to start your dream
+            a(href='#second-view').mainview-scroll.mob-fixed-scroll
+              span Scroll down
+              +img('arr.svg')
+            a(href='#').participate.mob-only.mob-fixed
+              span Participate now
+          .mainview-cont.mainview-second#second-view
+            h2
+              span You'll never be younger than
+              span you are at this very moment.
+            button.mainview-video
+              span Watch the film
+              +img('youtube-icon.svg')
+            a(href='#third-view').mainview-scroll.mob-fixed-scroll
+              span Scroll down
+              +img('arr.svg')
+      .main-anchor#third-view
+    .program
+      .section
+        .program-cont
+          .program-text
+            p The Immigrant Investor Visa Lottery program registration period has no time restrictions. Each round designed for submission by 100,000 Participating Tickets*. All countries are eligible to participate.#[br] #[br]Randomly selected Participating Ticket allows its holder to apply for Immigrant Investor Visa with investments not less than $900,000 (U.S.) provided by this program. Holder of randomly selected Participating Ticket who is not eligible for application and/or who wishes not to apply for Immigrant Investor Visa should receive $500,000 (U.S.) in compensation only.
+          .program-steps
+            h5 How to participate
+            h6 Step 1
+            span Fill up Entry Form
+            h6 Step 2
+            span Get Tickets
+            h6 Step 3
+            span Receive Results
+            h6 Step 4
+            span Apply for Investor Visa
+        .underline
+          div
+    .statistic
+      .section
+        .statistic-cont
+          h2 Statistics
+          .statistic-slider.section
+            input(type='radio' name='statictic-slide' id='stat-slide1' style='display:none' checked)
+            input(type='radio' name='statictic-slide' id='stat-slide2' style='display:none')
+            input(type='radio' name='statictic-slide' id='stat-slide3' style='display:none')
+            input(type='radio' name='statictic-slide' id='stat-slide4' style='display:none')
+            .statistic-slider-cont
+              .statistic-slide
+                span 6
+                span Round
+              .statistic-slide-line
+              .statistic-slide
+                span 274
+                span Entrants
+              .statistic-slide-line
+              .statistic-slide
+                span 180
+                span Participating Tickets
+              .statistic-slide-line
+              .statistic-slide
+                span 12
+                span.statistic-slide-i
+                  span i
+                span Countries
+            .statistic-slider-cont-label
+              label(for='stat-slide1')
+              label(for='stat-slide2')
+              label(for='stat-slide3')
+              label(for='stat-slide4')
+    .equal
+      .section
+        .equal-cont
+          h2 ”Freedom is a chance to be better without anyone’s permission.”
+          .equal-cont-text
+            p The Bill of Rights is a beauty! Human freedom is not just a good idea, it's the law in the United States.#[br]#[br]To live in a country where freedom of speech, freedom of assembly, and freedom of religion are written into its very founding document is awesome! The constitutional and legislative freedom offered to people is the wonderful benefit of being a citizen of the United States.#[br]#[br]In America, people greatly value their freedom and they don’t take the First-Amendment rights for granted.
+            .equal-right
+              div
+                +img('')
+                p
+                  span 10
+                  span Bill of Rights Amendments
+              div
+                +img('')
+                p
+                  span Equal Rights
+                  span Racial, gender, disability, LGBT, Intersex, Privacy and accused
