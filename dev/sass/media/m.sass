@@ -4,9 +4,9 @@ $unit : 'px'
   margin: 0 auto
 header
   +w(100%)
-  background-color: #fff
   position: fixed
   z-index: 99
+  backdrop-filter: blur(20px)
 .head
   display: flex
   align-items: center
@@ -163,7 +163,6 @@ header
       margin-right: 10px
       text-decoration: underline
 .program
-  padding: 40px 0 0 0
   &-text
     p
       font-family: $f_medium
@@ -182,8 +181,10 @@ header
     span
       font-family: $f_medium
       font-size: 18px
+  &-cont
+    padding: 40px 0
 .underline
-  margin-top: 40px
+  padding: 0 20px
   div
     height: 1px
     background-color: $head-border-gray
@@ -237,20 +238,102 @@ header
         +font(11px,$f_georgia,#000)
         opacity: 30%
 .typycal
+  transition: 1.5s ease
+  height: 1126px
+  padding: 37px 0 0
+  margin: 1px 0
+  background-size: cover
+  background-position: bottom
   &-cont
     h2
       font-family: $f_medium
       font-size: 30px
     &-text
       margin-top: 15px
-      p
+      &>p
         font-family: $f_reg
-        font-size: 14px
         line-height: 22px
+  &-right
+    div
+      margin-top: 30px
+      display: flex
+      align-items: flex-start
+    p
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      margin-top: -8px
+      margin-left: 8px
+      span:first-child
+        font-size: 40px
+        font-family: $f_thin
+      span:last-child
+        +w(200px)
+        opacity: 70%
+  svg
+    fill: #6e6e6e
+    opacity: 70%
+.always
+  background-image: url('../img/always-mob.jpg')
+.alwaysBgc
+  background-image: url('../img/always-change-mob.jpg')
+.every
+  background-image: url('../img/red-girl-mob.jpg')
+.everyBgc
+  background-image: url('../img/china-girl-mob.jpg')
+.equal
+  background-image: url('../img/flag-mob.jpg')
+.equalBgc
+  background-image: url('../img/freedom-mob.jpg')
+.toBeBgc
+  background-image: url('../img/singer1-mob.jpg')
+.toBe
+  background-image: url('../img/singer-mob.png')
+.weather
+  background-image: url('../img/weather-mob.jpg')
+.weatherBgc
+  background-image: url('../img/weather-snow-mob.jpg')
+.nature
+  background-image: url('../img/nature-mob.jpg')
+.natureBgc
+  background-image: url('../img/nature-change-mob.jpg')
+.eat
+  background-image: url('../img/eat-mob.jpg')
+.eatBgc
+  background-image: url('../img/eat-change-mob.jpg')
+.ideal
+  background-image: url('../img/ideal-mob.jpg')
+.idealBgc
+  background-image: url('../img/ideal-change-mob.jpg')
+.eat,.eatBgc
+  h2
+    +w(200px)
+.toBe,#every,.alwaysBgc,.weather,.ideal
+  svg
+    fill: #fff
+  span,p,h2
+    color: #fff
+.nature,.natureBgc
+  p span:first-child
+    display: flex
+    align-items: flex-start
+    strong
+      font-size: 24px
 
-
-
-
+.last-block
+  padding-top: 34px
+  span
+    color: #838383
+    position: absolute
+    top: 2px
+    left: -10px
+  .underline
+    padding: 25px 20px
+  p
+    position: relative
+    font-size: 11px
+    line-height: 16px
+    color: #838383
 
 
 
