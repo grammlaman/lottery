@@ -1,5 +1,5 @@
 .section
-  +w($tablet-large#{$unit})
+  +w(850px)
 .head
   &-name
     +w(inherit)
@@ -32,4 +32,66 @@
     font-size: 50px
 .underline
   +w(815px)
-  margin: 88px auto 0
+.program
+  &-cont
+    padding-bottom: 0
+  &-steps
+    margin-top: 10px
+  .underline
+    margin: 88px auto 0
+.typycal
+  padding-top: 120px
+  background-position: center
+  &-right
+    margin-left: 70px
+    p
+      span:first-child
+        font-size: 44px
+      span:last-child
+        +w(inherit)
+    div
+      margin-top: 40px
+  &-cont
+    &-text>p
+      +w(460px)
+      flex: 0 0 460px
+    h2
+      margin-bottom: 50px
+.every,.everyBgc,.toBeBgc,.toBe,.nature,.natureBgc,.eat,.eatBgc
+  .section
+    position: relative
+  .typycal-cont
+    +w(500px)
+    margin-left: auto
+    h2
+      +w(inherit)
+    .typycal-right
+      position: absolute
+      left: 0
+      margin-left: 0
+.every,.everyBgc
+  .typycal-cont
+    .typycal-right
+      left: 340px
+      bottom: -280px
+.toBe,.toBeBgc,.eat,.eatBgc,.nature,.natureBgc
+ .typycal-cont-text>p
+   order: 1
+.eat,.eatBgc
+  h2
+    +w(360px)
+.nature,.natureBgc
+  h2
+    +w(450px)
+.always,.alwaysBgc
+  h2 strong
+    display: block
+.last-block
+  padding-top: 74px
+.foot
+  &-name
+    +w(330px)
+    flex: 0 0 330px
+    font-family: $f_medium
+  &-privacy
+    font-size: 16px

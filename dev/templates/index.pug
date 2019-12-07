@@ -50,7 +50,7 @@ block content
       .section
         .statistic-cont
           h2 Statistics
-          .statistic-slider.section
+          .statistic-slider
             input(type='radio' name='statictic-slide' id='stat-slide1' style='display:none' checked)
             input(type='radio' name='statictic-slide' id='stat-slide2' style='display:none')
             input(type='radio' name='statictic-slide' id='stat-slide3' style='display:none')
@@ -78,10 +78,11 @@ block content
               label(for='stat-slide2')
               label(for='stat-slide3')
               label(for='stat-slide4')
-    .equal.typycal(data-class='equal' data-change='equalBgc')
+    .typycal(data-class='equal' data-change='equalBgc')
       .section
         .typycal-cont
-          h2 ”Freedom is a chance to be better without anyone’s permission.”
+          h2 Freedom is a chance to be better without anyone’s permission.”
+            span ”
           .typycal-cont-text
             p The Bill of Rights is a beauty! Human freedom is not just a good idea, it's the law in the United States.#[br]#[br]To live in a country where freedom of speech, freedom of assembly, and freedom of religion are written into its very founding document is awesome! The constitutional and legislative freedom offered to people is the wonderful benefit of being a citizen of the United States.#[br]#[br]In America, people greatly value their freedom and they don’t take the First-Amendment rights for granted.
             .typycal-right
@@ -106,10 +107,11 @@ block content
                 p
                   span Equal Rights
                   span Racial, gender, disability, LGBT, Intersex, Privacy and accused
-    .toBe.typycal(data-class='toBe' data-change='toBeBgc')
+    .typycal(data-class='toBe' data-change='toBeBgc')
       .section
         .typycal-cont
-          h2 ”Be who you want to be. If you dream it, you can do it.”
+          h2 Be who you want to be. If you dream it, you can do it.”
+            span ”
           .typycal-cont-text
             p Americans are less concerned about doing it 'right' and more concerned about getting it done. Done, perfect!#[br]#[br]The entrepreneurial spirit runs deep. In no other country is an unlikely story as likely as in the United States. We don't understand the concept of 'getting ideas above your station' - we want people to dream big. We love audacity!#[br]#[br]The goal is Run for it. Risk it. Shoe shine kid who turns a street-side stand into a multi-million-dollar business? Great. Garage band, that develops a following and eventually sells ten million concert tickets? Excellent.
             .typycal-right
@@ -134,10 +136,11 @@ block content
                 p
                   span 50%+
                   span Companies started in garage
-    .every.typycal#every(data-class='every' data-change='everyBgc')
+    .typycal(data-class='every' data-change='everyBgc')
       .section
         .typycal-cont
-          h2 ”Every choice you make, makes you.”
+          h2 Every choice you make, makes you.”
+            span ”
           .typycal-cont-text
             p There’s a sense of openness and possibility. The vast majority of people go about their jobs, hobbies, and various choices of entertainment without ever being interfered with by the government or the police. You want to drive 3,000 miles, across half a dozen different landscapes and environments? You can do it, on smooth, well-kept roads, no checkpoints, no permits! You want a different career? Go get it. You want to start you own business?  Show us what you got and that provides your idea with a wealth of opportunities to start your own company.
             .typycal-right
@@ -166,10 +169,11 @@ block content
                 p
                   span Opportunities
                   span
-    .always.typycal(data-class='always' data-change='alwaysBgc')
+    .typycal(data-class='always' data-change='alwaysBgc')
       .section
         .typycal-cont
-          h2 ”In America, you can always be both.”
+          h2 In America,&nbsp;#[strong you can always be both.”]
+            span ”
           .typycal-cont-text
             p The wonderful thing about being American is the hyphenation. You don't have to give up any other identity to become American. American identity is purely additive.#[br]#[br]The United States of America is a cobbled-together country of immigrants, indigenous, and ex-enslaved which makes the origin stories diverse in a way that few other places are. But the one thing that everyone shares are a desire not to forget where they came from, or to ignore their history, but rather to bring it to the forefront of one’s new, American identities. It’s not a matter of choosing between being from your country or being American. You can be both, it's like a sweater that stretches to fit you, but maintains its integrity.
             .typycal-right
@@ -198,44 +202,46 @@ block content
                 p
                   span Appreciate
                   span Cultural diversity
-    .eat.typycal(data-class='eat' data-change='eatBgc')
+    .typycal(data-class='eat' data-change='eatBgc')
       .section
         .typycal-cont
-          h2 ”Don’t eat less, eat RIGHT.”
+          h2 Don’t eat less, eat RIGHT.”
+            span ”
           .typycal-cont-text
             p In America you can access to plenty of nutrition. Most of the fruits and vegetables seasonal in your country are available all year long here. You will find perfect-looking fruits and vegetables as the quality standards are set very high. The use of refrigeration technology since 1980s enabled fresh fruits and vegetables to be kept chilled soon after being harvested all the way through to the grocery store. There is a variety of meat available in different forms, from red meat to sea food. The excessive food produce is given to the food processing and food banks to avoid excessive waste of produce. .typycal-right
-              .typycal-right
-                div
-                  svg(width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg")
-                    path(d="M25.3377 22.6636C23.1375 22.6636 21.3477 24.4535 21.3477 26.6536C21.3477 28.8537 23.1376 30.6436 25.3377 30.6436C27.5378 30.6436 29.3277 28.8537 29.3277 26.6536C29.3277 24.4535 27.5378 22.6636 25.3377 22.6636ZM25.3377 28.2496C24.4575 28.2496 23.7417 27.5338 23.7417 26.6536C23.7417 25.7734 24.4575 25.0576 25.3377 25.0576C26.2179 25.0576 26.9337 25.7734 26.9337 26.6536C26.9337 27.5338 26.2179 28.2496 25.3377 28.2496Z")
-                    path(d="M31.7456 7.2421C31.519 6.95204 31.1714 6.78285 30.8032 6.78285H7.38879L6.31147 2.27533C6.1826 1.7367 5.70097 1.35645 5.14715 1.35645H1.19701C0.535878 1.35638 0 1.89226 0 2.55339C0 3.21452 0.535878 3.7504 1.19701 3.7504H4.20234L8.09261 20.0282C8.22149 20.5672 8.70311 20.9471 9.25693 20.9471H27.8905C28.4407 20.9471 28.9203 20.572 29.0524 20.0381L31.9651 8.26749C32.0532 7.91005 31.9722 7.53217 31.7456 7.2421ZM26.954 18.5531H10.2017L7.96092 9.17687H29.2737L26.954 18.5531Z")
-                    path(d="M10.8533 22.6636C8.65317 22.6636 6.86328 24.4535 6.86328 26.6536C6.86328 28.8537 8.65323 30.6436 10.8533 30.6436C13.0534 30.6436 14.8433 28.8537 14.8433 26.6536C14.8433 24.4535 13.0534 22.6636 10.8533 22.6636ZM10.8533 28.2496C9.97311 28.2496 9.2573 27.5338 9.2573 26.6536C9.2573 25.7734 9.97311 25.0576 10.8533 25.0576C11.7335 25.0576 12.4493 25.7734 12.4493 26.6536C12.4493 27.5338 11.7335 28.2496 10.8533 28.2496Z")
-                  p
-                    span 38 000+
-                    span Supermarkets
-                div
-                  svg(width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg")
-                    path(d="M31.0204 23.1836H30.0408V13.0611C30.0408 12.5201 29.6022 12.0815 29.0612 12.0815H23.5102V1.95908C23.5102 1.41809 23.0716 0.979492 22.5306 0.979492H9.46939C8.92839 0.979492 8.4898 1.41809 8.4898 1.95908V12.0815H2.93878C2.39778 12.0815 1.95918 12.5201 1.95918 13.0611V23.1836H0.979592C0.438596 23.1836 0 23.6222 0 24.1632V30.0407C0 30.5817 0.438596 31.0203 0.979592 31.0203H4.89796C5.43895 31.0203 5.87755 30.5817 5.87755 30.0407V29.0611H13.0612V30.0407C13.0612 30.5817 13.4998 31.0203 14.0408 31.0203H17.9592C18.5002 31.0203 18.9388 30.5817 18.9388 30.0407V29.0611H26.1224V30.0407C26.1224 30.5817 26.561 31.0203 27.102 31.0203H31.0204C31.5614 31.0203 32 30.5817 32 30.0407V24.1632C32 23.6222 31.5614 23.1836 31.0204 23.1836ZM28.0816 14.0407V23.1836H16.9796V14.0407H28.0816ZM10.449 2.93868H21.551V12.0815H10.449V2.93868ZM3.91837 14.0407H15.0204V23.1836H3.91837V14.0407ZM30.0408 29.0611H28.0816V28.0815C28.0816 27.5405 27.643 27.1019 27.102 27.1019H17.9592C17.4182 27.1019 16.9796 27.5405 16.9796 28.0815V29.0611H15.0204V28.0815C15.0204 27.5405 14.5818 27.1019 14.0408 27.1019H4.89796C4.35696 27.1019 3.91837 27.5405 3.91837 28.0815V29.0611H1.95918V25.1428H30.0408V29.0611Z")
-                  p
-                    span 40 000+
-                    span Products to choose from
-                div
-                  svg(width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg")
-                    path(d="M29.7143 0H2.28569C1.02537 0 0 1.02537 0 2.28569V8.21181V11.2089V20.7911V23.7882V29.7144C0 30.9746 1.02537 32 2.28569 32H29.7143C30.9746 32 32 30.9746 32 29.7143V2.28569C32 1.02537 30.9746 0 29.7143 0ZM1.52381 8.97369H5.13538V10.447H1.52381V8.97369ZM1.52381 11.9708H3.69525V20.0292H1.52381V11.9708ZM1.52381 21.553H5.13538V23.0263H1.52381V21.553ZM30.4762 29.7143C30.4762 30.1344 30.1344 30.4762 29.7143 30.4762H2.28569C1.86556 30.4762 1.52381 30.1344 1.52381 29.7143V24.5501H3.69525V27.2C3.69525 27.8091 4.19088 28.3048 4.8 28.3048H27.2C27.8091 28.3048 28.3048 27.8091 28.3048 27.2V4.8C28.3048 4.19088 27.8091 3.69525 27.2 3.69525H4.8C4.19088 3.69525 3.69525 4.19088 3.69525 4.8V7.44987H1.52381V2.28569C1.52381 1.86556 1.86562 1.52381 2.28569 1.52381H29.7143C30.1344 1.52381 30.4761 1.86562 30.4761 2.28569V29.7143H30.4762ZM5.89731 20.0292H5.14288V11.9708H5.89731C6.31813 11.9708 6.65919 11.6296 6.65919 11.2089V8.21181C6.65919 7.79106 6.31806 7.44994 5.89731 7.44994H5.14288V5.14288H26.8572V26.8572H5.14288V24.5501H5.89731C6.31813 24.5501 6.65919 24.2089 6.65919 23.7882V20.7911C6.65919 20.3704 6.31813 20.0292 5.89731 20.0292Z")
-                    path(d="M21.28 10.72C18.3687 7.80882 13.6317 7.80882 10.7205 10.72C7.8093 13.6313 7.8093 18.3683 10.7205 21.2796C12.1762 22.7351 14.0882 23.4629 16.0002 23.4629C17.9123 23.4629 19.8243 22.7351 21.28 21.2796C24.1912 18.3682 24.1912 13.6313 21.28 10.72ZM22.0527 15.3139H20.1404V15.314C20.0365 14.6784 19.7887 14.0799 19.4127 13.5571L20.7672 12.2026C21.4998 13.1211 21.928 14.2033 22.0527 15.3139ZM16.6859 9.94732C17.7966 10.0721 18.8789 10.5003 19.7973 11.2329L18.4429 12.5873C17.92 12.2114 17.3215 11.9634 16.6859 11.8596V9.94732ZM15.3145 9.94726V11.8596C14.679 11.9635 14.0805 12.2113 13.5576 12.5873L12.2032 11.2329C13.1215 10.5003 14.2038 10.072 15.3145 9.94726ZM11.2334 12.2026L12.5878 13.5571C12.2119 14.0799 11.9639 14.6784 11.86 15.314H9.9478C10.0725 14.2033 10.5007 13.1211 11.2334 12.2026ZM9.9478 16.6854H11.86C11.964 17.321 12.2118 17.9195 12.5878 18.4424L11.2334 19.7968C10.5007 18.8784 10.0725 17.7962 9.9478 16.6854ZM15.3145 22.0523C14.2039 21.9275 13.1215 21.4993 12.2032 20.7666L13.5576 19.4122C14.0805 19.7881 14.679 20.0361 15.3145 20.1399V22.0523ZM14.0024 17.9974C13.4688 17.4639 13.1749 16.7544 13.1749 15.9998C13.1749 15.245 13.4688 14.5356 14.0024 14.0021C14.536 13.4684 15.2455 13.1746 16.0002 13.1746C16.7549 13.1746 17.4644 13.4684 17.9979 14.0021C18.5315 14.5356 18.8254 15.2451 18.8254 15.9998C18.8254 16.7545 18.5315 17.4639 17.9979 17.9974C17.4644 18.5311 16.7549 18.8249 16.0002 18.8249C15.2456 18.8249 14.5361 18.5311 14.0024 17.9974ZM16.6859 22.0523V20.1399C17.3215 20.0361 17.92 19.7882 18.4429 19.4123L19.7973 20.7667C18.8789 21.4993 17.7967 21.9276 16.6859 22.0523ZM20.7671 19.7968L19.4127 18.4423C19.7886 17.9194 20.0365 17.3209 20.1404 16.6854H22.0527C21.928 17.7962 21.4997 18.8785 20.7671 19.7968Z")
-                  p
-                    span 200+
-                    span Food banks across the states
-                div
-                  svg(width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg")
-                    path(d="M25.5849 12.6926C25.8281 11.8303 26 10.9391 26 9.99999C26 4.48629 21.5137 0 16 0C10.4863 0 5.99998 4.48629 5.99998 9.99999C5.99998 10.9391 6.17188 11.8303 6.41499 12.6926C2.6725 14.14 0 17.7532 0 21.9999C0 27.5136 4.48629 31.9999 9.99999 31.9999C12.2598 31.9999 14.3235 31.2179 16 29.9488C17.6764 31.2179 19.7401 31.9999 21.9999 31.9999C27.5136 31.9999 31.9999 27.5136 31.9999 21.9999C32 17.7532 29.3275 14.14 25.5849 12.6926ZM8.00002 9.99999C8.00002 5.58884 11.5889 1.99997 16 1.99997C20.4112 1.99997 24 5.58884 24 9.99999C24 10.7563 23.8608 11.4741 23.6637 12.1682C23.1197 12.0763 22.5698 12 22.0001 12C19.7402 12 17.6766 12.782 16.0001 14.0511C14.3236 12.782 12.26 12 10.0001 12C9.43044 12 8.88048 12.0763 8.33654 12.1682C8.13929 11.4741 8.00002 10.7564 8.00002 9.99999ZM18 21.9999C18 24.0105 17.2291 25.8282 16 27.2352C14.7709 25.8282 14.0001 24.0104 14.0001 21.9999C14.0001 21.2436 14.1393 20.5258 14.3365 19.8317C14.8804 19.9237 15.4304 20 16 20C16.5697 20 17.1197 19.9237 17.6636 19.8317C17.8607 20.5258 18 21.2436 18 21.9999ZM16 18C15.712 18 15.4392 17.9447 15.159 17.9149C15.4051 17.5044 15.6866 17.1234 16 16.7647C16.3133 17.1234 16.5948 17.5044 16.8409 17.9149C16.5608 17.9447 16.288 18 16 18ZM13.1463 17.4504C11.4662 16.8043 10.0738 15.611 9.15903 14.0851C9.43915 14.0553 9.712 14 9.99999 14C11.6826 14 13.2411 14.5278 14.5309 15.4187C13.9875 16.0346 13.5264 16.7144 13.1463 17.4504ZM17.4691 15.4187C18.7589 14.5278 20.3174 14 22 14C22.288 14 22.5608 14.0553 22.841 14.0851C21.9262 15.611 20.5339 16.8043 18.8537 17.4504C18.4736 16.7144 18.0125 16.0346 17.4691 15.4187ZM1.99997 21.9999C1.99997 18.597 4.14485 15.7037 7.14635 14.5495C8.26448 16.7148 10.1237 18.4211 12.415 19.3073C12.1719 20.1696 12 21.0609 12 21.9999C12 24.5305 12.9753 26.8179 14.5309 28.5813C13.2411 29.4721 11.6826 30 9.99999 30C5.58884 30 1.99997 26.4111 1.99997 21.9999ZM21.9999 30C20.3173 30 18.7589 29.4721 17.469 28.5813C19.0246 26.818 19.9999 24.5305 19.9999 21.9999C19.9999 21.0609 19.828 20.1696 19.5849 19.3073C21.8763 18.4211 23.7354 16.7148 24.8536 14.5495C27.855 15.7037 30 18.597 30 21.9999C30 26.4111 26.4111 30 21.9999 30Z")
-                  p
-                    span High
-                    span Nutrition
-    .weather.typycal(data-class='weather' data-change='weatherBgc')
+            .typycal-right
+              div
+                svg(width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg")
+                  path(d="M25.3377 22.6636C23.1375 22.6636 21.3477 24.4535 21.3477 26.6536C21.3477 28.8537 23.1376 30.6436 25.3377 30.6436C27.5378 30.6436 29.3277 28.8537 29.3277 26.6536C29.3277 24.4535 27.5378 22.6636 25.3377 22.6636ZM25.3377 28.2496C24.4575 28.2496 23.7417 27.5338 23.7417 26.6536C23.7417 25.7734 24.4575 25.0576 25.3377 25.0576C26.2179 25.0576 26.9337 25.7734 26.9337 26.6536C26.9337 27.5338 26.2179 28.2496 25.3377 28.2496Z")
+                  path(d="M31.7456 7.2421C31.519 6.95204 31.1714 6.78285 30.8032 6.78285H7.38879L6.31147 2.27533C6.1826 1.7367 5.70097 1.35645 5.14715 1.35645H1.19701C0.535878 1.35638 0 1.89226 0 2.55339C0 3.21452 0.535878 3.7504 1.19701 3.7504H4.20234L8.09261 20.0282C8.22149 20.5672 8.70311 20.9471 9.25693 20.9471H27.8905C28.4407 20.9471 28.9203 20.572 29.0524 20.0381L31.9651 8.26749C32.0532 7.91005 31.9722 7.53217 31.7456 7.2421ZM26.954 18.5531H10.2017L7.96092 9.17687H29.2737L26.954 18.5531Z")
+                  path(d="M10.8533 22.6636C8.65317 22.6636 6.86328 24.4535 6.86328 26.6536C6.86328 28.8537 8.65323 30.6436 10.8533 30.6436C13.0534 30.6436 14.8433 28.8537 14.8433 26.6536C14.8433 24.4535 13.0534 22.6636 10.8533 22.6636ZM10.8533 28.2496C9.97311 28.2496 9.2573 27.5338 9.2573 26.6536C9.2573 25.7734 9.97311 25.0576 10.8533 25.0576C11.7335 25.0576 12.4493 25.7734 12.4493 26.6536C12.4493 27.5338 11.7335 28.2496 10.8533 28.2496Z")
+                p
+                  span 38 000+
+                  span Supermarkets
+              div
+                svg(width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg")
+                  path(d="M31.0204 23.1836H30.0408V13.0611C30.0408 12.5201 29.6022 12.0815 29.0612 12.0815H23.5102V1.95908C23.5102 1.41809 23.0716 0.979492 22.5306 0.979492H9.46939C8.92839 0.979492 8.4898 1.41809 8.4898 1.95908V12.0815H2.93878C2.39778 12.0815 1.95918 12.5201 1.95918 13.0611V23.1836H0.979592C0.438596 23.1836 0 23.6222 0 24.1632V30.0407C0 30.5817 0.438596 31.0203 0.979592 31.0203H4.89796C5.43895 31.0203 5.87755 30.5817 5.87755 30.0407V29.0611H13.0612V30.0407C13.0612 30.5817 13.4998 31.0203 14.0408 31.0203H17.9592C18.5002 31.0203 18.9388 30.5817 18.9388 30.0407V29.0611H26.1224V30.0407C26.1224 30.5817 26.561 31.0203 27.102 31.0203H31.0204C31.5614 31.0203 32 30.5817 32 30.0407V24.1632C32 23.6222 31.5614 23.1836 31.0204 23.1836ZM28.0816 14.0407V23.1836H16.9796V14.0407H28.0816ZM10.449 2.93868H21.551V12.0815H10.449V2.93868ZM3.91837 14.0407H15.0204V23.1836H3.91837V14.0407ZM30.0408 29.0611H28.0816V28.0815C28.0816 27.5405 27.643 27.1019 27.102 27.1019H17.9592C17.4182 27.1019 16.9796 27.5405 16.9796 28.0815V29.0611H15.0204V28.0815C15.0204 27.5405 14.5818 27.1019 14.0408 27.1019H4.89796C4.35696 27.1019 3.91837 27.5405 3.91837 28.0815V29.0611H1.95918V25.1428H30.0408V29.0611Z")
+                p
+                  span 40 000+
+                  span Products to choose from
+              div
+                svg(width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg")
+                  path(d="M29.7143 0H2.28569C1.02537 0 0 1.02537 0 2.28569V8.21181V11.2089V20.7911V23.7882V29.7144C0 30.9746 1.02537 32 2.28569 32H29.7143C30.9746 32 32 30.9746 32 29.7143V2.28569C32 1.02537 30.9746 0 29.7143 0ZM1.52381 8.97369H5.13538V10.447H1.52381V8.97369ZM1.52381 11.9708H3.69525V20.0292H1.52381V11.9708ZM1.52381 21.553H5.13538V23.0263H1.52381V21.553ZM30.4762 29.7143C30.4762 30.1344 30.1344 30.4762 29.7143 30.4762H2.28569C1.86556 30.4762 1.52381 30.1344 1.52381 29.7143V24.5501H3.69525V27.2C3.69525 27.8091 4.19088 28.3048 4.8 28.3048H27.2C27.8091 28.3048 28.3048 27.8091 28.3048 27.2V4.8C28.3048 4.19088 27.8091 3.69525 27.2 3.69525H4.8C4.19088 3.69525 3.69525 4.19088 3.69525 4.8V7.44987H1.52381V2.28569C1.52381 1.86556 1.86562 1.52381 2.28569 1.52381H29.7143C30.1344 1.52381 30.4761 1.86562 30.4761 2.28569V29.7143H30.4762ZM5.89731 20.0292H5.14288V11.9708H5.89731C6.31813 11.9708 6.65919 11.6296 6.65919 11.2089V8.21181C6.65919 7.79106 6.31806 7.44994 5.89731 7.44994H5.14288V5.14288H26.8572V26.8572H5.14288V24.5501H5.89731C6.31813 24.5501 6.65919 24.2089 6.65919 23.7882V20.7911C6.65919 20.3704 6.31813 20.0292 5.89731 20.0292Z")
+                  path(d="M21.28 10.72C18.3687 7.80882 13.6317 7.80882 10.7205 10.72C7.8093 13.6313 7.8093 18.3683 10.7205 21.2796C12.1762 22.7351 14.0882 23.4629 16.0002 23.4629C17.9123 23.4629 19.8243 22.7351 21.28 21.2796C24.1912 18.3682 24.1912 13.6313 21.28 10.72ZM22.0527 15.3139H20.1404V15.314C20.0365 14.6784 19.7887 14.0799 19.4127 13.5571L20.7672 12.2026C21.4998 13.1211 21.928 14.2033 22.0527 15.3139ZM16.6859 9.94732C17.7966 10.0721 18.8789 10.5003 19.7973 11.2329L18.4429 12.5873C17.92 12.2114 17.3215 11.9634 16.6859 11.8596V9.94732ZM15.3145 9.94726V11.8596C14.679 11.9635 14.0805 12.2113 13.5576 12.5873L12.2032 11.2329C13.1215 10.5003 14.2038 10.072 15.3145 9.94726ZM11.2334 12.2026L12.5878 13.5571C12.2119 14.0799 11.9639 14.6784 11.86 15.314H9.9478C10.0725 14.2033 10.5007 13.1211 11.2334 12.2026ZM9.9478 16.6854H11.86C11.964 17.321 12.2118 17.9195 12.5878 18.4424L11.2334 19.7968C10.5007 18.8784 10.0725 17.7962 9.9478 16.6854ZM15.3145 22.0523C14.2039 21.9275 13.1215 21.4993 12.2032 20.7666L13.5576 19.4122C14.0805 19.7881 14.679 20.0361 15.3145 20.1399V22.0523ZM14.0024 17.9974C13.4688 17.4639 13.1749 16.7544 13.1749 15.9998C13.1749 15.245 13.4688 14.5356 14.0024 14.0021C14.536 13.4684 15.2455 13.1746 16.0002 13.1746C16.7549 13.1746 17.4644 13.4684 17.9979 14.0021C18.5315 14.5356 18.8254 15.2451 18.8254 15.9998C18.8254 16.7545 18.5315 17.4639 17.9979 17.9974C17.4644 18.5311 16.7549 18.8249 16.0002 18.8249C15.2456 18.8249 14.5361 18.5311 14.0024 17.9974ZM16.6859 22.0523V20.1399C17.3215 20.0361 17.92 19.7882 18.4429 19.4123L19.7973 20.7667C18.8789 21.4993 17.7967 21.9276 16.6859 22.0523ZM20.7671 19.7968L19.4127 18.4423C19.7886 17.9194 20.0365 17.3209 20.1404 16.6854H22.0527C21.928 17.7962 21.4997 18.8785 20.7671 19.7968Z")
+                p
+                  span 200+
+                  span Food banks across the states
+              div
+                svg(width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg")
+                  path(d="M25.5849 12.6926C25.8281 11.8303 26 10.9391 26 9.99999C26 4.48629 21.5137 0 16 0C10.4863 0 5.99998 4.48629 5.99998 9.99999C5.99998 10.9391 6.17188 11.8303 6.41499 12.6926C2.6725 14.14 0 17.7532 0 21.9999C0 27.5136 4.48629 31.9999 9.99999 31.9999C12.2598 31.9999 14.3235 31.2179 16 29.9488C17.6764 31.2179 19.7401 31.9999 21.9999 31.9999C27.5136 31.9999 31.9999 27.5136 31.9999 21.9999C32 17.7532 29.3275 14.14 25.5849 12.6926ZM8.00002 9.99999C8.00002 5.58884 11.5889 1.99997 16 1.99997C20.4112 1.99997 24 5.58884 24 9.99999C24 10.7563 23.8608 11.4741 23.6637 12.1682C23.1197 12.0763 22.5698 12 22.0001 12C19.7402 12 17.6766 12.782 16.0001 14.0511C14.3236 12.782 12.26 12 10.0001 12C9.43044 12 8.88048 12.0763 8.33654 12.1682C8.13929 11.4741 8.00002 10.7564 8.00002 9.99999ZM18 21.9999C18 24.0105 17.2291 25.8282 16 27.2352C14.7709 25.8282 14.0001 24.0104 14.0001 21.9999C14.0001 21.2436 14.1393 20.5258 14.3365 19.8317C14.8804 19.9237 15.4304 20 16 20C16.5697 20 17.1197 19.9237 17.6636 19.8317C17.8607 20.5258 18 21.2436 18 21.9999ZM16 18C15.712 18 15.4392 17.9447 15.159 17.9149C15.4051 17.5044 15.6866 17.1234 16 16.7647C16.3133 17.1234 16.5948 17.5044 16.8409 17.9149C16.5608 17.9447 16.288 18 16 18ZM13.1463 17.4504C11.4662 16.8043 10.0738 15.611 9.15903 14.0851C9.43915 14.0553 9.712 14 9.99999 14C11.6826 14 13.2411 14.5278 14.5309 15.4187C13.9875 16.0346 13.5264 16.7144 13.1463 17.4504ZM17.4691 15.4187C18.7589 14.5278 20.3174 14 22 14C22.288 14 22.5608 14.0553 22.841 14.0851C21.9262 15.611 20.5339 16.8043 18.8537 17.4504C18.4736 16.7144 18.0125 16.0346 17.4691 15.4187ZM1.99997 21.9999C1.99997 18.597 4.14485 15.7037 7.14635 14.5495C8.26448 16.7148 10.1237 18.4211 12.415 19.3073C12.1719 20.1696 12 21.0609 12 21.9999C12 24.5305 12.9753 26.8179 14.5309 28.5813C13.2411 29.4721 11.6826 30 9.99999 30C5.58884 30 1.99997 26.4111 1.99997 21.9999ZM21.9999 30C20.3173 30 18.7589 29.4721 17.469 28.5813C19.0246 26.818 19.9999 24.5305 19.9999 21.9999C19.9999 21.0609 19.828 20.1696 19.5849 19.3073C21.8763 18.4211 23.7354 16.7148 24.8536 14.5495C27.855 15.7037 30 18.597 30 21.9999C30 26.4111 26.4111 30 21.9999 30Z")
+                p
+                  span High
+                  span Nutrition
+    .typycal(data-class='weather' data-change='weatherBgc')
       .section
         .typycal-cont
-          h2 ”What’s the weather like in America?”
+          h2 What’s the weather like in America?”
+            span ”
           .typycal-cont-text
             p It’s not a question that makes any logical sense. It’s a million different ways, every day, from east to west. Wide variety of weather and regions to choose to live in, from hot to cold, or dry to humid.#[br]#[br]The climate ranges from humid continental in the north to humid subtropical in the south. Mediterranean in coastal California and oceanic in coastal Oregon, Washington. Tropical in Hawaii and the southern tip of Florida and polar in Alaska.#[br]#[br]Our country is located in a great spot, geographically, and depending on what region of the United States you are in, you will have a different climatic experience.
             .typycal-right
@@ -254,10 +260,11 @@ block content
                   p
                     span 4 Seasons
                     span To choose from
-    .nature.typycal(data-class='nature' data-change='natureBgc')
+    .typycal(data-class='nature' data-change='natureBgc')
       .section
         .typycal-cont
-          h2 ”Nature is not a place to visit. IT IS HOME.”
+          h2 Nature is not a place to visit. IT IS HOME.”
+            span ”
           .typycal-cont-text
             p You can see nearly every type of terrain and experience most climatic differences and enjoy the activities specific to each.#[br]#[br]From the Rocky Mountains to the Great Plains, from the deserts to the coastlines and everything in between. Depending on what region of the United States you are in, there is an enormous variety of landscape. Forests, farms, flatlands, isolated mountaintops, volcanoes, heaving cities and the broad coastal plains make up the widest and longest beaches of the United States.#[br]#[br]You can enjoy the spectacular scenery which is unique and one of a kind in every state. Many people find no reason to vacation abroad because there’s so much to do right here.
             .typycal-right
@@ -280,10 +287,11 @@ block content
                   p
                     span 211,000 km2
                     span Total area of national parks
-    .ideal.typycal(data-class='ideal' data-change='idealBgc')
+    .typycal(data-class='ideal' data-change='idealBgc')
       .section
         .typycal-cont
-          h2 ”An Ideal Culture is one that makes a place for every Ethnicity.”
+          h2 An Ideal Culture is one that makes a place for every Ethnicity.”
+            span ”
           .typycal-cont-text
             p If you’ve lived in the same town for most of your life, a new place full of new food and things can seem like a dream come true. Nearly every state or large city has a “Little Ethnicity” where you can experience the cultures of the world without leaving “your backyard”. Every culture, every language and custom, every different type of cuisine, it can all be found in the United States, and that makes our lives richer and more exciting.
             .typycal-right
@@ -313,9 +321,3 @@ block content
         .underline
           div
         p Contact Us: If you need to contact us, always include your Name, Date of Birth and Ticket Number exactly as they appear in the Confirmation email received from us. Your Ticket Numbers(s) should be clearly written in the Top right corner of your email and/or in the Subject line. We only receive inquiries by email. Do Not mail paper documents or correspondence to us. All paper documents or correspondence received will be destroyed. Reply to your inquiry will be sent in a timely manner.#[br]#[br]This Website is not managed by the U.S. Department of State. External links to other Internet Websites and listings of private entities on this page are provided as a convenience and should not be construed as the U.S. Department of State or U.S. government endorsement of the entity, its views, the products or services it provides, or the accuracy of information contained therein. The order in which names appear has no significance, and the listings or links may be removed at any time at the discretion of the Department of Immigration Affairs Inc.
-
-
-
-
-
-

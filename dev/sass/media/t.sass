@@ -15,9 +15,9 @@
       display: table
       content: ''
       background-color: $head-border-gray
+      margin-left: 30px
     img
       +wh(54px,57px)
-      margin-right: 30px
   &-name
     margin-right: auto
     +w(160px)
@@ -42,7 +42,6 @@
   +w(75px)
 .main
   background-image: url('../img/mainview-large.jpg')
-  height: 170vh
 .mainview
   &-scroll
     bottom: 30px
@@ -66,6 +65,7 @@
     margin-top: 0
 .statistic
   &-slider
+    +w(100%)
     &-cont
       +w(600px)
       margin: auto
@@ -80,3 +80,88 @@
       background-color: $head-border-gray
     &-i
       right: -10px
+.typycal
+  padding-top: 50px
+  height: 1430px
+  &-cont
+    h2
+      +w(736px)
+      margin-bottom: 30px
+      font-size: 50px
+      line-height: 60px
+      span
+        left: -25px
+    &-text
+      display: flex
+      p
+        font-size: 18px
+        line-height: 30px
+        margin-top: -8px
+  &-right
+    margin-left: 50px
+    div:first-child
+      margin-top: 0
+    p span:last-child
+      width: 240px
+.always
+  background-image: url('../img/always-large.jpg')
+.alwaysBgc
+  background-image: url('../img/always-change-large.jpg')
+.every
+  background-image: url('../img/red-girl-large.jpg')
+.everyBgc
+  background-image: url('../img/china-girl-large.jpg')
+.equal
+  background-image: url('../img/flag-large.jpg')
+.equalBgc
+  background-image: url('../img/freedom-large.jpg')
+.toBeBgc
+  background-image: url('../img/singer1-large.jpg')
+.toBe
+  background-image: url('../img/singer-large.jpg')
+.weather
+  background-image: url('../img/weather-large.jpg')
+.weatherBgc
+  background-image: url('../img/weather-snow-large.jpg')
+.nature
+  background-image: url('../img/nature-large.jpg')
+.natureBgc
+  background-image: url('../img/nature-change-large.jpg')
+.eat
+  background-image: url('../img/eat-large.jpg')
+.eatBgc
+  background-image: url('../img/eat-change-large.jpg')
+.ideal
+  background-image: url('../img/ideal-large.jpg')
+.idealBgc
+  background-image: url('../img/ideal-change-large.jpg')
+.last-block
+  .underline
+    +w(100%)
+    padding: 30px 0
+.foot
+  padding: 20px 0 50px
+  &-privacy
+    order: 4
+    margin-top: 0
+    display: flex
+    align-items: center
+    &:before
+      +wh(1px,50px)
+      display: table
+      content: ''
+      background-color: $head-border-gray
+      margin: 0 30px
+  &-name
+    width: 310px
+    flex: 0 0 310px
+  &-copy
+    order: 5
+    width: 410px
+    flex: 0 0 410px
+  &-order-6
+    display: none
+  &-tel
+    order: 6
+  &-order-8
+    order: 7

@@ -2,6 +2,7 @@ $unit : 'px'
 .section
   +w($mobile#{$unit})
   margin: 0 auto
+  padding: 0 5px
 header
   +w(100%)
   position: fixed
@@ -25,6 +26,7 @@ header
     min-height: 33px
     display: flex
     align-items: center
+    background-color: rgba(255,255,255,0.7)
     &>span:first-child
       margin-right: 9px
     span
@@ -37,15 +39,16 @@ header
       display: flex
       flex-direction: column
       align-items: center
+      opacity: 50%
       span
         display: block
         &:first-child
           +wh(8px,10px)
-          border: 2px solid $head-gray
+          border: 2px solid $gray-text
           border-radius: 4px
         &:last-child
           +wh(10px,7px)
-          background-color: $head-gray
+          background-color: $gray-text
           margin-top: -4px
   &-language
     display: flex
@@ -57,7 +60,8 @@ header
       span
         +wh(1px,8px)
         display: block
-        border: 1px solid $head-gray
+        opacity: 50%
+        border: 1px solid $gray-text
         border-radius: 1px
         transform: rotate(-45deg)
         &:last-child
@@ -114,7 +118,7 @@ header
     height: 250px
 .mainview
   &-cont
-    height: 90vh
+    height: calc(100vh - 96px)
     display: flex
     flex-direction: column
     align-items: center
@@ -145,7 +149,7 @@ header
     bottom: 30px
     z-index: 99
   &-second
-    height: 90vh
+    height: calc(100vh - 96px)
     justify-content: center
   h2
     margin-top: 10vh
@@ -198,9 +202,10 @@ header
     font-family: $f_semi
     font-size: 30px
   &-slider
+    +w(300px)
     overflow: hidden
+    margin: auto
     &-cont
-      +w(1220px)
       transition: .35s ease
       display: flex
       &-label
@@ -219,7 +224,7 @@ header
     flex-direction: column
     align-items: center
     position: relative
-    flex: 0 0 305px
+    flex: 0 0 300px
     &>span:first-child
       +font(50px,$f_thin)
       margin-bottom: -5px
@@ -240,14 +245,21 @@ header
 .typycal
   transition: 1.5s ease
   height: 1126px
-  padding: 37px 0 0
+  padding-top: 37px
   margin: 1px 0
   background-size: cover
   background-position: bottom
+  .section
+    padding: 0 10px
   &-cont
     h2
+      position: relative
       font-family: $f_medium
       font-size: 30px
+      span
+        position: absolute
+        top: 0
+        left: -15px
     &-text
       margin-top: 15px
       &>p
@@ -270,6 +282,7 @@ header
       span:last-child
         +w(200px)
         opacity: 70%
+        font-size: 16px
   svg
     fill: #6e6e6e
     opacity: 70%
@@ -288,7 +301,7 @@ header
 .toBeBgc
   background-image: url('../img/singer1-mob.jpg')
 .toBe
-  background-image: url('../img/singer-mob.png')
+  background-image: url('../img/singer-mob.jpg')
 .weather
   background-image: url('../img/weather-mob.jpg')
 .weatherBgc
@@ -308,11 +321,12 @@ header
 .eat,.eatBgc
   h2
     +w(200px)
-.toBe,#every,.alwaysBgc,.weather,.ideal
+.toBe,.every,.everyBgc,.alwaysBgc,.weather,.ideal
   svg
     fill: #fff
   span,p,h2
     color: #fff
+    text-shadow: none
 .nature,.natureBgc
   p span:first-child
     display: flex
@@ -340,6 +354,72 @@ header
 
 
 
+.foot
+  padding: 10px 0 50px
+  &-order-0
+    order: 0
+  &-order-3
+    order: 3
+  &-copy
+    order: 4
+  &-order-6
+    order: 6
+  &-address
+    order: 7
+  &-order-8
+    order: 8
+  .section
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    justify-content: space-between
+    &>span,.foot-tel
+      font-size: 13px
+      line-height: 16px
+      margin: 24px 0 27px
+  .underline
+    flex: 0 0 100%
+    padding: 0
+  &-logo
+    display: flex
+    align-items: center
+    margin: 34px 0 30px
+    order: 1
+    &:after
+      +wh(1px,50px)
+      display: table
+      content: ''
+      background-color: $head-border-gray
+      margin: 0 30px
+    img
+      +wh(54px,57px)
+  &-name
+    margin-right: auto
+    order: 2
+    span
+      font-size: 18px
+      line-height: 21px
+      color: $gray-text
+  &-privacy
+    margin-top: -35px
+    order: 5
+  &-tel
+    color: $gray-text
+    order: 9
+    span
+      margin-left: 5px
+  &-mail
+    margin-top: -5px
+    order: 10
+  &-privacy,&-mail
+    font-size: 13px
+    line-height: 16px
+    text-decoration: underline
+    color: $red
+  &-copy,&-name
+    +w(160px)
+    flex: 0 0 160px
+    display: block
 .mob
   &-none
     display: none
@@ -353,17 +433,17 @@ header
     label:first-child
       background-color: $head-border-gray
 #stat-slide2:checked~.statistic-slider-cont
-  transform: translateX(-305px)
+  transform: translateX(-300px)
   &-label
     label:nth-child(2)
       background-color: $head-border-gray
 #stat-slide3:checked~.statistic-slider-cont
-  transform: translateX(-610px)
+  transform: translateX(-600px)
   &-label
     label:nth-child(3)
       background-color: $head-border-gray
 #stat-slide4:checked~.statistic-slider-cont
-  transform: translateX(-915px)
+  transform: translateX(-900px)
   &-label
     label:last-child
       background-color: $head-border-gray
