@@ -124,42 +124,37 @@ header
   border-top: 1px solid $head-border-gray
   &>li
     +w(25%)
-  &-lang label,&-participate,&-login,&-logo
+  label,a
     +dfc
     height: 37px
-  &-lang,&-participate,&-login
-    svg
-      +wh(23px)
-      fill: #303030
-      opacity: 70%
-  &-logo
-    img
-      +w(28px)
-      filter: grayscale(1)
-  &-lang
-    label
-      +w(100%)
+  svg
+    +wh(23px)
+    fill: #303030
+    opacity: 70%
+  img
+    +w(28px)
+    filter: grayscale(1)
+  label
+    +w(100%)
+    background-color: #fff
+    transition: .35s ease
+  ul
+    +w(100%)
+    position: absolute
+    z-index: -1
+    transition: .35s
+    transform: translateY(106px)
+    bottom: 38px
+    li
+      border: 1px solid $head-border-gray
       background-color: #fff
-      transition: .35s ease
-    &-select
-      +w(100%)
-      position: absolute
-      z-index: -1
-      transition: .35s
-      transform: translateY(106px)
-      bottom: 38px
-      li
-        border: 1px solid $head-border-gray
-        background-color: #fff
-        margin-bottom: -1px
-        &:first-child
-          border-top-right-radius: 10px
-          border-top-left-radius: 10px
-      a
-        +font(13px,$f_medium,#6e6e6e)
-        display: block
-        padding: 8px 0
-        text-align: center
+      margin-bottom: -1px
+      &:first-child
+        border-top-right-radius: 10px
+        border-top-left-radius: 10px
+    a
+      +font(13px,$f_medium,#6e6e6e)
+      padding: 8px 0
 .mainview
   &-cont
     height: calc(100vh - 146px)
@@ -490,8 +485,7 @@ header
   &-label
     label:last-child
       background-color: $head-border-gray
-#nav-lang:checked~.navigation-lang
-  label
-    background-color: $head-border-gray
-  ul
+#nav-lang:checked~div label
+  background-color: $head-border-gray
+#nav-lang:checked~div ul
     transform: translateY(0)
