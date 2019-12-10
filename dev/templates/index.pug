@@ -5,19 +5,24 @@ append vars
 		greensock = true
 block content
 	main
+		.youtube
+			iframe(src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)#iframe
+			button.youtube-close
+				svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+					path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+
 		.main
-			.youtube
 			.mainview
 				.section
-					.mainview-cont
+					.mainview-cont#first-view
 						+img('logo.png').mainview-logo
 						h1
 							span This is the right time
 							span to start your dream
-						a(href='#second-view').mainview-scroll.mob-fixed-scroll
+						a(href='#second-view').mainview-scroll.mob-fixed#scroll-1
 							span Scroll down
 							+img('arr.svg')
-						a(href='#').participate.mob-only
+						a(href='#').participate.mob-only#participate
 							span Participate now
 					.mainview-cont.mainview-second#second-view
 						h2
@@ -26,7 +31,7 @@ block content
 						button.mainview-video
 							span Watch the film
 							+img('youtube-icon.svg')
-						a(href='#third-view').mainview-scroll.mob-fixed-scroll
+						a(href='#third-view').mainview-scroll.mob-fixed.display-none#scroll-2
 							span Scroll down
 							+img('arr.svg')
 			.main-anchor#third-view
@@ -322,7 +327,7 @@ block content
 				.underline
 					div
 				p Contact Us: If you need to contact us, always include your Name, Date of Birth and Ticket Number exactly as they appear in the Confirmation email received from us. Your Ticket Numbers(s) should be clearly written in the Top right corner of your email and/or in the Subject line. We only receive inquiries by email. Do Not mail paper documents or correspondence to us. All paper documents or correspondence received will be destroyed. Reply to your inquiry will be sent in a timely manner.#[br]#[br]This Website is not managed by the U.S. Department of State. External links to other Internet Websites and listings of private entities on this page are provided as a convenience and should not be construed as the U.S. Department of State or U.S. government endorsement of the entity, its views, the products or services it provides, or the accuracy of information contained therein. The order in which names appear has no significance, and the listings or links may be removed at any time at the discretion of the Department of Immigration Affairs Inc.
-		ul.navigation
+		ul.navigation#navigation
 			li
 				a(href='#')
 					+img('logo.png')

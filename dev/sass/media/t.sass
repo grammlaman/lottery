@@ -4,6 +4,10 @@
   display: flex
 .mob-only
   display: none
+header
+  position: fixed
+  z-index: 99
+  background-color: #fff
 .head
   justify-content: flex-start
   &-logo
@@ -38,11 +42,18 @@
     margin-right: 40px
     span
       font-size: 15px
+  &-scrolled
+    position: fixed
 .page-select
   +w(75px)
 .main
   background-image: url('../img/mainview-large.jpg')
+  height: 210vh
 .mainview
+  &-cont
+    height: 90vh
+  &-logo
+    margin-top: 10vh
   &-scroll
     bottom: 30px
   h1
@@ -80,6 +91,8 @@
       background-color: $head-border-gray
     &-i
       right: -10px
+.navigation
+  display: none
 .typycal
   padding-top: 50px
   height: 1430px

@@ -3,9 +3,22 @@ $unit : 'px'
   +w($mobile#{$unit})
   margin: 0 auto
   padding: 0 5px
+.youtube
+  +wh(100%,100vh)
+  +dfc
+  position: fixed
+  background-color: #fff
+  z-index: 100
+  top: 0
+  display: none
+  iframe
+    +wh(90%,70%)
+  button
+    position: fixed
+    top: 15px
+    right: 15px
 header
   +w(100%)
-  backdrop-filter: blur(20px)
 .head
   display: flex
   align-items: center
@@ -54,10 +67,10 @@ header
       +w(7px)
       display: flex
       justify-content: space-between
+      opacity: 50%
       span
         +wh(1px,8px)
         display: block
-        opacity: 50%
         border: 1px solid $gray-text
         border-radius: 1px
         transform: rotate(-45deg)
@@ -117,6 +130,8 @@ header
   +w(100%)
   background-color: #fff
   display: flex
+  transition: .5s ease
+  transform: translateY(50px)
   align-items: center
   position: fixed
   z-index: 99
@@ -155,6 +170,8 @@ header
     a
       +font(13px,$f_medium,#6e6e6e)
       padding: 8px 0
+.mob-scroll
+  transform: translateY(0)
 .mainview
   &-cont
     height: calc(100vh - 146px)
@@ -181,14 +198,19 @@ header
     flex-direction: column
     color: #fff
     font-size: 14px
-    bottom: 90px
+    bottom: 45px
+    z-index: 99
+    transition: .35s ease
     img
       margin-top: 6px
   .participate
-    position: absolute
-    bottom: 50px
+    transform: translateY(0)
+    transition: .35s ease
+    position: fixed
+    z-index: 99
+    bottom: 10px
   &-second
-    height: calc(100vh - 92px)
+    height: 100vh
     justify-content: center
   h2
     span
@@ -463,8 +485,10 @@ header
     display: none
   &-fixed
     position: fixed
-    &-scroll
-      position: absolute
+.display-none
+  display: none
+.scrolled-hide
+  transform: translateY(100px)!important
 #stat-slide1:checked~.statistic-slider-cont
   transform: translateX(0px)
   &-label
@@ -488,4 +512,4 @@ header
 #nav-lang:checked~div label
   background-color: $head-border-gray
 #nav-lang:checked~div ul
-    transform: translateY(0)
+  transform: translateY(0)
