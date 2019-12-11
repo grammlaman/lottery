@@ -1,4 +1,6 @@
 $unit : 'px'
+a
+  cursor: pointer
 .section
   +w($mobile#{$unit})
   margin: 0 auto
@@ -13,10 +15,135 @@ $unit : 'px'
   display: none
   iframe
     +wh(90%,70%)
-  button
-    position: fixed
-    top: 15px
-    right: 15px
+.privacy,.registration
+  +w(100%)
+  background-color: #fff
+  padding: 46px 0
+  overflow: auto
+  min-height: 100vh
+  h2
+    +font(30px,$f_medium)
+  h3
+    +font(18px,$f_semi)
+    margin: 30px 0 10px
+  p, span
+    font-size: 16px
+    line-height: 24px
+  li
+    margin-top: 10px
+    span:first-child
+      color: #c4c4c4
+      margin-right: 15px
+  strong
+    font-weight: 600
+  img
+    display: none
+.registration
+  &-gray
+    opacity: 50%
+    margin-top: 10px
+    display: block
+  h3
+    font-family: $f_reg
+  input,select
+    +wh(310px,50px)
+    +font(18px,$f_semi)
+    background-color: #f6f6f6
+    border: 1px solid #ccc
+    border-radius: 10px
+    padding-left: 20px
+    &::placeholder
+      opacity: 50%
+  &-label
+    label
+      margin-top: 11px
+      display: flex
+      align-items: center
+      &>span:first-child
+        +wh(13px)
+        +dfc
+        background-color: #f6f6f6
+        border: 1px solid #ccc
+        border-radius: 3px
+        margin-right: 7px
+        span
+          +wh(0px)
+          transition: .15s
+          border-radius: 1px
+          background-color: $green
+          display: block
+  .underline
+    padding: 28px 0
+  &-mt
+    margin-top: 0!important
+  &-gender
+    display: flex
+    justify-content: space-between
+    label
+      +w(150px)
+      padding: 13px 20px 13px 15px
+      display: flex
+      align-items: center
+      background-color: #eee
+      border-radius: 10px
+      span
+        +font(18px,$f_medium)
+      &>span:first-child
+        +wh(15px)
+        +dfc
+        border-radius: 100%
+        border: 1px solid #b6b6b6
+        background-color: #fff
+        span
+          +wh(0px)
+          background-color: $green
+          border-radius: 100%
+          transition: .15s ease
+      span:nth-child(2)
+        margin: 0 auto 0 10px
+  select,&-datalist
+    +font(18px,$f_medium)
+    appearance: none
+    -webkit-appearance: none
+    -moz-appearance: none
+    position: relative
+    background-image: url('../img/arrr.png')
+    background-repeat: no-repeat
+    background-position: 260px 0
+    background-size: 30px
+  &-datalist::-webkit-calendar-picker-indicator
+    display: none
+  &-data
+    display: flex
+    justify-content: space-between
+    align-items: flex-end
+    margin-top: 20px
+    select,input
+      +w(150px)
+    select
+      background-position: 100px 0
+  &-comment
+    margin-top: 10px
+    opacity: 50%
+    display: block
+  &-email
+    input:last-child
+      +w(200px)
+    h3:nth-child(4)
+      margin-top: 20px
+  &-button
+    +w(100%)
+    +font(15px,$f_medium,#fff)
+    padding: 11px 0
+    text-align: center
+    border-radius: 20px
+    background-color: #b8b8b8
+  &-red
+    background-color: $red
+.close-form
+  position: absolute
+  top: 15px
+  right: 15px
 header
   +w(100%)
 .head
@@ -513,3 +640,17 @@ header
   background-color: $head-border-gray
 #nav-lang:checked~div ul
   transform: translateY(0)
+#reg-fn:checked~label>span:first-child span
+  +wh(9px)
+#reg-mn:checked~label>span:first-child span
+  +wh(9px)
+#reg-fee:checked~label>span:first-child span
+  +wh(9px)
+#reg-male:checked~label
+  background-color: #D8F3E6
+  &>span:first-child span
+    +wh(9px)
+#reg-female:checked~label
+  background-color: #D8F3E6
+  &>span:first-child span
+    +wh(9px)

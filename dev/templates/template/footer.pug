@@ -1,4 +1,225 @@
 footer
+    form.registration(style='display:none')
+        .section
+            button.registration-close.close-form
+                svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+                    path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+            div.registration-title
+                h2 Electronic Immigrant Investor Visa Lottery Entry Form
+                +img('logo.png')
+            span.registration-gray #[strong Part One] — Entrant Information
+            .registration-block
+                h3 Last / Family Name
+                input(type='text')
+                div.registration-label
+                    h3 First Name
+                    input(type='text')
+                    input(type='checkbox' style='display:none')#reg-fn
+                    label(for='reg-fn')
+                        span
+                            span
+                        span No First Name
+                div.registration-label
+                    h3 Middle Name
+                    input(type='text')
+                    input(type='checkbox' style='display:none')#reg-mn
+                    label(for='reg-mn')
+                        span
+                            span
+                        span No First Name
+            .underline
+                div
+            .registration-block
+                h3.registration-mt Gender
+                div.registration-gender
+                    div
+                        input(type='radio' name='gender' style='display:none')#reg-male
+                        label(for='reg-male')
+                            span
+                                span
+                            span Male
+                            svg(width="10" height="24" viewBox="0 0 10 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                                path(fill-rule="evenodd" clip-rule="evenodd" d="M6.72278 2.04118C6.72278 3.15432 5.82068 4.05642 4.70906 4.05642C3.59592 4.05642 2.69382 3.15432 2.69382 2.04118C2.69382 0.928801 3.59592 0.0274658 4.70906 0.0274658C5.82068 0.0274658 6.72278 0.928801 6.72278 2.04118ZM6.78853 4.47548C9.16263 4.47548 9.0491 6.72538 9.0491 6.72538L9.07044 13.1101C9.0331 13.4538 8.6971 13.8484 8.27653 13.8484C7.8552 13.8484 7.52073 13.4599 7.52073 13.1147L6.78472 23.2892C6.72987 23.8073 6.36568 24 5.91463 24C5.46815 24 5.1032 23.8073 5.04834 23.2892H4.41444C4.36034 23.8073 3.99615 24 3.54739 24C3.09711 24 2.73215 23.8073 2.67882 23.2892L1.96415 13.1223C1.92682 13.4667 1.61825 13.8469 1.19844 13.8469C0.775581 13.8469 0.436534 13.4538 0.3992 13.1101L0.398438 6.72538C0.398458 6.72313 0.398475 6.72056 0.398494 6.71767C0.399917 6.49926 0.413113 4.47548 2.67272 4.47548H6.78853Z" fill="black")
+                    div
+                        input(type='radio' name='gender' style='display:none')#reg-female
+                        label(for='reg-female')
+                            span
+                                span
+                            span Male
+                            svg(width="10" height="24" viewBox="0 0 10 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                                path(fill-rule="evenodd" clip-rule="evenodd" d="M7.29877 2.00762C7.29877 3.1164 6.4163 4.01524 5.32773 4.01524C4.23915 4.01524 3.35668 3.1164 3.35668 2.00762C3.35668 0.898842 4.23915 0 5.32773 0C6.4163 0 7.29877 0.898842 7.29877 2.00762ZM8.82345 5.71582C8.82345 5.71582 9.84059 8.79316 9.66459 9.54058C9.56555 9.95506 8.8844 10.4572 8.11717 10.8533L9.84059 16.4884L7.01621 16.4846L7.00936 23.1863C6.95755 23.7013 6.60021 23.8949 6.15907 23.8949C5.72021 23.8949 5.36212 23.7135 5.31183 23.197H5.03907C4.98955 23.712 4.62917 23.8857 4.19107 23.8857C3.75069 23.8857 3.39183 23.6968 3.34079 23.181L3.33317 16.4846L0.685547 16.493L2.49507 10.973C1.63259 10.5623 0.812785 9.99925 0.704594 9.54058C0.541547 8.84268 1.52821 5.74325 1.52821 5.74325C1.66307 5.29754 2.20936 4.45411 3.68059 4.53639L6.6505 4.52725C8.16974 4.53639 8.70993 5.42554 8.82345 5.71582Z" fill="black")
+            .underline
+                div
+            .registration-block
+                h3.registration-mt Date of Birth
+                span.registration-gray Month
+                select
+                    option(value='january') January
+                    option(value='february') February
+                    option(value='march') March
+                    option(value='april') April
+                    option(value='may') May
+                    option(value='june') June
+                    option(value='july') July
+                    option(value='august') August
+                    option(value='september') September
+                    option(value='october') October
+                    option(value='november') November
+                    option(value='december') December
+                div.registration-data
+                    div
+                        span.registration-gray Day
+                        select
+                            option(value='01') 01
+                            option(value='02') 02
+                            option(value='03') 03
+                            option(value='04') 04
+                            option(value='05') 05
+                            option(value='06') 06
+                            option(value='07') 07
+                            option(value='08') 08
+                            option(value='09') 09
+                            option(value='10') 10
+                            option(value='11') 11
+                            option(value='12') 12
+                            option(value='13') 13
+                            option(value='14') 14
+                            option(value='15') 15
+                            option(value='16') 16
+                            option(value='17') 17
+                            option(value='18') 18
+                            option(value='19') 19
+                            option(value='20') 20
+                            option(value='21') 21
+                            option(value='22') 22
+                            option(value='23') 23
+                            option(value='24') 24
+                            option(value='25') 25
+                            option(value='26') 26
+                            option(value='27') 27
+                            option(value='28') 28
+                            option(value='29') 29
+                            option(value='30') 30
+                            option(value='31') 31
+                    div
+                        span.registration-gray Year
+                        input(type='text' value='2001')
+            .underline
+                div
+            .registration-block
+                h3.registration-mt Country
+                input(list='country' placeholder='Choose your country').registration-datalist
+                datalist#country
+                    option(value='Russia')
+                    option(value='Great Britain')
+                    option(value='Kazakhstan')
+                span.registration-comment Same as passport
+            .underline
+                div
+            .registration-block.registration-email
+                h3.registration-mt Email
+                input(type='email')
+                span.registration-comment This email will be used to provide you#[br]with additional information
+                h3 Confirmation
+                input(type='email').registration-conf
+            .underline
+                div
+            .registration-block.registration-email
+                h3.registration-mt Phone
+                input(type='tel')
+                span.registration-comment Optional
+            .underline
+                div
+            button.registration-button#registration-sub
+                span Continue
+    form.registration.registration-card(style='display:none')
+        .section
+            button.registration-card-close.close-form
+                svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+                    path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+            div.registration-title
+                h2 Electronic Immigrant Investor Visa Lottery Entry Form
+                +img('logo.png')
+            span.registration-gray #[strong Part Two] — Payment Details
+            .registration-block.registration-label
+                h3 Number of Tickets
+                input(type='text')
+                h3 Total Fee
+                input(type='text')
+                input(type='checkbox' style='display:none')#reg-fee
+                label(for='reg-fee')
+                    span
+                        span
+                    span Participate in every round
+                span.registration-comment You will be notified with instructions how to proceed
+            .underline
+                div
+            .registration-block
+                h3.registration-mt CARD HOLDER NAME
+                input(type='text')
+                h3 CARD NUMBER
+                input(type='text')
+            .registration-block
+                div.registration-data
+                    div
+                        h3.registration-mt VALID THRU
+                        select
+                            option(value='01') 01
+                            option(value='02') 02
+                            option(value='03') 03
+                            option(value='04') 04
+                            option(value='05') 05
+                            option(value='06') 06
+                            option(value='07') 07
+                            option(value='08') 08
+                            option(value='09') 09
+                            option(value='10') 10
+                            option(value='11') 11
+                            option(value='12') 12
+                    div
+                        select
+                            option(value='2024') 2024
+                            option(value='2023') 2023
+                            option(value='2022') 2022
+                            option(value='2021') 2021
+                            option(value='2020') 2020
+                div.registration-data
+                    div
+                        h3.registration-mt CVC
+                        input
+            .underline
+                div
+            button.registration-button.registration-red#registration-submit
+                span Participate
+    .privacy(style='display:none')
+        .section
+            button.privacy-close.close-form
+                svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+                    path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+            div.privacy-title
+                h2 Privacy Policy
+                +img('logo.png')
+            h3 1. Information collection
+            p This Privacy Policy explains how information is collected, used and disclosed by this Website with respect to user's access and use of our service. When using this Website, we ask for certain information from you:#[br]#[br]#[strong "Personal Information"] We collect personal data for stat purpose. Users who contact us via email, the email addresses and information you submitted voluntarily will also be collected.
+            h3 2. Information usage
+            p Your information will not be shared with others and is only used internally for the purposes described below:
+            ul
+                li
+                    span •
+                    span to provide our services or information you request, and to process and complete any transactions;
+                li
+                    span •
+                    span respond to your emails, submissions, questions, comments, requests, and complaints and provide customer service;
+                li
+                    span •
+                    span to analyze usage and trends with anonymous user data, and to improve the quality of our service and user experience;
+                li
+                    span •
+                    span to send you confirmations, updates, security alerts, and support and administrative messages and otherwise facilitate your use of, and our administration and operation of, our services.
+            h3 3. Cookies
+            p Cookies are required on this Website. We use them to collect visitors preferences and thus to better optimize the user experience. Users can disable cookies in their browser settings.
+            h3 4. Changes
+            p This Privacy Policy may be revised and modified in the future. We will post on this page and notify you via official notifications or emails. Please check back periodically to keep informed of updates or changes to this Privacy Policy. By continuing to access and to use this Website, you are agreeing to be bound by the revised policy.
     .foot
         .section
             .underline.foot-order-0
@@ -9,7 +230,7 @@ footer
                 span Electronic Immigrant Investor Visa Lottery
             .underline.mob-only.foot-order-3
                 div
-            a(href='#').foot-privacy
+            a.foot-privacy
                 span Privacy Policy
             span.foot-copy Copyright © 2019 Department of Immigration Affairs Inc. All rights reserved.
             .underline.foot-order-6
@@ -23,12 +244,6 @@ footer
             span.foot-address 100 California St, San Francisco, CA  94111, United States
             a(href='mailto:info@ivlottery.com').foot-mail
                 span info@ivlottery.com
-    - if(fancy || slick)
-        +inc('js','js/jquery-3.3.1.min.js')
-    - if(fancy)
-        +inc('js','js/jquery.fancybox.min.js')
-    - if(slick)
-        +inc('js','slick.js')
     - if(greensock)
         +inc('js','js/greensock.js')
     +inc('js','js/main.js',true)

@@ -31,17 +31,22 @@ window.addEventListener('scroll', function(e) {
         part = document.getElementById('participate'),
         scrollF = document.getElementById('scroll-1'),
         scrollS = document.getElementById('scroll-2'),
+        headerHeight = header.getClientRects()[0].height,
         firstView = document.getElementById('first-view').getClientRects()[0].height,
         secondView = document.getElementById('second-view').getClientRects()[0].height;
     if(!scrolled){
-        part.classList.remove('scrolled-hide');
         header.classList.remove('head-scrolled');
-        navBar.classList.remove('mob-scroll');
     }
     if(scrolled){
-        if(!part.classList.contains('scrolled-hide')){part.classList.add('scrolled-hide');}
         if(!header.classList.contains('head-scrolled')){header.classList.add('head-scrolled');}
-        if(!navBar.classList.contains('mob-scroll')){navBar.classList.add('mob-scroll');
+    }
+    if(scrolled<headerHeight){
+        part.classList.remove('scrolled-hide');
+        navBar.classList.remove('mob-scroll');
+    }
+    if(scrolled>=headerHeight){
+        if(!part.classList.contains('scrolled-hide')){
+            part.classList.add('scrolled-hide');
             requestAnimationFrame(function () {
                 //* -- Анимация пунктов меню--*//
                 let tl = new TimelineMax();
@@ -50,9 +55,9 @@ window.addEventListener('scroll', function(e) {
                     {y:0,scale:1,ease: "back.out(1.7)"},.2));
                 tl.add(TweenMax.to('.navigation>li:last-child svg',0.8,
                     {fill:'red'}));
-
                 //* -- Анимация пунктов меню конец--*//
             });}
+        if(!navBar.classList.contains('mob-scroll')){navBar.classList.add('mob-scroll');}
     }
     if(scrolled>=firstView-1){
         scrollF.classList.add('display-none');
@@ -81,4 +86,44 @@ youBut.onclick=function () {
 youClose.onclick=function () {
     youTube.style.display = 'none';
     iframe.src='';
+};
+
+let mainPage = document.querySelector('.mainPage');
+let header = document.getElementById('header');
+function formShow(el){
+    el.style.display = 'block';
+    mainPage.style.display='none';
+    header.style.display='none';
+}
+function formClose(el){
+    el.style.display = 'none';
+    mainPage.style.display='block';
+    header.style.display='block';
+}
+
+let privacy = document.querySelector('.privacy');
+let privacyLink = document.querySelector('.foot-privacy');
+privacyLink.onclick = function(){formShow(privacy);};
+let privClose = document.querySelector('.privacy-close');
+privClose.onclick = function (){formClose(privacy);};
+
+let registration = document.querySelector('.registration');
+let part = document.querySelectorAll('.part');
+for(let i = 0; i <= part.length; i++){
+    let participate = part[i];
+    if(participate){participate.onclick = function () {formShow(registration);}}
+}
+let regClose = document.querySelector('.registration-close');
+regClose.onclick = function () {
+    formClose(registration)
+};
+let registrationCard = document.querySelector('.registration-card');
+let registrationCardClose = document.querySelector('.registration-card-close');
+let registrationSub = document.getElementById('registration-sub');
+registrationSub.onclick = function () {
+    registration.style.display = 'none';
+    registrationCard.style.display = 'block';
+};
+registrationCardClose.onclick = function () {
+    formClose(registrationCard)
 };
