@@ -1,5 +1,5 @@
 footer
-    form.reg(style='display:none')
+    form.reg(style='display:block')
         .section
             button.reg-close.close-form
                 svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
@@ -10,11 +10,15 @@ footer
             .reg-comment
                 span #[strong Part One] — Entrant Information
             .reg-block.reg-row-tab.reg-mini
-                div
-                    h3 Last / Family Name
+                div.success
+                    div.reg-h3
+                        h3 Last / Family Name
+                        span Input error
                     input(type='text')
-                div
-                    h3 First Name
+                div.error
+                    div.reg-h3
+                        h3 First Name
+                        span Input error
                     input(type='text')
                     input(type='checkbox' style='display:none')#reg-fn
                     label(for='reg-fn').reg-label
@@ -22,7 +26,9 @@ footer
                             span
                         span No First Name
                 div
-                    h3 Middle Name
+                    .reg-h3
+                        h3 Middle Name
+                        span Input error
                     input(type='text')
                     input(type='checkbox' style='display:none')#reg-mn
                     label(for='reg-mn').reg-label
@@ -34,7 +40,9 @@ footer
             .reg-block
                 .reg-row.reg-gender
                     .reg-row-first
-                        h3 Gender
+                        .reg-h3
+                            h3 Gender
+                            span Input error
                         input(type='radio' name='gender' style='display:none')#reg-male
                         label(for='reg-male')
                             span
@@ -54,7 +62,9 @@ footer
                 div
             .reg-block
                 div
-                    h3 Date of Birth
+                    .reg-h3
+                        h3 Date of Birth
+                        span Input error
                     .reg-row-tab.reg-mini
                         div
                             span.reg-gray Month
@@ -113,7 +123,9 @@ footer
                 div
             .reg-block
                 div
-                    h3 Country
+                    .reg-h3
+                        h3 Country
+                        span Input error
                     input(list='country' placeholder='Choose your country').reg-datalist
                     datalist#country
                         option(value='Russia')
@@ -125,18 +137,24 @@ footer
                 div
             .reg-block.reg-row-email
                 div
-                    h3 Email
+                    .reg-h3
+                        h3 Email
+                        span Input error
                     input(type='email')
                     .reg-comment
                         span This email will be used to provide you#[br]with additional information
                 div.reg-conf
-                    h3 Confirmation
+                    .reg-h3
+                        h3 Confirmation
+                        span Input error
                     input(type='email')
             .underline
                 div
             .reg-block
                 div
-                    h3 Phone
+                    .reg-h3
+                        h3 Phone
+                        span Input error
                     input(type='tel')
                     .reg-comment
                         span Optional
@@ -144,7 +162,7 @@ footer
                 div
             button.reg-button#registration-sub
                 span Continue
-    form.reg.reg-card(style='display:none')
+    form.reg.reg-card(style='display:block')
         .section
             button.reg-card-close.close-form
                 svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
@@ -156,10 +174,14 @@ footer
                 span #[strong Part Two] — Payment Details
             .reg-block
                 div
-                    h3 Number of Tickets
+                    .reg-h3
+                        h3 Number of Tickets
+                        span Input error
                     input(type='text')
                 div
-                    h3 Total Fee
+                    .reg-h3
+                        h3 Total Fee
+                        span Input error
                     input(type='text')
                     input(type='checkbox' style='display:none' checked)#reg-fee
                     label(for='reg-fee').reg-label
@@ -173,15 +195,21 @@ footer
             .reg-block
                 .reg-row-tab
                     div
-                        h3 CARD HOLDER NAME
+                        .reg-h3
+                            h3 CARD HOLDER NAME
+                            span Input error
                         input(type='text')
                     +img('visa.png')
                 div
-                    h3 CARD NUMBER
+                    .reg-h3
+                        h3 CARD NUMBER
+                        span Input error
                     input(type='text')
                 div.reg-row
                     div.reg-row-first
-                        h3 VALID THRU
+                        .reg-h3
+                            h3 VALID THRU
+                            span Input error
                         select
                             option(value='01') 01
                             option(value='02') 02
@@ -204,13 +232,15 @@ footer
                             option(value='2020') 2020
                 div.reg-row
                     div
-                        h3 CVC
+                        .reg-h3
+                            h3 CVC
+                            span Input error
                         input(type='text')
             .underline
                 div
             button.reg-button.reg-button-red#registration-submit
                 span Participate
-    form.reg.reg-enter(style='display:none')
+    form.reg.reg-enter(style='display:block')
         .section
             button.reg-enter-close.close-form
                 svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
@@ -220,7 +250,9 @@ footer
                 +img('logo.png')
             .reg-block
                 div
-                    h3 Email
+                    .reg-h3
+                        h3 Email
+                        span Input error
                     input(type='text')
                     .reg-comment
                         span You will be notified with instructions how to proceed
@@ -228,19 +260,25 @@ footer
                 div
             .reg-block
                 div
-                    h3 Last/Family Name
+                    .reg-h3
+                        h3 Last/Family Name
+                        span Input error
                     input(type='text')
                     .reg-comment
                         span Provide the Last/Family Name that was used on the Electronic Immigrant Investor Visa Entry Form, including punctuation.
                 div.reg-row
                     div
-                        h3 Year of Birth
+                        .reg-h3
+                            h3 Year of Birth
+                            span Input error
                         input(type='text' placeholder='YYYY')
             .underline
                 div
             .reg-block
                 div
-                    h3 Authentication
+                    .reg-h3
+                        h3 Authentication
+                        span Input error
                     .reg-gray
                         span Type the characters as they appear in the picture.
                     .reg-captcha
