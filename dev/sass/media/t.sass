@@ -44,9 +44,10 @@ header
       font-size: 15px
   &-scrolled
     position: fixed
-.privacy,.registration
+.privacy,.reg
   .section
-    +w(723px)
+    +w(732px)
+    padding: 0
   &-title
     display: flex
     align-items: center
@@ -55,11 +56,57 @@ header
       +w(74px)
       display: block
   h2
-    font-size: 50px
+    font-size: 40px
   h3
     font-size: 24px
   p,span
     font-size: 18px
+.reg
+  h2
+    +w(550px)
+  input,select
+    +w(483px)
+    background-position: 430px 0
+  &-button
+    +w(134px)
+    margin-top: 70px
+  &-conf
+    input
+      +w(234px)
+  &-block
+    padding: 50px 0 70px
+  &-mini
+    input,label,select
+      +w(234px)
+    select
+      background-position: 185px 0
+  &-row
+    label,select,input
+      +w(234px)
+    select
+      background-position: 180px 0
+    &-first
+      margin-right: 15px
+    &-email
+      display: flex
+      align-items: flex-start
+      justify-content: space-between
+    &-tab
+      display: flex
+      justify-content: space-between
+      align-items: center
+      .reg-mt
+        margin-top: 0
+      &>div
+        position: relative
+        margin-right: 15px
+        &:last-child
+          margin-right: auto
+      img
+        +w(96px)
+        display: block
+      .reg-label
+        position: absolute
 .close-form
   top: 30px
   right: 30px

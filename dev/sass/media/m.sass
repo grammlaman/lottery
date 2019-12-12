@@ -15,36 +15,42 @@ a
   display: none
   iframe
     +wh(90%,70%)
-.privacy,.registration
+.privacy,.reg
   +w(100%)
-  background-color: #fff
   padding: 46px 0
-  overflow: auto
   min-height: 100vh
   h2
     +font(30px,$f_medium)
-  h3
-    +font(18px,$f_semi)
-    margin: 30px 0 10px
   p, span
     font-size: 16px
     line-height: 24px
+  strong
+    font-weight: 600
+  img
+    display: none
+.privacy
+  h3
+    +font(18px,$f_semi)
+    margin: 30px 0 10px
   li
     margin-top: 10px
     span:first-child
       color: #c4c4c4
       margin-right: 15px
-  strong
-    font-weight: 600
-  img
-    display: none
-.registration
+.reg
+  span
+    display: block
+  &-block
+    padding: 20px 0
+    &>div
+      padding: 10px 0
+  h3
+    +font(18px,$f_reg)
+    margin-bottom: 10px
   &-gray
     opacity: 50%
-    margin-top: 10px
-    display: block
-  h3
-    font-family: $f_reg
+    span
+      line-height: 17px
   input,select
     +wh(310px,50px)
     +font(18px,$f_semi)
@@ -54,31 +60,63 @@ a
     padding-left: 20px
     &::placeholder
       opacity: 50%
+  select
+    appearance: none
+    -webkit-appearance: none
+    -moz-appearance: none
+  select,&-datalist
+    +font(18px,$f_medium)
+    background-image: url('../img/arrr.png')
+    background-repeat: no-repeat
+    background-position: 260px 0
+    background-size: 30px
+  &-datalist::-webkit-calendar-picker-indicator
+    display: none
   &-label
-    label
-      margin-top: 11px
-      display: flex
-      align-items: center
-      &>span:first-child
-        +wh(13px)
-        +dfc
-        background-color: #f6f6f6
-        border: 1px solid #ccc
-        border-radius: 3px
-        margin-right: 7px
-        span
-          +wh(0px)
-          transition: .15s
-          border-radius: 1px
-          background-color: $green
-          display: block
-  .underline
-    padding: 28px 0
-  &-mt
-    margin-top: 0!important
-  &-gender
+    margin-top: 5px
     display: flex
-    justify-content: space-between
+    align-items: center
+    &>span:first-child
+      +wh(13px)
+      +dfc
+      background-color: #f6f6f6
+      border: 1px solid #ccc
+      border-radius: 3px
+      margin-right: 7px
+      span
+        +wh(0px)
+        transition: .15s
+        background-color: $green
+        display: block
+  &-button
+    +w(300px)
+    +font(15px,$f_medium,#fff)
+    padding: 8px 0
+    margin: 30px 0 0
+    display: block
+    text-align: center
+    border-radius: 20px
+    background-color: #b8b8b8
+  &-gray-button
+    background-color: #fff
+    color: #000
+    border: 1px solid $head-border-gray
+  &-button-red
+    background-color: $red
+    color: #fff
+    border-color: $red
+  &-row
+    display: flex
+    align-items: flex-end
+    &-first
+      margin-right: 10px
+    select,input,button,label
+      +w(150px)
+    select
+      background-position: 100px 0
+  &-mt
+    margin-top: 10px
+  &-gender
     label
       +w(150px)
       padding: 13px 20px 13px 15px
@@ -101,45 +139,16 @@ a
           transition: .15s ease
       span:nth-child(2)
         margin: 0 auto 0 10px
-  select,&-datalist
-    +font(18px,$f_medium)
-    appearance: none
-    -webkit-appearance: none
-    -moz-appearance: none
-    position: relative
-    background-image: url('../img/arrr.png')
-    background-repeat: no-repeat
-    background-position: 260px 0
-    background-size: 30px
-  &-datalist::-webkit-calendar-picker-indicator
-    display: none
-  &-data
-    display: flex
-    justify-content: space-between
-    align-items: flex-end
-    margin-top: 20px
-    select,input
-      +w(150px)
-    select
-      background-position: 100px 0
   &-comment
-    margin-top: 10px
     opacity: 50%
-    display: block
-  &-email
-    input:last-child
+    margin-top: 10px
+    span
+      line-height: 17px
+  &-conf
+    input
       +w(200px)
-    h3:nth-child(4)
-      margin-top: 20px
-  &-button
-    +w(100%)
-    +font(15px,$f_medium,#fff)
-    padding: 11px 0
-    text-align: center
-    border-radius: 20px
-    background-color: #b8b8b8
-  &-red
-    background-color: $red
+  .underline
+    padding: 0
 .close-form
   position: absolute
   top: 15px
