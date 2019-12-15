@@ -34,17 +34,22 @@ header
     span
       font-size: 15px
   .participate
-    +dfc
-    +wh(134px,42px)
-    flex: 0 0 134px
-    border: 1px solid $red
-    padding: 0
+    border: 1px solid $button-color
+    padding: 10px 32px
     margin-right: 40px
     span
       font-size: 15px
   &-scrolled
     position: fixed
+.privacy
+  h3
+    font-size: 24px
+  p,span
+    font-size: 18px
+  p,span
+    +w(700px)
 .privacy,.reg
+  min-height: calc(100vh - 327px)
   .section
     +w(732px)
     padding: 0
@@ -57,10 +62,6 @@ header
       display: block
   h2
     font-size: 40px
-  h3
-    font-size: 24px
-  p,span
-    font-size: 18px
 .reg
   h2
     +w(550px)
@@ -68,8 +69,10 @@ header
     +w(483px)
     background-position: 430px 0
   &-button
-    +w(134px)
+    +wh(134px,40px)
     margin-top: 70px
+    span:last-child
+      +wh(134px,40px)
   &-conf
     input
       +w(234px)
@@ -91,6 +94,10 @@ header
       display: flex
       align-items: flex-start
       justify-content: space-between
+      &>div
+        margin-right: 15px
+      &>div:last-child
+        margin-right: auto
     &-tab
       display: flex
       justify-content: space-between
@@ -107,6 +114,18 @@ header
         display: block
       .reg-label
         position: absolute
+.priv
+  &-success
+    p,span
+      +w(550px)
+    .priv-success-p
+      &, span, strong
+        font-size: 16px
+    .underline
+      padding: 30px 0
+  &-info
+    padding-top: 30px
+
 .page-select
   +w(75px)
 .main

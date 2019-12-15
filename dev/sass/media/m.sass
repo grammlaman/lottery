@@ -18,7 +18,7 @@ a
 .privacy,.reg
   +w(100%)
   padding: 46px 0
-  min-height: 100vh
+  min-height: calc(100vh - 418px)
   h2
     +font(30px,$f_medium)
   p, span
@@ -96,27 +96,43 @@ a
         display: block
   &-button
     +w(300px)
-    +font(15px,$f_medium,#fff)
     padding: 8px 0
     margin: 30px 0 0
     display: block
     text-align: center
     border-radius: 20px
-    background-color: #b8b8b8
+    border: 1px solid #b8b8b8
+    position: relative
+    overflow: hidden
+    span:first-child
+      +font(15px,$f_medium,#fff)
+      position: relative
+      z-index: 1
+    span:last-child
+      +wh(300px,36px)
+      background-color: #b8b8b8
+      display: block
+      position: absolute
+      top: -1px
+      left: -1px
+      border-radius: 20px
   &-gray-button
-    background-color: #fff
-    color: #000
     border: 1px solid $head-border-gray
+    span:first-child
+      color: #000
+    span:last-child
+      background-color: #000
+      transform: translateX(100%)
   &-button-red
-    background-color: $red
-    color: #fff
-    border-color: $red
+    border-color: $button-color
+    span:last-child
+      background-color: $button-color
   &-row
     display: flex
     align-items: flex-end
     &-first
       margin-right: 10px
-    select,input,button,label
+    select,input,label
       +w(150px)
     select
       background-position: 100px 0
@@ -155,6 +171,25 @@ a
       +w(200px)
   .underline
     padding: 0
+.priv
+  &-success
+    h4
+      +font(14px,$f_bold)
+    .underline
+      padding: 10px 0
+    &-red
+      color: $red
+    &-p
+      padding: 10px 0
+      strong
+        font-weight: 500
+        font-family: $f_bold
+  &-info
+    padding-top: 10px
+    span
+      font-size: 13px
+  &-block
+    padding: 10px 0
 .close-form
   position: absolute
   top: 15px
@@ -253,7 +288,7 @@ header
 .participate
   padding: 8px 22px
   border-radius: 50px
-  background-color: $red
+  background-color: $button-color
   span
     +font(13px,$f_medium,#fff)
 .page-select

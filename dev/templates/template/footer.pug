@@ -1,5 +1,5 @@
 footer
-    form.reg(style='display:block')
+    form.reg(style='display:none')
         .section
             button.reg-close.close-form
                 svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
@@ -8,7 +8,7 @@ footer
                 h2 Electronic Immigrant Investor Visa Lottery Entry Form
                 +img('logo.png')
             .reg-comment
-                span #[strong Part One] — Entrant Information
+                span Entrant Information
             .reg-block.reg-row-tab.reg-mini
                 div.success
                     div.reg-h3
@@ -55,7 +55,7 @@ footer
                         label(for='reg-female')
                             span
                                 span
-                            span Male
+                            span Female
                             svg(width="10" height="24" viewBox="0 0 10 24" fill="none" xmlns="http://www.w3.org/2000/svg")
                                 path(fill-rule="evenodd" clip-rule="evenodd" d="M7.29877 2.00762C7.29877 3.1164 6.4163 4.01524 5.32773 4.01524C4.23915 4.01524 3.35668 3.1164 3.35668 2.00762C3.35668 0.898842 4.23915 0 5.32773 0C6.4163 0 7.29877 0.898842 7.29877 2.00762ZM8.82345 5.71582C8.82345 5.71582 9.84059 8.79316 9.66459 9.54058C9.56555 9.95506 8.8844 10.4572 8.11717 10.8533L9.84059 16.4884L7.01621 16.4846L7.00936 23.1863C6.95755 23.7013 6.60021 23.8949 6.15907 23.8949C5.72021 23.8949 5.36212 23.7135 5.31183 23.197H5.03907C4.98955 23.712 4.62917 23.8857 4.19107 23.8857C3.75069 23.8857 3.39183 23.6968 3.34079 23.181L3.33317 16.4846L0.685547 16.493L2.49507 10.973C1.63259 10.5623 0.812785 9.99925 0.704594 9.54058C0.541547 8.84268 1.52821 5.74325 1.52821 5.74325C1.66307 5.29754 2.20936 4.45411 3.68059 4.53639L6.6505 4.52725C8.16974 4.53639 8.70993 5.42554 8.82345 5.71582Z" fill="black")
             .underline
@@ -118,7 +118,7 @@ footer
                                     option(value='31') 31
                             div
                                 span.reg-gray Year
-                                input(type='text' value='2001')
+                                input(type='text' placeholder='0000')
             .underline
                 div
             .reg-block
@@ -160,9 +160,36 @@ footer
                         span Optional
             .underline
                 div
-            button.reg-button#registration-sub
+            button.reg-button.reg-button-red#registration-sub
                 span Continue
-    form.reg.reg-card(style='display:block')
+                span
+    form.reg.reg-pass(style='display:none')
+        .section
+            button.reg-pass-close.close-form
+                svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+                    path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+            .reg-title
+                h2 Sign up
+                +img('logo.png')
+            .reg-comment
+                span Password from your Account has been sent to your email
+            .reg-block.reg-row-email
+                div
+                    .reg-h3
+                        h3 Password
+                        span Input error
+                    input(type='password')
+                div.reg-conf
+                    .reg-h3
+                        h3 Confirmation
+                        span Input error
+                    input(type='password')
+            .underline
+                div
+            button.reg-button.reg-button-red#registration-submit
+                span Participate
+                span
+    form.reg.reg-card(style='display:none')
         .section
             button.reg-card-close.close-form
                 svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
@@ -238,9 +265,10 @@ footer
                         input(type='text')
             .underline
                 div
-            button.reg-button.reg-button-red#registration-submit
+            button.reg-button.reg-button-red
                 span Participate
-    form.reg.reg-enter(style='display:block')
+                span
+    form.reg.reg-enter(style='display:none')
         .section
             button.reg-enter-close.close-form
                 svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
@@ -286,10 +314,12 @@ footer
             .underline
                 div
             .reg-row
-                button.reg-button.reg-gray-button.reg-button-red.reg-row-first#loginSubmit
+                button.reg-button.reg-button-red.reg-row-first#loginSubmit
                     span Submit
+                    span
                 button.reg-button.reg-gray-button#loginCancel
                     span Cancel
+                    span
     .privacy(style='display:none')
         .section
             button.privacy-close.close-form
@@ -319,6 +349,36 @@ footer
             p Cookies are required on this Website. We use them to collect visitors preferences and thus to better optimize the user experience. Users can disable cookies in their browser settings.
             h3 4. Changes
             p This Privacy Policy may be revised and modified in the future. We will post on this page and notify you via official notifications or emails. Please check back periodically to keep informed of updates or changes to this Privacy Policy. By continuing to access and to use this Website, you are agreeing to be bound by the revised policy.
+    .privacy.priv-success(style='display:none')
+        .section
+            button.priv-close.close-form
+                svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+                    path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+            div.privacy-title
+                h2 Submission Confirmation: Entry Received
+                +img('logo.png')
+            h3 Success!
+            p Your entry for the 2020 Diversity Visa Lottery program was received on Wednesday, October 24, 2018 at 12:17:06 AM EDT. Please do #[strong NOT] close this window until you have printed this.
+            .priv-info
+                .priv-block
+                    h4 Entrant Name:
+                    span OMELNITSKIY, YAROSLAV
+                .priv-block
+                    h4 Conﬁrmation Number:
+                    span 20207VYDILUQ7PBJ
+                .priv-block
+                    h4 Year of Birth:
+                    span 1995
+                .priv-block
+                    h4 Digital Signature:
+                    span EDA7E1B1FC8AAA1709D9075CE72589DD45E357B6
+            .underline
+                div
+            p.priv-success-p Thank you for your entry for the 2020 Diversity Visa Lottery.
+            p.priv-success-p #[strong Please either print this page or make a record of the conﬁrmation number before closing this window. You will not be able to retrieve this number after you close this window.]
+            p.priv-success-p You must retain your conﬁrmation number in order to check your entry status via #[span.priv-success-red Entrant Status Check] between May 7, 2019 and September 30, 2020 to determine whether your entry was selected for further processing in the 2020 Diversity Visa Lottery. You will be #[strong REQUIRED]  to enter your conﬁrmation number in combination with other personal information in order to check on your entry status.
+            p.priv-success-p #[strong Selectees will not receive selectee notiﬁcations or letters by regular postal mail from the Kentucky Consular Center (KCC).]
+            p.priv-success-p #[strong Do not submit additional Entry Forms with this person as the Primary Entrant! Multiple entries will disqualify the Entrant from participation in the 2020 Diversity Visa Lottery.]
     .foot
         .section
             .underline.foot-order-0

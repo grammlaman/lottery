@@ -67,7 +67,7 @@ window.addEventListener('scroll', function(e) {
                         {y:'33px',scale:0,ease: "back.out(1.7)",},
                         {y:0,scale:1,ease: "back.out(1.7)"},.2));
                     tl.add(TweenMax.to('.navigation>li:last-child svg',0.8,
-                        {fill:'red'}));
+                        {fill:'#0071E3'}));
                     //* -- Анимация пунктов меню конец--*//
                 });}
             if(!navBar.classList.contains('mob-scroll')){navBar.classList.add('mob-scroll');}
@@ -111,36 +111,57 @@ privacyLink.onclick = function(){formShow(privacy);};
 let privClose = document.querySelector('.privacy-close');
 privClose.onclick = function (){formClose(privacy);};
 
+
+
+
+//* -- Форма регистрации --*//
 let registration = document.querySelector('.reg');
 let part = document.querySelectorAll('.part');
+let regClose = document.querySelector('.reg-close');
 for(let i = 0; i <= part.length; i++){
     let participate = part[i];
     if(participate){participate.onclick = function () {formShow(registration);}}
 }
-let regClose = document.querySelector('.reg-close');
 regClose.onclick = function () {
     formClose(registration)
 };
-let registrationCard = document.querySelector('.reg-card');
-let registrationCardClose = document.querySelector('.reg-card-close');
-let registrationSub = document.getElementById('registration-sub');
-let registrationCardSub = document.getElementById('registration-submit');
-let loginHead = document.getElementById('loginHead');
-let loginHeadNav = document.getElementById('loginHeadNav');
-let loginHeadSubmit = document.getElementById('loginSubmit');
-let loginHeadClose = document.querySelector('.reg-enter-close');
-let loginHeadCancel = document.getElementById('loginCancel');
-let registrationEnter = document.querySelector('.reg-enter');
+let registrationPass = document.querySelector('.reg-pass'),
+    registrationPassSub = document.getElementById('registration-submit'),
+    registrationPassClose = document.querySelector('.reg-pass-close');
+let registrationCard = document.querySelector('.reg-card'),
+    registrationCardClose = document.querySelector('.reg-card-close'),
+    registrationSub = document.getElementById('registration-sub'),
+    registrationSuccess = document.querySelector('.priv-success'),
+    registrationSuccessClose = document.querySelector('.priv-close');
 registrationSub.onclick = function () {
     registration.style.display = 'none';
-    registrationCard.style.display = 'block';
+    registrationPass.style.display = 'block';
 };
-registrationCardClose.onclick = registrationCardSub.onclick = function () {
-    formClose(registrationCard)
+registrationPassClose.onclick = function () {
+    formClose(registrationPass)
 };
+registrationPassSub.onclick = function () {
+    registrationPass.style.display = 'none';
+    registrationSuccess.style.display = 'block';
+};
+registrationSuccessClose.onclick = function () {
+    formClose(registrationSuccess)
+};
+//* -- Форма регистрации конец --*//
+
+
+//* -- Форма входа --*//
+let loginHead = document.getElementById('loginHead'),
+    loginHeadNav = document.getElementById('loginHeadNav'),
+    loginHeadSubmit = document.getElementById('loginSubmit'),
+    loginHeadClose = document.querySelector('.reg-enter-close'),
+    loginHeadCancel = document.getElementById('loginCancel'),
+    registrationEnter = document.querySelector('.reg-enter');
+
 loginHead.onclick = loginHeadNav.onclick = function () {
     formShow(registrationEnter)
 };
 loginHeadClose.onclick = loginHeadCancel.onclick = loginHeadSubmit.onclick = function () {
     formClose(registrationEnter)
 };
+//* -- Форма входа конец--*//

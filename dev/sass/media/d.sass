@@ -34,16 +34,35 @@ $unit: 'px'
       &:first-child
         z-index: 1
       &:last-child
-        +wh(132px,40px)
+        +wh(100%)
         border-radius: 17px
-        background-color: $red
+        background-color: $button-color
         position: absolute
+        left: 0
+        top: 0
     &:hover
       span
-        color: $red
+        color: $button-color
         &:last-child
-          transform: rotate(180deg) translateY(-75px)
+          transform: translateX(100%)
   &-underline
     display: none
 .page-select-header:hover
   cursor: pointer
+.reg
+  &-button
+    overflow: hidden
+    span
+      transition: .5s ease
+    &:hover
+      span:first-child
+        color: #b8b8b8
+      span:last-child
+        transform: translateX(100%)
+    &-red:hover
+      span:first-child
+        color: $button-color
+  &-gray
+    &-button:hover
+      span:last-child
+        transform: translateX(0)
