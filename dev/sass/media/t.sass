@@ -70,9 +70,13 @@ header
     background-position: 430px 0
   &-button
     +wh(134px,40px)
-    margin-top: 70px
+    margin: 0
+    &-block
+      margin-top: 70px
     span:last-child
       +wh(134px,40px)
+    &-long,& span:last-child
+      +wh(483px,50px)
   &-conf
     input
       +w(234px)
@@ -114,6 +118,8 @@ header
         display: block
       .reg-label
         position: absolute
+  &-method
+    margin-top: 25px
 .priv
   &-success
     p,span
@@ -126,6 +132,8 @@ header
   &-info
     padding-top: 30px
 
+.main-method,.alt-method
+  padding-top: 150px
 .page-select
   +w(75px)
 .main

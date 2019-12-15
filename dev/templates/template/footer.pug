@@ -1,7 +1,7 @@
 footer
-    form.reg(style='display:none')
+    form.reg.display-none
         .section
-            button.reg-close.close-form
+            button.close-form
                 svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
                     path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
             .reg-title#reg-title
@@ -142,7 +142,7 @@ footer
                         span Input error
                     input(type='email')
                     .reg-comment
-                        span This email will be used to provide you#[br]with additional information
+                        span This email will be used to provide you with additional information
                 div.reg-conf
                     .reg-h3
                         h3 Confirmation
@@ -160,12 +160,13 @@ footer
                         span Optional
             .underline
                 div
-            button.reg-button.reg-button-red#registration-sub
-                span Continue
-                span
-    form.reg.reg-pass(style='display:none')
+            .reg-button-block
+                button.reg-button.reg-button-red#registration-sub
+                    span Continue
+                    span
+    form.reg.reg-pass.display-none
         .section
-            button.reg-pass-close.close-form
+            button.close-form
                 svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
                     path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
             .reg-title
@@ -186,95 +187,17 @@ footer
                     input(type='password')
             .underline
                 div
-            button.reg-button.reg-button-red#registration-submit
-                span Participate
-                span
-    form.reg.reg-card(style='display:none')
+            .reg-button-block
+                button.reg-button.reg-button-red#registration-submit
+                    span Participate
+                    span
+    form.reg.reg-enter.display-none
         .section
-            button.reg-card-close.close-form
-                svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
-                    path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
-            .reg-title#reg-card-title
-                h2 Electronic Immigrant Investor Visa Lottery Entry Form
-                +img('logo.png')
-            .reg-comment
-                span #[strong Part Two] — Payment Details
-            .reg-block
-                div
-                    .reg-h3
-                        h3 Number of Tickets
-                        span Input error
-                    input(type='text')
-                div
-                    .reg-h3
-                        h3 Total Fee
-                        span Input error
-                    input(type='text')
-                    input(type='checkbox' style='display:none' checked)#reg-fee
-                    label(for='reg-fee').reg-label
-                        span
-                            span
-                        span Participate in every round
-                    .reg-comment
-                        span You will be notified with instructions how to proceed
-            .underline
-                div
-            .reg-block
-                .reg-row-tab
-                    div
-                        .reg-h3
-                            h3 CARD HOLDER NAME
-                            span Input error
-                        input(type='text')
-                    +img('visa.png')
-                div
-                    .reg-h3
-                        h3 CARD NUMBER
-                        span Input error
-                    input(type='text')
-                div.reg-row
-                    div.reg-row-first
-                        .reg-h3
-                            h3 VALID THRU
-                            span Input error
-                        select
-                            option(value='01') 01
-                            option(value='02') 02
-                            option(value='03') 03
-                            option(value='04') 04
-                            option(value='05') 05
-                            option(value='06') 06
-                            option(value='07') 07
-                            option(value='08') 08
-                            option(value='09') 09
-                            option(value='10') 10
-                            option(value='11') 11
-                            option(value='12') 12
-                    div
-                        select
-                            option(value='2024') 2024
-                            option(value='2023') 2023
-                            option(value='2022') 2022
-                            option(value='2021') 2021
-                            option(value='2020') 2020
-                div.reg-row
-                    div
-                        .reg-h3
-                            h3 CVC
-                            span Input error
-                        input(type='text')
-            .underline
-                div
-            button.reg-button.reg-button-red
-                span Participate
-                span
-    form.reg.reg-enter(style='display:none')
-        .section
-            button.reg-enter-close.close-form
+            button.close-form
                 svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
                     path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
             .reg-title
-                h2 Enter Entrant Information
+                h2 Sign in
                 +img('logo.png')
             .reg-block
                 div
@@ -282,47 +205,39 @@ footer
                         h3 Email
                         span Input error
                     input(type='text')
-                    .reg-comment
-                        span You will be notified with instructions how to proceed
+                div
+                    .reg-h3
+                        h3 Password
+                        span Input error
+                    input(type='password')
             .underline
                 div
+            .reg-button-block
+                button.reg-button.reg-button-red#loginSubmit
+                    span Sign in
+                    span
+                .reg-comment
+                    a#reg-login-forgot Forgot password?
+    form.reg.reg-forgot.display-none
+        .section
+            button.close-form
+                svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+                    path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+            .reg-title
+                h2 Sign in
+                +img('logo.png')
             .reg-block
                 div
                     .reg-h3
-                        h3 Last/Family Name
+                        h3 Email
                         span Input error
                     input(type='text')
-                    .reg-comment
-                        span Provide the Last/Family Name that was used on the Electronic Immigrant Investor Visa Entry Form, including punctuation.
-                div.reg-row
-                    div
-                        .reg-h3
-                            h3 Year of Birth
-                            span Input error
-                        input(type='text' placeholder='YYYY')
-            .underline
-                div
-            .reg-block
-                div
-                    .reg-h3
-                        h3 Authentication
-                        span Input error
-                    .reg-gray
-                        span Type the characters as they appear in the picture.
-                    .reg-captcha
-                        input(type='text')
-            .underline
-                div
-            .reg-row
-                button.reg-button.reg-button-red.reg-row-first#loginSubmit
-                    span Submit
+                button.reg-button.reg-button-red.reg-button-long#forgotPassword
+                    span Send me new password
                     span
-                button.reg-button.reg-gray-button#loginCancel
-                    span Cancel
-                    span
-    .privacy(style='display:none')
+    .privacy.display-none
         .section
-            button.privacy-close.close-form
+            button.close-form
                 svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
                     path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
             div.privacy-title
@@ -349,12 +264,12 @@ footer
             p Cookies are required on this Website. We use them to collect visitors preferences and thus to better optimize the user experience. Users can disable cookies in their browser settings.
             h3 4. Changes
             p This Privacy Policy may be revised and modified in the future. We will post on this page and notify you via official notifications or emails. Please check back periodically to keep informed of updates or changes to this Privacy Policy. By continuing to access and to use this Website, you are agreeing to be bound by the revised policy.
-    .privacy.priv-success(style='display:none')
+    .privacy.priv-success.display-none
         .section
-            button.priv-close.close-form
+            button.close-form
                 svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
                     path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
-            div.privacy-title
+            .privacy-title
                 h2 Submission Confirmation: Entry Received
                 +img('logo.png')
             h3 Success!
