@@ -98,8 +98,9 @@ let priv = document.querySelector('.privacy');
 let privLink = document.querySelector('.foot-privacy');
 //* -- Форма регистрации --*//
 let reg = document.querySelector('.reg-form'),
+    regFirstPage = document.querySelector('.reg-first-page');
     regBut = document.querySelectorAll('.part');
-let regPass = document.querySelector('.reg-pass'),
+let regSecondPage = document.querySelector('.reg-second-page'),
     regPassSub = document.getElementById('registration-submit');
 let regSub = document.getElementById('registration-sub'),
     privSuccess = document.querySelector('.priv-success');
@@ -120,7 +121,6 @@ function close (){
         iframe.src='';
     }
     reg.classList.add('display-none');
-    regPass.classList.add('display-none');
     regEnter.classList.add('display-none');
     regForgot.classList.add('display-none');
     priv.classList.add('display-none');
@@ -161,16 +161,18 @@ regBut.forEach(function (el) {
     if(el) {
         el.onclick = function () {
             formShow(reg);
+            regFirstPage.classList.remove('display-none');
         }
     }
 });
 
 regSub.onclick = function () {
-    reg.classList.add('display-none');
-    regPass.classList.remove('display-none');
+    regFirstPage.classList.add('display-none');
+    regSecondPage.classList.remove('display-none');
 };
 regPassSub.onclick = function () {
-    regPass.classList.add('display-none');
+    reg.classList.add('display-none');
+    regSecondPage.classList.add('display-none');
     privSuccess.classList.remove('display-none');
 };
 //* -- Форма регистрации Конец --*//

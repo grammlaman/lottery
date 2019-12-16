@@ -4,193 +4,190 @@ footer
             button(type='button').close-form
                 svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
                     path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
-            .reg-title#reg-title
-                h2 Electronic Immigrant Investor Visa Lottery Entry Form
-                +img('logo.png')
-            .reg-gray.reg-mt
-                span Personal Information
-            .reg-cont.reg-row-tab
-                .reg-block.reg-first.reg-block-three.error
-                    .reg-block-title
-                        h3 Last / Family Name
-                        span Input error
-                    input(type='text')
-                .reg-block.reg-first.reg-block-three.success
-                    .reg-block-title
-                        h3 First Name
-                        span Input error
-                    input(type='text')
-                    input(type='checkbox' style='display:none')#reg-fn
-                    label(for='reg-fn').reg-label
-                        span
+            .reg-first-page.display-none
+                .reg-title#reg-title
+                    h2 Electronic Immigrant Investor Visa Lottery Entry Form
+                    +img('logo.png')
+                .reg-gray.reg-mt
+                    span Personal Information
+                .reg-cont.reg-row-tab
+                    .reg-block.reg-first.reg-block-three.error
+                        .reg-block-title
+                            h3 Last / Family Name
+                            span Input error
+                        input(type='text')
+                    .reg-block.reg-first.reg-block-three.success
+                        .reg-block-title
+                            h3 First Name
+                            span Input error
+                        input(type='text')
+                        input(type='checkbox' style='display:none')#reg-fn
+                        label(for='reg-fn').reg-label
                             span
-                        span No First Name
-                .reg-block.reg-block-three
-                    .reg-block-title
-                        h3 Middle Name
-                        span Input error
-                    input(type='text')
-                    input(type='checkbox' style='display:none')#reg-mn
-                    label(for='reg-mn').reg-label
-                        span
+                                span
+                            span No First Name
+                    .reg-block.reg-block-three
+                        .reg-block-title
+                            h3 Middle Name
+                            span Input error
+                        input(type='text')
+                        input(type='checkbox' style='display:none')#reg-mn
+                        label(for='reg-mn').reg-label
                             span
-                        span No First Name
-            .underline
-                div
-            .reg-cont
-                .reg-block
-                    .reg-block-title
-                        h3 Gender
-                    .reg-row
-                        .reg-first.reg-gender
-                            input(type='radio' name='gender' style='display:none' checked)#reg-male
-                            label(for='reg-male')
                                 span
+                            span No First Name
+                .underline
+                    div
+                .reg-cont
+                    .reg-block
+                        .reg-block-title
+                            h3 Gender
+                        .reg-row
+                            .reg-first.reg-gender
+                                input(type='radio' name='gender' style='display:none' checked)#reg-male
+                                label(for='reg-male')
                                     span
-                                span Male
-                                svg(width="10" height="24" viewBox="0 0 10 24" fill="none" xmlns="http://www.w3.org/2000/svg")
-                                    path(fill-rule="evenodd" clip-rule="evenodd" d="M6.72278 2.04118C6.72278 3.15432 5.82068 4.05642 4.70906 4.05642C3.59592 4.05642 2.69382 3.15432 2.69382 2.04118C2.69382 0.928801 3.59592 0.0274658 4.70906 0.0274658C5.82068 0.0274658 6.72278 0.928801 6.72278 2.04118ZM6.78853 4.47548C9.16263 4.47548 9.0491 6.72538 9.0491 6.72538L9.07044 13.1101C9.0331 13.4538 8.6971 13.8484 8.27653 13.8484C7.8552 13.8484 7.52073 13.4599 7.52073 13.1147L6.78472 23.2892C6.72987 23.8073 6.36568 24 5.91463 24C5.46815 24 5.1032 23.8073 5.04834 23.2892H4.41444C4.36034 23.8073 3.99615 24 3.54739 24C3.09711 24 2.73215 23.8073 2.67882 23.2892L1.96415 13.1223C1.92682 13.4667 1.61825 13.8469 1.19844 13.8469C0.775581 13.8469 0.436534 13.4538 0.3992 13.1101L0.398438 6.72538C0.398458 6.72313 0.398475 6.72056 0.398494 6.71767C0.399917 6.49926 0.413113 4.47548 2.67272 4.47548H6.78853Z" fill="black")
-                        .reg-gender
-                            input(type='radio' name='gender' style='display:none')#reg-female
-                            label(for='reg-female')
-                                span
+                                        span
+                                    span Male
+                                    svg(width="10" height="24" viewBox="0 0 10 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                                        path(fill-rule="evenodd" clip-rule="evenodd" d="M6.72278 2.04118C6.72278 3.15432 5.82068 4.05642 4.70906 4.05642C3.59592 4.05642 2.69382 3.15432 2.69382 2.04118C2.69382 0.928801 3.59592 0.0274658 4.70906 0.0274658C5.82068 0.0274658 6.72278 0.928801 6.72278 2.04118ZM6.78853 4.47548C9.16263 4.47548 9.0491 6.72538 9.0491 6.72538L9.07044 13.1101C9.0331 13.4538 8.6971 13.8484 8.27653 13.8484C7.8552 13.8484 7.52073 13.4599 7.52073 13.1147L6.78472 23.2892C6.72987 23.8073 6.36568 24 5.91463 24C5.46815 24 5.1032 23.8073 5.04834 23.2892H4.41444C4.36034 23.8073 3.99615 24 3.54739 24C3.09711 24 2.73215 23.8073 2.67882 23.2892L1.96415 13.1223C1.92682 13.4667 1.61825 13.8469 1.19844 13.8469C0.775581 13.8469 0.436534 13.4538 0.3992 13.1101L0.398438 6.72538C0.398458 6.72313 0.398475 6.72056 0.398494 6.71767C0.399917 6.49926 0.413113 4.47548 2.67272 4.47548H6.78853Z" fill="black")
+                            .reg-gender
+                                input(type='radio' name='gender' style='display:none')#reg-female
+                                label(for='reg-female')
                                     span
-                                span Female
-                                svg(width="10" height="24" viewBox="0 0 10 24" fill="none" xmlns="http://www.w3.org/2000/svg")
-                                    path(fill-rule="evenodd" clip-rule="evenodd" d="M7.29877 2.00762C7.29877 3.1164 6.4163 4.01524 5.32773 4.01524C4.23915 4.01524 3.35668 3.1164 3.35668 2.00762C3.35668 0.898842 4.23915 0 5.32773 0C6.4163 0 7.29877 0.898842 7.29877 2.00762ZM8.82345 5.71582C8.82345 5.71582 9.84059 8.79316 9.66459 9.54058C9.56555 9.95506 8.8844 10.4572 8.11717 10.8533L9.84059 16.4884L7.01621 16.4846L7.00936 23.1863C6.95755 23.7013 6.60021 23.8949 6.15907 23.8949C5.72021 23.8949 5.36212 23.7135 5.31183 23.197H5.03907C4.98955 23.712 4.62917 23.8857 4.19107 23.8857C3.75069 23.8857 3.39183 23.6968 3.34079 23.181L3.33317 16.4846L0.685547 16.493L2.49507 10.973C1.63259 10.5623 0.812785 9.99925 0.704594 9.54058C0.541547 8.84268 1.52821 5.74325 1.52821 5.74325C1.66307 5.29754 2.20936 4.45411 3.68059 4.53639L6.6505 4.52725C8.16974 4.53639 8.70993 5.42554 8.82345 5.71582Z" fill="black")
-            .underline
-                div
-            .reg-cont
-                .reg-block
-                    .reg-block-title
-                        h3 Date of Birth
-                        span Input error
-                    .reg-row-tab
-                        .reg-first.reg-block-three
-                            span.reg-gray Month
-                            select
-                                    option(value='january') January
-                                    option(value='february') February
-                                    option(value='march') March
-                                    option(value='april') April
-                                    option(value='may') May
-                                    option(value='june') June
-                                    option(value='july') July
-                                    option(value='august') August
-                                    option(value='september') September
-                                    option(value='october') October
-                                    option(value='november') November
-                                    option(value='december') December
-                        .reg-row.reg-mt-mob
-                            .reg-row-mini.reg-first.reg-block-three
-                                span.reg-gray Day
+                                        span
+                                    span Female
+                                    svg(width="10" height="24" viewBox="0 0 10 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                                        path(fill-rule="evenodd" clip-rule="evenodd" d="M7.29877 2.00762C7.29877 3.1164 6.4163 4.01524 5.32773 4.01524C4.23915 4.01524 3.35668 3.1164 3.35668 2.00762C3.35668 0.898842 4.23915 0 5.32773 0C6.4163 0 7.29877 0.898842 7.29877 2.00762ZM8.82345 5.71582C8.82345 5.71582 9.84059 8.79316 9.66459 9.54058C9.56555 9.95506 8.8844 10.4572 8.11717 10.8533L9.84059 16.4884L7.01621 16.4846L7.00936 23.1863C6.95755 23.7013 6.60021 23.8949 6.15907 23.8949C5.72021 23.8949 5.36212 23.7135 5.31183 23.197H5.03907C4.98955 23.712 4.62917 23.8857 4.19107 23.8857C3.75069 23.8857 3.39183 23.6968 3.34079 23.181L3.33317 16.4846L0.685547 16.493L2.49507 10.973C1.63259 10.5623 0.812785 9.99925 0.704594 9.54058C0.541547 8.84268 1.52821 5.74325 1.52821 5.74325C1.66307 5.29754 2.20936 4.45411 3.68059 4.53639L6.6505 4.52725C8.16974 4.53639 8.70993 5.42554 8.82345 5.71582Z" fill="black")
+                .underline
+                    div
+                .reg-cont
+                    .reg-block
+                        .reg-block-title
+                            h3 Date of Birth
+                            span Input error
+                        .reg-row-tab
+                            .reg-first.reg-block-three
+                                span.reg-gray Month
                                 select
-                                    option(value='01') 01
-                                    option(value='02') 02
-                                    option(value='03') 03
-                                    option(value='04') 04
-                                    option(value='05') 05
-                                    option(value='06') 06
-                                    option(value='07') 07
-                                    option(value='08') 08
-                                    option(value='09') 09
-                                    option(value='10') 10
-                                    option(value='11') 11
-                                    option(value='12') 12
-                                    option(value='13') 13
-                                    option(value='14') 14
-                                    option(value='15') 15
-                                    option(value='16') 16
-                                    option(value='17') 17
-                                    option(value='18') 18
-                                    option(value='19') 19
-                                    option(value='20') 20
-                                    option(value='21') 21
-                                    option(value='22') 22
-                                    option(value='23') 23
-                                    option(value='24') 24
-                                    option(value='25') 25
-                                    option(value='26') 26
-                                    option(value='27') 27
-                                    option(value='28') 28
-                                    option(value='29') 29
-                                    option(value='30') 30
-                                    option(value='31') 31
-                            .reg-row-mini.reg-block-three
-                                span.reg-gray Year
-                                input(type='text' placeholder='0000')
-            .underline
-                div
-            .reg-cont
-                .reg-block.success
-                    .reg-block-title
-                        h3 Country
-                        span Input error
-                    input(list='country' placeholder='Choose your country').reg-datalist
-                    datalist#country
-                        option(value='Russia')
-                        option(value='Great Britain')
-                        option(value='Kazakhstan')
-                    .reg-gray.reg-mt
-                        span Same as passport
-            .underline
-                div
-            .reg-cont.reg-row-tab
-                .reg-block.reg-first
-                    .reg-block-title
-                        h3 Email
-                        span Input error
-                    input(type='email')
-                    .reg-gray.reg-mt
-                        span This email will be used to provide you with additional information
-                .reg-block.reg-conf
-                    .reg-block-title
-                        h3 Confirmation
-                        span Input error
-                    input(type='email')
-            .underline
-                div
-            .reg-cont
-                .reg-block
-                    .reg-block-title
-                        h3 Phone
-                        span Input error
-                    input(type='tel')
-                    .reg-gray.reg-mt
-                        span Optional
-            .underline
-                div
-            .reg-button-block
-                button.reg-button.reg-button-red#registration-sub
-                    span Continue
-                    span
-    form.reg.reg-pass.display-none
-        .section
-            button(type='button').close-form
-                svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
-                    path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
-            .reg-title
-                h2 Sign up
-                +img('logo.png')
-            .reg-gray.reg-mt
-                span Password from your Account has been sent to your email
-            .reg-cont.reg-row-tab
-                .reg-block.reg-first
-                    .reg-block-title
-                        h3 Password
-                        span Input error
-                    input(type='password')
-                .reg-block.reg-conf
-                    .reg-block-title
-                        h3 Confirmation
-                        span Input error
-                    input(type='password')
-            .underline
-                div
-            .reg-button-block
-                button.reg-button.reg-button-red#registration-submit
-                    span Participate
-                    span
+                                        option(value='january') January
+                                        option(value='february') February
+                                        option(value='march') March
+                                        option(value='april') April
+                                        option(value='may') May
+                                        option(value='june') June
+                                        option(value='july') July
+                                        option(value='august') August
+                                        option(value='september') September
+                                        option(value='october') October
+                                        option(value='november') November
+                                        option(value='december') December
+                            .reg-row.reg-mt-mob
+                                .reg-row-mini.reg-first.reg-block-three
+                                    span.reg-gray Day
+                                    select
+                                        option(value='01') 01
+                                        option(value='02') 02
+                                        option(value='03') 03
+                                        option(value='04') 04
+                                        option(value='05') 05
+                                        option(value='06') 06
+                                        option(value='07') 07
+                                        option(value='08') 08
+                                        option(value='09') 09
+                                        option(value='10') 10
+                                        option(value='11') 11
+                                        option(value='12') 12
+                                        option(value='13') 13
+                                        option(value='14') 14
+                                        option(value='15') 15
+                                        option(value='16') 16
+                                        option(value='17') 17
+                                        option(value='18') 18
+                                        option(value='19') 19
+                                        option(value='20') 20
+                                        option(value='21') 21
+                                        option(value='22') 22
+                                        option(value='23') 23
+                                        option(value='24') 24
+                                        option(value='25') 25
+                                        option(value='26') 26
+                                        option(value='27') 27
+                                        option(value='28') 28
+                                        option(value='29') 29
+                                        option(value='30') 30
+                                        option(value='31') 31
+                                .reg-row-mini.reg-block-three
+                                    span.reg-gray Year
+                                    input(type='text' placeholder='0000')
+                .underline
+                    div
+                .reg-cont
+                    .reg-block.success
+                        .reg-block-title
+                            h3 Country
+                            span Input error
+                        input(list='country' placeholder='Choose your country').reg-datalist
+                        datalist#country
+                            option(value='Russia')
+                            option(value='Great Britain')
+                            option(value='Kazakhstan')
+                        .reg-gray.reg-mt
+                            span Same as passport
+                .underline
+                    div
+                .reg-cont.reg-row-tab
+                    .reg-block.reg-first
+                        .reg-block-title
+                            h3 Email
+                            span Input error
+                        input(type='email')
+                        .reg-gray.reg-mt
+                            span This email will be used to provide you with additional information
+                    .reg-block.reg-conf
+                        .reg-block-title
+                            h3 Confirmation
+                            span Input error
+                        input(type='email')
+                .underline
+                    div
+                .reg-cont
+                    .reg-block
+                        .reg-block-title
+                            h3 Phone
+                            span Input error
+                        input(type='tel')
+                        .reg-gray.reg-mt
+                            span Optional
+                .underline
+                    div
+                .reg-button-block
+                    button(type='button').reg-button.reg-button-red#registration-sub
+                        span Continue
+                        span
+            .reg-second-page.display-none
+                .reg-title
+                    h2 Sign up
+                    +img('logo.png')
+                .reg-gray.reg-mt
+                    span Password from your Account has been sent to your email
+                .reg-cont.reg-row-tab
+                    .reg-block.reg-first
+                        .reg-block-title
+                            h3 Password
+                            span Input error
+                        input(type='password')
+                    .reg-block.reg-conf
+                        .reg-block-title
+                            h3 Confirmation
+                            span Input error
+                        input(type='password')
+                .underline
+                    div
+                .reg-button-block
+                    button.reg-button.reg-button-red#registration-submit
+                        span Participate
+                        span
     form.reg.reg-enter.display-none
         .section
             button(type='button').close-form
