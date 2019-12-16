@@ -46,13 +46,14 @@ header
     font-size: 24px
   p,span
     font-size: 18px
-  p,span
     +w(700px)
 .privacy,.reg
   min-height: calc(100vh - 327px)
   .section
     +w(732px)
     padding: 0
+  span,a,h6
+    font-size: 18px
   &-title
     display: flex
     align-items: center
@@ -65,61 +66,92 @@ header
 .reg
   h2
     +w(550px)
-  input,select
+  &-block-title
+    h6
+      font-size: 24px
+  &-cont
+    padding: 50px 0
+  &-block
     +w(483px)
-    background-position: 430px 0
+    select,.reg-datalist
+      background-position: 430px 0
+    &-three
+      +w(234px)
+      flex: 0 0 234px
+      select,.reg-datalist
+        background-position: 180px 0
+  &-conf
+    +w(234px)
   &-button
-    +wh(134px,40px)
     margin: 0
     &-block
-      margin-top: 70px
-    span:last-child
+      margin-top: 60px
+      margin-bottom: 60px
+    &,span:last-child
       +wh(134px,40px)
-    &-long,& span:last-child
-      +wh(483px,50px)
-  &-conf
-    input
-      +w(234px)
-  &-block
-    padding: 50px 0 70px
-  &-mini
-    input,label,select
-      +w(234px)
-    select
-      background-position: 185px 0
+    &-long
+      margin-top: 10px
+      &,& span:last-child
+        +wh(483px,50px)
   &-row
-    label,select,input
-      +w(234px)
-    select
-      background-position: 180px 0
-    &-first
-      margin-right: 15px
-    &-email
-      display: flex
-      align-items: flex-start
-      justify-content: space-between
-      &>div
-        margin-right: 15px
-      &>div:last-child
-        margin-right: auto
     &-tab
       display: flex
-      justify-content: space-between
-      align-items: center
-      .reg-mt
-        margin-top: 0
-      &>div
-        position: relative
+      align-items: flex-start
+    &,&-tab
+      .reg-first
         margin-right: 15px
-        &:last-child
-          margin-right: auto
+    &-img
+      +w(100%)
+      display: flex
+      align-items: center
+      justify-content: space-between
+      div
+        +w(483px)
       img
         +w(96px)
         display: block
-      .reg-label
-        position: absolute
+  &-table
+    span
+      margin-top: 40px
+  &-link,&-mt-mob
+    margin: 0
   &-method
+    flex-direction: row
     margin-top: 25px
+    span,a
+      font-size: 24px
+      margin-right: auto
+      &:last-child
+        margin-right: 0
+      &:after
+        +w(75%)
+    &-step
+      margin-right: 45px
+      &:last-child
+        margin-right: 0
+      &>span:first-child
+        +wh(51px)
+        margin-right: 20px
+        border-width: 2px
+    &-button
+      &-block
+        display: flex
+        align-items: center
+        margin: 50px 0
+        button
+          margin-right: 40px
+        span
+          margin: 0
+  &-table
+    justify-content: flex-start
+    div:first-child,div:nth-child(2)
+      margin-right: 100px
+    div:first-child
+      flex: 0 0 200px
+    div:nth-child(2)
+      flex: 0 0 150px
+    div:last-child
+      flex: 0 0 150px
 .priv
   &-success
     p,span
@@ -131,8 +163,7 @@ header
       padding: 30px 0
   &-info
     padding-top: 30px
-
-.main-method,.alt-method
+.main-method,.aff-method,.con-method,.ref-method
   padding-top: 150px
 .page-select
   +w(75px)
@@ -243,7 +274,7 @@ header
     +w(100%)
     padding: 30px 0
 .foot
-  padding: 20px 0 50px
+  padding: 0 0 50px
   &-privacy
     order: 4
     margin-top: 0

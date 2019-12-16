@@ -11,15 +11,17 @@ block content
 					h2 Round #[strong.round-number 0520]
 				.reg-method
 					span Main method
-					a#alt-method Alternative method
-				.reg-block
-					div
-						.reg-h3
+					a.ref-method-link Referral partner
+					a.aff-method-link Affiliate partner
+					a.con-method-link Converter partner
+				.reg-cont
+					.reg-block
+						.reg-block-title
 							h3 Number of Tickets
 							span Input error
 						input(type='text')
-					div
-						.reg-h3
+					.reg-block
+						.reg-block-title
 							h3 Total Fee
 							span Input error
 						input(type='text')
@@ -30,93 +32,98 @@ block content
 							span I want to participate in every round
 				.underline
 					div
-				.reg-block
-					.reg-row-tab
+				.reg-cont
+					.reg-block.reg-row-img
 						div
-							.reg-h3
+							.reg-block-title
 								h3 CARD HOLDER NAME
 								span Input error
 							input(type='text')
 						+img('visa.png')
-					div
-						.reg-h3
+					.reg-block
+						.reg-block-title
 							h3 CARD NUMBER
 							span Input error
 						input(type='text')
-					div.reg-row.reg-row-mini
-						div.reg-row-first
-							.reg-h3
-								h3 VALID THRU
-								span Input error
-							select
-								option(value='01') 01
-								option(value='02') 02
-								option(value='03') 03
-								option(value='04') 04
-								option(value='05') 05
-								option(value='06') 06
-								option(value='07') 07
-								option(value='08') 08
-								option(value='09') 09
-								option(value='10') 10
-								option(value='11') 11
-								option(value='12') 12
-						div
-							select
-								option(value='2024') 2024
-								option(value='2023') 2023
-								option(value='2022') 2022
-								option(value='2021') 2021
-								option(value='2020') 2020
-					div.reg-row
-						div
-							.reg-h3
+					.reg-block
+						.reg-block-title
+							h3 VALID THRU
+							span Input error
+						.reg-row
+							.reg-first.reg-row-mini.reg-block-three
+								select
+									option(value='01') 01
+									option(value='02') 02
+									option(value='03') 03
+									option(value='04') 04
+									option(value='05') 05
+									option(value='06') 06
+									option(value='07') 07
+									option(value='08') 08
+									option(value='09') 09
+									option(value='10') 10
+									option(value='11') 11
+									option(value='12') 12
+							.reg-row-mini.reg-block-three
+								select
+									option(value='2024') 2024
+									option(value='2023') 2023
+									option(value='2022') 2022
+									option(value='2021') 2021
+									option(value='2020') 2020
+					.reg-block
+						.reg-row-mini.reg-block-three
+							.reg-block-title
 								h3 CVC
 								span Input error
 							input(type='text')
-							input(type='checkbox' style='display:none')#payment
-							label(for='payment').reg-label
+						input(type='checkbox' style='display:none')#payment
+						label(for='payment').reg-label
+							span
 								span
-									span
-								span I authorize payment
+							span I authorize payment
 				.underline
 					div
 				.reg-button-block
 					button.reg-button.reg-button-red
 						span Apply
 						span
-		form.reg.alt-method.display-none
+		.reg.ref-method.display-none
 			.section
 				.reg-title
 					h2 Round #[strong.round-number 0520]
 				.reg-method
-					a#main-method Main method
-					span Alternative method
-				.reg-block
-					span.reg-comment Get 1 ticket for every 10 tickets bought through your link
+					a.main-method-link Main method
+					span Referral partner
+					a.aff-method-link Affiliate partner
+					a.con-method-link Converter partner
+				.reg-cont
+					.reg-block
+						.reg-gray
+							span Get 1 ticket for every 10 tickets bought through your link
 				.reg-method-cont
-					.reg-h3
+					.reg-block-title
 						h6 How to get:
 					.reg-row-tab
-						.reg-method-step.reg-comment
+						.reg-method-step.reg-gray.reg-mt-mob
 							span
 								span 1
 							span Create link
-						.reg-method-step.reg-comment
+						.reg-method-step.reg-gray.reg-mt-mob
 							span
 								span 2
 							span Share with anyone
-						.reg-method-step.reg-comment
+						.reg-method-step.reg-gray.reg-mt-mob
 							span
 								span 3
 							span Receive tickets permanently
 				.underline
 					div
-				.reg-button-block
+				.reg-button-block.reg-method-button-block
 					button.reg-button.reg-button-red
 						span Generate link
 						span
-					span #[strong Your link:] linklink2555
+					span.reg-link #[strong Your link:] linklink2555
 				.underline
 					div
 				.reg-table
@@ -137,6 +144,148 @@ block content
 						span 34
 						span 33
 						span 3
+				.underline
+					div
+				.reg-cont
+					.reg-block.reg-links
+						a(href='#') Promotional Materials
+						a(href='mailto:partner@ivlottery.com') Privacy Participation
+		.reg.aff-method.display-none
+			.section
+				.reg-title
+					h2 Round #[strong.round-number 0520]
+				.reg-method
+					a.main-method-link Main method
+					a.ref-method-link Referral Partner
+					span Affiliate partner
+					a.con-method-link Converter partner
+				.reg-cont
+					.reg-block
+						.reg-gray
+							span Get up to $2(U.S.) for every ticket bought through your link.
+				.reg-method-cont
+					.reg-block-title
+						h6 How to get:
+					.reg-row-tab
+						.reg-method-step.reg-gray.reg-mt-mob
+							span
+								span 1
+							span Create link
+						.reg-method-step.reg-gray.reg-mt-mob
+							span
+								span 2
+							span Share with anyone
+						.reg-method-step.reg-gray.reg-mt-mob
+							span
+								span 3
+							span Receive tickets permanently
+				.underline
+					div
+				.reg-button-block.reg-method-button-block
+					button.reg-button.reg-button-red
+						span Generate link
+						span
+					span.reg-link #[strong Your link:] linklink2555
+				.underline
+					div
+				.reg-table
+					div
+						span Clickthroughs
+						span Registrations
+						span Purchases
+						span Proceeds
+						span Withdrawals
+						span Available balance
+					div
+						h6 Current Round
+						span 7 002
+						span 7 000
+						span 6 980
+						span $ 13 960
+						span 0
+						span &nbsp;
+					div
+						h6 All time
+						span 134 358
+						span 34 065
+						span 33 340
+						span $ 66 680
+						span $ 52 720
+						span $ 13 960
+				.underline
+					div
+				.reg-cont
+					.reg-block.reg-links
+						a(href='#') Promotional Materials
+						a(href='mailto:partner@ivlottery.com') Privacy Participation
+		.reg.con-method.display-none
+			.section
+				.reg-title
+					h2 Round #[strong.round-number 0520]
+				.reg-method
+					a.main-method-link Main method
+					a.ref-method-link Referral Partner
+					a.aff-method-link Affiliate partner
+					span Converter partner
+				.reg-cont
+					.reg-block
+						.reg-gray
+							span Get up to 50% of proceeds of every Affiliate in your network.
+				.reg-method-cont
+					.reg-block-title
+						h6 How to get:
+					.reg-row-tab
+						.reg-method-step.reg-gray.reg-mt-mob
+							span
+								span 1
+							span Create link
+						.reg-method-step.reg-gray.reg-mt-mob
+							span
+								span 2
+							span Share with anyone
+						.reg-method-step.reg-gray.reg-mt-mob
+							span
+								span 3
+							span Receive tickets permanently
+				.underline
+					div
+				.reg-button-block.reg-method-button-block
+					button.reg-button.reg-button-red
+						span Generate link
+						span
+					span.reg-link #[strong Your link:] linklink2555
+				.underline
+					div
+				.reg-table
+					div
+						span Clickthroughs
+						span Registrations
+						span Purchases
+						span Income
+						span Withdrawals
+						span Available balance
+					div
+						h6 Current Round
+						span 132
+						span 120
+						span 60 980
+						span $ 58 072
+						span 0
+						span &nbsp;
+					div
+						h6 All time
+						span 198
+						span 156
+						span 330 340
+						span $ 302 890
+						span $ 302 890
+						span $ 58 072
+				.underline
+					div
+				.reg-cont
+					.reg-block.reg-links
+						a(href='#') Promotional Materials
+						a(href='mailto:partner@ivlottery.com') Privacy Participation
 	ul.navigation#navigation
 		li
 			a(href='#')

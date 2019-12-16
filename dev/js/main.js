@@ -65,18 +65,18 @@ window.addEventListener('scroll', function(e) {
             if (document.getElementById('participate')) {
                 if(!part.classList.contains('scrolled-hide')) {
                     part.classList.add('scrolled-hide');
+                    requestAnimationFrame(function () {
+                        //* -- Анимация пунктов меню--*//
+                        let tl = new TimelineMax();
+                        tl.add(TweenMax.staggerFromTo('.navigation>li',0.8,
+                            {y:'33px',scale:0,ease: "back.out(1.7)",},
+                            {y:0,scale:1,ease: "back.out(1.7)"},.2));
+                        tl.add(TweenMax.to('.navigation>li:last-child svg',0.8,
+                            {fill:'#0071E3'}));
+                        //* -- Анимация пунктов меню конец--*//
+                    });
                 }
             }
-            requestAnimationFrame(function () {
-                //* -- Анимация пунктов меню--*//
-                let tl = new TimelineMax();
-                tl.add(TweenMax.staggerFromTo('.navigation>li',0.8,
-                    {y:'33px',scale:0,ease: "back.out(1.7)",},
-                    {y:0,scale:1,ease: "back.out(1.7)"},.2));
-                tl.add(TweenMax.to('.navigation>li:last-child svg',0.8,
-                    {fill:'#0071E3'}));
-                //* -- Анимация пунктов меню конец--*//
-            });
             if(!navBar.classList.contains('mob-scroll')){navBar.classList.add('mob-scroll');}
         }
     }
@@ -97,33 +97,34 @@ let youBut = document.querySelector('.mainview-video'),
 let priv = document.querySelector('.privacy');
 let privLink = document.querySelector('.foot-privacy');
 //* -- Форма регистрации --*//
-let reg = document.querySelector('.reg'),
+let reg = document.querySelector('.reg-form'),
     regBut = document.querySelectorAll('.part');
 let regPass = document.querySelector('.reg-pass'),
     regPassSub = document.getElementById('registration-submit');
-let regCard = document.querySelector('.reg-card'),
-    regSub = document.getElementById('registration-sub'),
+let regSub = document.getElementById('registration-sub'),
     privSuccess = document.querySelector('.priv-success');
 //* -- Форма входа --*//
 let loginHead = document.getElementById('loginHead'),
     loginHeadNav = document.getElementById('loginHeadNav'),
-    loginHeadSubmit = document.getElementById('loginSubmit'),
     forgotBut = document.getElementById('reg-login-forgot'),
     forgotSub = document.getElementById('forgotPassword'),
     regForgot = document.querySelector('.reg-forgot'),
     regEnter = document.querySelector('.reg-enter');
+//* -- Кнопка закрытия -- *//
 let formClose = document.querySelectorAll('.close-form');
 
 
 function close (){
-    youTube.classList.add('display-none');
+    if(youTube){
+        youTube.classList.add('display-none');
+        iframe.src='';
+    }
     reg.classList.add('display-none');
     regPass.classList.add('display-none');
     regEnter.classList.add('display-none');
     regForgot.classList.add('display-none');
     priv.classList.add('display-none');
     privSuccess.classList.add('display-none');
-    iframe.src='';
     header.classList.remove('display-none');
     mainPage.classList.remove('display-none');
 }
@@ -187,15 +188,47 @@ forgotBut.onclick = function(){
 
 
 //* -- Методы --*//
-let mainMethodBut = document.querySelector('#main-method'),
-    mainMethodForm = document.querySelector('.main-method'),
-    altMethodForm = document.querySelector('.alt-method'),
-    altMethodBut = document.querySelector('#alt-method');
-mainMethodBut.onclick = function(){
-  altMethodForm.classList.add('display-none');
-  mainMethodForm.classList.remove('display-none');
-};
-altMethodBut.onclick = function () {
-    altMethodForm.classList.remove('display-none');
+let mainMethodForm = document.querySelector('.main-method'),
+    refPartnerForm = document.querySelector('.ref-method'),
+    affPartnerForm = document.querySelector('.aff-method'),
+    conPartnerForm = document.querySelector('.con-method'),
+    mainMethodBut = document.querySelectorAll('.main-method-link'),
+    affPartnerBut = document.querySelectorAll('.aff-method-link'),
+    conPartnerBut = document.querySelectorAll('.con-method-link'),
+    refMethodBut = document.querySelectorAll('.ref-method-link');
+
+
+
+function closeCabinet(){
+    refPartnerForm.classList.add('display-none');
+    affPartnerForm.classList.add('display-none');
+    conPartnerForm.classList.add('display-none');
     mainMethodForm.classList.add('display-none');
-};
+}
+mainMethodBut.forEach(function (el) {
+    el.onclick = function () {
+        closeCabinet();
+        mainMethodForm.classList.remove('display-none');
+    }
+});
+
+refMethodBut.forEach(function (el) {
+    el.onclick = function () {
+        closeCabinet();
+        refPartnerForm.classList.remove('display-none');
+    };
+});
+
+affPartnerBut.forEach(function (el) {
+    el.onclick = function () {
+        closeCabinet();
+        affPartnerForm.classList.remove('display-none');
+    };
+});
+
+conPartnerBut.forEach(function (el) {
+    el.onclick = function () {
+        closeCabinet();
+        conPartnerForm.classList.remove('display-none');
+    };
+});
