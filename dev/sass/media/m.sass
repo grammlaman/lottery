@@ -39,7 +39,7 @@ a
       color: #c4c4c4
       margin-right: 15px
 .reg
-  padding: 46px 0 0
+  padding: 95px 0 0
   &-cont
     padding: 20px 0
   &-row
@@ -181,7 +181,6 @@ a
     text-align: center
   &-method
     display: flex
-    flex-direction: column
     span
       +font(18px,$f_semi,$blue)
       position: relative
@@ -193,8 +192,12 @@ a
         position: absolute
         bottom: -5px
         left: 0
+      &:first-child
+        margin-right: 30px
     a
       +font(18px,$f_reg,#9c9c9f)
+      &:first-child
+        margin-right: 30px
     &>span,&>a
       margin-top: 15px
     &-cont
@@ -273,14 +276,21 @@ a
       display: block
 header
   +w(100%)
+  position: fixed
+  z-index: 99
+  top: 0
+  transition: .3s
 .head
   display: flex
   align-items: center
   justify-content: space-evenly
   padding: 17px 0
+  transition: .3s ease
   &-logo
+    &,&:after, img
+      transition: .3s ease
     img
-      +wh(34px,36px)
+      +w(34px)
   &-name
     +font(12px,$f_medium,$blue-text)
     +w(110px)
@@ -350,6 +360,11 @@ header
     div
       height: 1px
       background-color: $head-border-gray
+  &-scrolled
+    backdrop-filter: saturate(180%) blur(10px)
+    background-color: rgba(255,255,255,0.6)
+    .head
+      padding: 5px 0
 .participate
   padding: 8px 22px
   border-radius: 50px
@@ -378,52 +393,53 @@ header
   background-position: bottom
   background-size: 100% 90%
   background-repeat: no-repeat
+  margin-top: 74px
   &-anchor
     height: 250px
-.navigation
-  +w(100%)
-  background-color: #fff
-  display: flex
-  transition: .5s ease
-  transform: translateY(50px)
-  align-items: center
-  position: fixed
-  z-index: 99
-  bottom: 0
-  border-top: 1px solid $head-border-gray
-  &>li
-    +w(25%)
-  label,a
-    +dfc
-    height: 37px
-  svg
-    +wh(23px)
-    fill: #303030
-    opacity: 70%
-  img
-    +w(28px)
-    filter: grayscale(1)
-  label
-    +w(100%)
-    background-color: #fff
-    transition: .35s ease
-  ul
-    +w(25%)
-    position: absolute
-    z-index: -1
-    transition: .35s
-    transform: translateY(106px)
-    bottom: 38px
-    li
-      border: 1px solid $head-border-gray
-      background-color: #fff
-      margin-bottom: -1px
-      &:first-child
-        border-top-right-radius: 10px
-        border-top-left-radius: 10px
-    a
-      +font(13px,$f_medium,#6e6e6e)
-      padding: 8px 0
+//.navigation
+//  +w(100%)
+//  background-color: #fff
+//  display: flex
+//  transition: .5s ease
+//  transform: translateY(50px)
+//  align-items: center
+//  position: fixed
+//  z-index: 99
+//  bottom: 0
+//  border-top: 1px solid $head-border-gray
+//  &>li
+//    +w(25%)
+//  label,a
+//    +dfc
+//    height: 37px
+//  svg
+//    +wh(23px)
+//    fill: #303030
+//    opacity: 70%
+//  img
+//    +w(28px)
+//    filter: grayscale(1)
+//  label
+//    +w(100%)
+//    background-color: #fff
+//    transition: .35s ease
+//  ul
+//    +w(25%)
+//    position: absolute
+//    z-index: -1
+//    transition: .35s
+//    transform: translateY(106px)
+//    bottom: 38px
+//    li
+//      border: 1px solid $head-border-gray
+//      background-color: #fff
+//      margin-bottom: -1px
+//      &:first-child
+//        border-top-right-radius: 10px
+//        border-top-left-radius: 10px
+//    a
+//      +font(13px,$f_medium,#6e6e6e)
+//      padding: 8px 0
 .mob-scroll
   transform: translateY(0)
 .mainview
@@ -452,7 +468,7 @@ header
     flex-direction: column
     color: #fff
     font-size: 14px
-    bottom: 45px
+    bottom: 50px
     z-index: 99
     transition: .35s ease
     img
@@ -561,7 +577,6 @@ header
   height: 1126px
   padding-top: 37px
   margin: 1px 0
-  background-size: cover
   background-position: bottom
   .section
     padding: 0 10px

@@ -13,13 +13,12 @@ function changeBGC() {
         let cls = el.getAttribute('data-class'),
             clsBgc = el.getAttribute('data-change');
         if(el.classList.contains(clsBgc)){
-            el.classList.add(cls);
             el.classList.remove(clsBgc);
+            el.classList.add(cls);
         }
         else{
+            el.classList.remove(cls);
             el.classList.add(clsBgc);
-            el.classList.remove(cls)
-
         }
     })
 }
@@ -52,39 +51,32 @@ window.addEventListener('scroll', function(e) {
                 scrollS.classList.remove('scrolled-hide')
             }
         }
-    }
-    if(!header.classList.contains('display-none')){
         let headerHeight = header.getClientRects()[0].height;
-        if(scrolled<headerHeight){
-            if(document.getElementById('participate')){
-                part.classList.remove('scrolled-hide');
-            }
-            navBar.classList.remove('mob-scroll');
-        }
-        if(scrolled>=headerHeight){
-            if (document.getElementById('participate')) {
-                if(!part.classList.contains('scrolled-hide')) {
-                    part.classList.add('scrolled-hide');
-                    requestAnimationFrame(function () {
-                        //* -- Анимация пунктов меню--*//
-                        let tl = new TimelineMax();
-                        tl.add(TweenMax.staggerFromTo('.navigation>li',0.8,
-                            {y:'33px',scale:0,ease: "back.out(1.7)",},
-                            {y:0,scale:1,ease: "back.out(1.7)"},.2));
-                        tl.add(TweenMax.to('.navigation>li:last-child svg',0.8,
-                            {fill:'#0071E3'}));
-                        //* -- Анимация пунктов меню конец--*//
-                    });
-                }
-            }
-            if(!navBar.classList.contains('mob-scroll')){navBar.classList.add('mob-scroll');}
-        }
-    }
-    if(!scrolled){
-        header.classList.remove('head-scrolled');
-    }
-    if(scrolled){
-        if(!header.classList.contains('head-scrolled')){header.classList.add('head-scrolled');}
+        if(scrolled<headerHeight) {
+            header.classList.remove('head-scrolled');
+        } else if (!header.classList.contains('head-scrolled')){header.classList.add('head-scrolled');}
+        //     if(document.getElementById('participate')){
+        //         part.classList.remove('scrolled-hide');
+        //     }
+        //     navBar.classList.remove('mob-scroll');
+        // }
+        // if(scrolled>=headerHeight){
+        //     if (document.getElementById('participate')) {
+        //         if(!part.classList.contains('scrolled-hide')) {
+        //             part.classList.add('scrolled-hide');
+        //             requestAnimationFrame(function () {
+        //                 //* -- Анимация пунктов меню--*//
+        //                 let tl = new TimelineMax();
+        //                 tl.add(TweenMax.staggerFromTo('.navigation>li',0.8,
+        //                     {y:'33px',scale:0,ease: "back.out(1.7)",},
+        //                     {y:0,scale:1,ease: "back.out(1.7)"},.2));
+        //                 tl.add(TweenMax.to('.navigation>li:last-child svg',0.8,
+        //                     {fill:'#0071E3'}));
+        //                 //* -- Анимация пунктов меню конец--*//
+        //             });
+        //         }
+        //     }
+        //     if(!navBar.classList.contains('mob-scroll')){navBar.classList.add('mob-scroll');}
     }
 });
 
@@ -106,7 +98,8 @@ let regSub = document.getElementById('registration-sub'),
     privSuccess = document.querySelector('.priv-success');
 //* -- Форма входа --*//
 let loginHead = document.getElementById('loginHead'),
-    loginHeadNav = document.getElementById('loginHeadNav'),
+    loginReg = document.getElementById('#loginReg'),
+//    loginHeadNav = document.getElementById('loginHeadNav'),
     forgotBut = document.getElementById('reg-login-forgot'),
     forgotSub = document.getElementById('forgotPassword'),
     regForgot = document.querySelector('.reg-forgot'),
@@ -165,7 +158,6 @@ regBut.forEach(function (el) {
         }
     }
 });
-
 regSub.onclick = function () {
     regFirstPage.classList.add('display-none');
     regSecondPage.classList.remove('display-none');
@@ -178,9 +170,19 @@ regPassSub.onclick = function () {
 //* -- Форма регистрации Конец --*//
 
 //* -- Форма входа --*//
-loginHead.onclick = loginHeadNav.onclick = function () {
-    formShow(regEnter)
-};
+if(loginHead){
+    loginHead.onclick = function () {
+        formShow(regEnter)
+    };
+}
+
+if(loginReg){
+    loginReg.onclick = function () {
+        console.log('test');
+        close();
+        formShow(reg);
+    };
+}
 forgotBut.onclick = function(){
     regEnter.classList.add('display-none');
     regForgot.classList.remove('display-none');

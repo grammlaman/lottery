@@ -4,10 +4,6 @@
   display: flex
 .mob-only
   display: none
-header
-  position: fixed
-  z-index: 99
-  background-color: #fff
 .head
   justify-content: flex-start
   &-logo
@@ -21,26 +17,41 @@ header
       background-color: $head-border-gray
       margin-left: 30px
     img
-      +wh(54px,57px)
+      +w(54px)
   &-name
-    margin-right: auto
     +w(160px)
     font-size: 18px
-  &-language
-    &-select
-      margin: 10px
+    color: #000
+    margin-right: auto
   &-button
     padding: 11px 14px
+    margin-right: 10px
+    transition: .3s ease
     span
       font-size: 15px
   .participate
     border: 1px solid $button-color
     padding: 10px 32px
     margin-right: 40px
+    transition: .3s ease
     span
       font-size: 15px
   &-scrolled
-    position: fixed
+    .head
+      &-logo
+        margin-right: 44px
+        &,&:after
+          transform: translateX(7px)
+        &:after
+          height: 30px
+        img
+          +w(40px)
+      &-button
+        padding: 5px 14px
+      &-underline
+        padding: 0
+      .participate
+        padding: 6px 32px
 .privacy
   h3
     font-size: 24px
@@ -166,10 +177,11 @@ header
 .main-method,.aff-method,.con-method,.ref-method
   padding-top: 150px
 .page-select
-  +w(75px)
+  +w(81px)
 .main
   background-image: url('../img/mainview-large.jpg')
   height: 210vh
+  margin-top: 0
 .mainview
   &-cont
     height: 90vh
