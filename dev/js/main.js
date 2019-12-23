@@ -236,3 +236,45 @@ conPartnerBut.forEach(function (el) {
         conPartnerForm.classList.remove('display-none');
     };
 });
+
+let random = document.querySelector('.count-random');
+function getRandomInt() {
+    let res = Math.round(Math.random() * 100000);
+    if(res > 9999){res = '0' + res;}
+    else if(res > 999){res = '00' + res;}
+    else if(res > 99){res = '000' + res;}
+    else if(res > 9){res = '0000' + res;}
+    else {res = '00000' + res;}
+    return res;}
+if(random){setInterval('random.textContent = getRandomInt()',500);}
+
+
+let countHour = document.querySelector('.count-span-hour');
+let countMin = document.querySelector('.count-span-minute');
+let countSec = document.querySelector('.count-span-second');
+if(countSec){
+    function CountSec(sec,min,hour) {
+        let content = parseInt(sec.textContent);
+        if (content != 0){
+            content -= 1;
+            if(content < 10){
+                content = '0' + content;
+            }
+        } else {
+            content = 59;
+            CountSec(sec,min,hour);
+            min.textContent -= 1;
+            if(min.textContent < 10){
+                min.textContent = '0' + min.textContent;
+            }
+            if(min.textContent*1<0){
+                min.textContent = 59;
+                hour.textContent -= 1;
+            }
+        }
+    }
+    setInterval('CountSec(countSec,countMin,countHour)',1000);
+}
+
+
+

@@ -5,6 +5,366 @@ a
   +w($mobile#{$unit})
   margin: 0 auto
   padding: 0 5px
+header
+  +w(100%)
+  position: fixed
+  z-index: 99
+  top: 0
+  transition: .3s
+.head
+  display: flex
+  align-items: center
+  justify-content: space-evenly
+  padding: 17px 0
+  transition: .3s ease
+  &-logo
+    &,&:after, img
+      transition: .3s ease
+    img
+      +w(34px)
+  &-name
+    +font(12px,$f_medium,$blue-text)
+    +w(110px)
+  &-button
+    border: 1px solid $head-border-gray
+    border-radius: 10px
+    padding: 8px 15px
+    min-height: 33px
+    display: flex
+    align-items: center
+    background-color: rgba(255,255,255,0.7)
+    &>span:first-child
+      margin-right: 9px
+    span
+      +font(13px,$f_medium,$head-dark-gray)
+  &-login
+    &>span:first-child
+      display: none
+    &-lock
+      display: flex
+      flex-direction: column
+      align-items: center
+      opacity: 50%
+      span
+        display: block
+        &:first-child
+          +wh(8px,10px)
+          border: 2px solid $gray-text
+          border-radius: 4px
+        &:last-child
+          +wh(10px,7px)
+          background-color: $gray-text
+          margin-top: -4px
+  &-language
+    display: flex
+    flex-direction: column
+    &-arrow
+      +w(7px)
+      display: flex
+      justify-content: space-between
+      opacity: 50%
+      span
+        +wh(1px,8px)
+        display: block
+        border: 1px solid $gray-text
+        border-radius: 1px
+        transform: rotate(-45deg)
+        &:last-child
+          transform: rotate(45deg)
+    &-select
+      & *
+        transition: .35s ease
+      &.open
+        .page-select-body
+          opacity: 1
+          visibility: visible
+        .head-button
+          border-bottom-right-radius: 0
+          border-bottom-left-radius: 0
+        .head-language-arrow
+          span
+            transform: rotate(45deg)
+            &:last-child
+              transform: rotate(-45deg)
+  &-underline
+    padding: 0 20px
+    div
+      height: 1px
+      background-color: $head-border-gray
+  &-scrolled
+    backdrop-filter: saturate(180%) blur(10px)
+    background-color: rgba(255,255,255,0.6)
+    .head
+      padding: 5px 0
+.participate
+  padding: 8px 22px
+  border-radius: 50px
+  background-color: $button-color
+  span
+    +font(13px,$f_medium,#fff)
+.page-select
+  +w(70px)
+  position: relative
+  &-body
+    opacity: 0
+    visibility: hidden
+    +w(100%)
+    position: absolute
+    z-index: 99
+    .head-button
+      border-radius: 0
+      border-top: none
+      background-color: #fff
+      &:last-child
+        border-bottom-right-radius: 10px
+        border-bottom-left-radius: 10px
+.main
+  background-image: url("../img/mainview-mob.jpg")
+  background-position: bottom
+  background-size: 100% 90%
+  background-repeat: no-repeat
+  margin-top: 74px
+  &-anchor
+    margin-top: -150px
+    margin-bottom: 150px
+.mainview
+  &-cont
+    //height: calc(50vh - 146px)
+    height: 50vh
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: flex-end
+    text-align: center
+    position: relative
+  &-logo
+    +w(80px)
+  h1
+    span
+      font-family: $f-semi
+      color: $dark-blue-text
+      &:first-child
+        font-size: 30px
+        display: block
+      &:last-child
+        font-size: 20px
+  &-scroll
+    display: flex
+    align-items: center
+    flex-direction: column
+    color: #fff
+    font-size: 14px
+    bottom: 50px
+    z-index: 99
+    transition: .35s ease
+    img
+      margin-top: 6px
+  .participate
+    transform: translateY(0)
+    transition: .35s ease
+    position: fixed
+    z-index: 99
+    bottom: 10px
+  &-second
+    height: 100vh
+    justify-content: center
+  h2
+    span
+      +font(24px,$f_medium,#fff)
+      display: block
+  &-video
+    display: flex
+    align-items: center
+    color: #fff
+    margin-top: 15px
+    span
+      font-family: $f_medium
+      font-size: 18px
+      margin-right: 10px
+      text-decoration: underline
+.mob-scroll
+  transform: translateY(0)
+.program
+  &-text
+    p
+      font-family: $f_medium
+      font-size: 16px
+      line-height: 26px
+  &-steps
+    margin-top: 25px
+    h5,h6
+      color: $gray-text
+      font-family: $f_light
+    h5
+      font-size: 18px
+    h6
+      font-size: 12px
+      margin-top: 20px
+    span
+      font-family: $f_medium
+      font-size: 18px
+  &-cont
+    padding: 40px 0
+.count
+  padding-top: 30px
+  &,&-cont
+    display: flex
+    align-items: center
+    flex-direction: column
+  h3
+    +font(30px,$f_semi)
+    text-align: center
+  &-row
+    padding: 10px 0 50px
+    display: flex
+    align-items: flex-start
+    justify-content: center
+  &-cont:first-child
+    margin-right: 50px
+  &-span
+    +font(18px,$f_semi)
+    +w(70px)
+  &-desc
+    +font(12px,$f_reg)
+    display: flex
+    flex-direction: column
+    align-items: center
+    opacity: .8
+.underline
+  padding: 0 20px
+  div
+    height: 1px
+    background-color: $head-border-gray
+.statistic
+  padding: 30px 0 50px
+  &-cont
+    display: flex
+    flex-direction: column
+    align-items: center
+  h2
+    font-family: $f_semi
+    font-size: 30px
+  &-slider
+    +w(300px)
+    overflow: hidden
+    margin: auto
+    &-cont
+      transition: .35s ease
+      display: flex
+      &-label
+        +w(64px)
+        margin: 30px auto 0
+        display: flex
+        align-items: center
+        label
+          +wh(6px)
+          display: block
+          margin: 0 5px
+          border: 1px solid $head-border-gray
+          border-radius: 100%
+  &-slide
+    display: flex
+    flex-direction: column
+    align-items: center
+    position: relative
+    flex: 0 0 300px
+    &>span:first-child
+      +font(50px,$f_thin)
+      margin-bottom: -5px
+    &>span:last-child
+      +font(16px,$f_medium,#000)
+      opacity: 30%
+    &-i
+      +wh(16px)
+      +dfc
+      border-radius: 100%
+      border: 1px solid #E0E0E0
+      position: absolute
+      top: 10px
+      right: 110px
+      span
+        +font(11px,$f_georgia,#000)
+        opacity: 30%
+.typycal
+  transition: 1.5s ease
+  height: 1126px
+  padding-top: 37px
+  margin: 1px 0
+  background-size: cover
+  background-position: bottom
+  .section
+    padding: 0 10px
+  &-cont
+    h2
+      position: relative
+      font-family: $f_medium
+      font-size: 30px
+      span
+        position: absolute
+        top: 0
+        left: -15px
+    &-text
+      margin-top: 15px
+      &>p
+        font-family: $f_reg
+        line-height: 22px
+  &-right
+    div
+      margin-top: 30px
+      display: flex
+      align-items: flex-start
+    p
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      margin-top: -8px
+      margin-left: 8px
+      span:first-child
+        font-size: 40px
+        font-family: $f_thin
+      span:last-child
+        +w(200px)
+        opacity: 70%
+        font-size: 16px
+  svg
+    fill: #6e6e6e
+    opacity: 70%
+  p,span,h2
+    text-shadow: 0 0 4px #fff
+.eat,.eatBgc
+  h2
+    +w(200px)
+.toBe,.every,.everyBgc,.alwaysBgc,.weather,.ideal
+  svg
+    fill: #fff
+  span,p,h2
+    color: #fff
+    text-shadow: none
+.nature,.natureBgc
+  p span:first-child
+    display: flex
+    align-items: flex-start
+    strong
+      font-size: 24px
+
+.last-block
+  padding-top: 34px
+  padding-bottom: 20px
+  span
+    color: #838383
+    position: absolute
+    top: 2px
+    left: -10px
+  .underline
+    padding: 25px 20px
+  p
+    position: relative
+    font-size: 11px
+    line-height: 16px
+    color: #838383
+
+
+
 .youtube
   +wh(100%,100vh)
   +dfc
@@ -274,414 +634,6 @@ a
   .reg-block-title
     span
       display: block
-header
-  +w(100%)
-  position: fixed
-  z-index: 99
-  top: 0
-  transition: .3s
-.head
-  display: flex
-  align-items: center
-  justify-content: space-evenly
-  padding: 17px 0
-  transition: .3s ease
-  &-logo
-    &,&:after, img
-      transition: .3s ease
-    img
-      +w(34px)
-  &-name
-    +font(12px,$f_medium,$blue-text)
-    +w(110px)
-  &-button
-    border: 1px solid $head-border-gray
-    border-radius: 10px
-    padding: 8px 15px
-    min-height: 33px
-    display: flex
-    align-items: center
-    background-color: rgba(255,255,255,0.7)
-    &>span:first-child
-      margin-right: 9px
-    span
-      +font(13px,$f_medium,$head-dark-gray)
-  &-login
-    &>span:first-child
-      display: none
-    &-lock
-      display: flex
-      flex-direction: column
-      align-items: center
-      opacity: 50%
-      span
-        display: block
-        &:first-child
-          +wh(8px,10px)
-          border: 2px solid $gray-text
-          border-radius: 4px
-        &:last-child
-          +wh(10px,7px)
-          background-color: $gray-text
-          margin-top: -4px
-  &-language
-    display: flex
-    flex-direction: column
-    &-arrow
-      +w(7px)
-      display: flex
-      justify-content: space-between
-      opacity: 50%
-      span
-        +wh(1px,8px)
-        display: block
-        border: 1px solid $gray-text
-        border-radius: 1px
-        transform: rotate(-45deg)
-        &:last-child
-          transform: rotate(45deg)
-    &-select
-      & *
-        transition: .35s ease
-      &.open
-        .page-select-body
-          opacity: 1
-          visibility: visible
-        .head-button
-          border-bottom-right-radius: 0
-          border-bottom-left-radius: 0
-        .head-language-arrow
-          span
-            transform: rotate(45deg)
-            &:last-child
-              transform: rotate(-45deg)
-  &-underline
-    padding: 0 20px
-    div
-      height: 1px
-      background-color: $head-border-gray
-  &-scrolled
-    backdrop-filter: saturate(180%) blur(10px)
-    background-color: rgba(255,255,255,0.6)
-    .head
-      padding: 5px 0
-.participate
-  padding: 8px 22px
-  border-radius: 50px
-  background-color: $button-color
-  span
-    +font(13px,$f_medium,#fff)
-.page-select
-  +w(70px)
-  position: relative
-  &-body
-    opacity: 0
-    visibility: hidden
-    +w(100%)
-    position: absolute
-    z-index: 99
-    .head-button
-      border-radius: 0
-      border-top: none
-      background-color: #fff
-      &:last-child
-        border-bottom-right-radius: 10px
-        border-bottom-left-radius: 10px
-.main
-  height: 210vh
-  background-image: url("../img/mainview-mob.jpg")
-  background-position: bottom
-  background-size: 100% 90%
-  background-repeat: no-repeat
-  margin-top: 74px
-  &-anchor
-    height: 250px
-//.navigation
-//  +w(100%)
-//  background-color: #fff
-//  display: flex
-//  transition: .5s ease
-//  transform: translateY(50px)
-//  align-items: center
-//  position: fixed
-//  z-index: 99
-//  bottom: 0
-//  border-top: 1px solid $head-border-gray
-//  &>li
-//    +w(25%)
-//  label,a
-//    +dfc
-//    height: 37px
-//  svg
-//    +wh(23px)
-//    fill: #303030
-//    opacity: 70%
-//  img
-//    +w(28px)
-//    filter: grayscale(1)
-//  label
-//    +w(100%)
-//    background-color: #fff
-//    transition: .35s ease
-//  ul
-//    +w(25%)
-//    position: absolute
-//    z-index: -1
-//    transition: .35s
-//    transform: translateY(106px)
-//    bottom: 38px
-//    li
-//      border: 1px solid $head-border-gray
-//      background-color: #fff
-//      margin-bottom: -1px
-//      &:first-child
-//        border-top-right-radius: 10px
-//        border-top-left-radius: 10px
-//    a
-//      +font(13px,$f_medium,#6e6e6e)
-//      padding: 8px 0
-.mob-scroll
-  transform: translateY(0)
-.mainview
-  &-cont
-    height: calc(100vh - 146px)
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
-    text-align: center
-    position: relative
-  &-logo
-    +w(80px)
-  h1
-    span
-      font-family: $f-semi
-      color: $dark-blue-text
-      &:first-child
-        font-size: 30px
-        display: block
-      &:last-child
-        font-size: 20px
-  &-scroll
-    display: flex
-    align-items: center
-    flex-direction: column
-    color: #fff
-    font-size: 14px
-    bottom: 50px
-    z-index: 99
-    transition: .35s ease
-    img
-      margin-top: 6px
-  .participate
-    transform: translateY(0)
-    transition: .35s ease
-    position: fixed
-    z-index: 99
-    bottom: 10px
-  &-second
-    height: 100vh
-    justify-content: center
-  h2
-    span
-      +font(24px,$f_medium,#fff)
-      display: block
-  &-video
-    display: flex
-    align-items: center
-    color: #fff
-    margin-top: 15px
-    span
-      font-family: $f_medium
-      font-size: 18px
-      margin-right: 10px
-      text-decoration: underline
-.program
-  &-text
-    p
-      font-family: $f_medium
-      font-size: 16px
-      line-height: 26px
-  &-steps
-    margin-top: 25px
-    h5,h6
-      color: $gray-text
-      font-family: $f_light
-    h5
-      font-size: 18px
-    h6
-      font-size: 12px
-      margin-top: 20px
-    span
-      font-family: $f_medium
-      font-size: 18px
-  &-cont
-    padding: 40px 0
-.underline
-  padding: 0 20px
-  div
-    height: 1px
-    background-color: $head-border-gray
-.statistic
-  padding: 30px 0 50px
-  &-cont
-    display: flex
-    flex-direction: column
-    align-items: center
-  h2
-    font-family: $f_semi
-    font-size: 30px
-  &-slider
-    +w(300px)
-    overflow: hidden
-    margin: auto
-    &-cont
-      transition: .35s ease
-      display: flex
-      &-label
-        +w(64px)
-        margin: 30px auto 0
-        display: flex
-        align-items: center
-        label
-          +wh(6px)
-          display: block
-          margin: 0 5px
-          border: 1px solid $head-border-gray
-          border-radius: 100%
-  &-slide
-    display: flex
-    flex-direction: column
-    align-items: center
-    position: relative
-    flex: 0 0 300px
-    &>span:first-child
-      +font(50px,$f_thin)
-      margin-bottom: -5px
-    &>span:last-child
-      +font(16px,$f_medium,#000)
-      opacity: 30%
-    &-i
-      +wh(16px)
-      +dfc
-      border-radius: 100%
-      border: 1px solid #E0E0E0
-      position: absolute
-      top: 10px
-      right: 110px
-      span
-        +font(11px,$f_georgia,#000)
-        opacity: 30%
-.typycal
-  transition: 1.5s ease
-  height: 1126px
-  padding-top: 37px
-  margin: 1px 0
-  background-position: bottom
-  .section
-    padding: 0 10px
-  &-cont
-    h2
-      position: relative
-      font-family: $f_medium
-      font-size: 30px
-      span
-        position: absolute
-        top: 0
-        left: -15px
-    &-text
-      margin-top: 15px
-      &>p
-        font-family: $f_reg
-        line-height: 22px
-  &-right
-    div
-      margin-top: 30px
-      display: flex
-      align-items: flex-start
-    p
-      display: flex
-      flex-direction: column
-      align-items: flex-start
-      margin-top: -8px
-      margin-left: 8px
-      span:first-child
-        font-size: 40px
-        font-family: $f_thin
-      span:last-child
-        +w(200px)
-        opacity: 70%
-        font-size: 16px
-  svg
-    fill: #6e6e6e
-    opacity: 70%
-.always
-  background-image: url('../img/always-mob.jpg')
-.alwaysBgc
-  background-image: url('../img/always-change-mob.jpg')
-.every
-  background-image: url('../img/red-girl-mob.jpg')
-.everyBgc
-  background-image: url('../img/china-girl-mob.jpg')
-.equal
-  background-image: url('../img/flag-mob.jpg')
-.equalBgc
-  background-image: url('../img/freedom-mob.jpg')
-.toBeBgc
-  background-image: url('../img/singer1-mob.jpg')
-.toBe
-  background-image: url('../img/singer-mob.jpg')
-.weather
-  background-image: url('../img/weather-mob.jpg')
-.weatherBgc
-  background-image: url('../img/weather-snow-mob.jpg')
-.nature
-  background-image: url('../img/nature-mob.jpg')
-.natureBgc
-  background-image: url('../img/nature-change-mob.jpg')
-.eat
-  background-image: url('../img/eat-mob.jpg')
-.eatBgc
-  background-image: url('../img/eat-change-mob.jpg')
-.ideal
-  background-image: url('../img/ideal-mob.jpg')
-.idealBgc
-  background-image: url('../img/ideal-change-mob.jpg')
-.eat,.eatBgc
-  h2
-    +w(200px)
-.toBe,.every,.everyBgc,.alwaysBgc,.weather,.ideal
-  svg
-    fill: #fff
-  span,p,h2
-    color: #fff
-    text-shadow: none
-.nature,.natureBgc
-  p span:first-child
-    display: flex
-    align-items: flex-start
-    strong
-      font-size: 24px
-
-.last-block
-  padding-top: 34px
-  padding-bottom: 20px
-  span
-    color: #838383
-    position: absolute
-    top: 2px
-    left: -10px
-  .underline
-    padding: 25px 20px
-  p
-    position: relative
-    font-size: 11px
-    line-height: 16px
-    color: #838383
-
-
-
-
 
 
 .foot
@@ -799,3 +751,80 @@ header
   background-color: #D8F3E6
   &>span:first-child span
     +wh(9px)
+
+.always
+  background-image: url('../img/always-mob.jpg')
+.alwaysBgc
+  background-image: url('../img/always-change-mob.jpg')
+.every
+  background-image: url('../img/red-girl-mob.jpg')
+.everyBgc
+  background-image: url('../img/china-girl-mob.jpg')
+.equal
+  background-image: url('../img/flag-mob.jpg')
+.equalBgc
+  background-image: url('../img/freedom-mob.jpg')
+.toBeBgc
+  background-image: url('../img/singer1-mob.jpg')
+.toBe
+  background-image: url('../img/singer-mob.jpg')
+.weather
+  background-image: url('../img/weather-mob.jpg')
+.weatherBgc
+  background-image: url('../img/weather-snow-mob.jpg')
+.nature
+  background-image: url('../img/nature-mob.jpg')
+.natureBgc
+  background-image: url('../img/nature-change-mob.jpg')
+.eat
+  background-image: url('../img/eat-mob.jpg')
+.eatBgc
+  background-image: url('../img/eat-change-mob.jpg')
+.ideal
+  background-image: url('../img/ideal-mob.jpg')
+.idealBgc
+  background-image: url('../img/ideal-change-mob.jpg')
+//.navigation
+//  +w(100%)
+//  background-color: #fff
+//  display: flex
+//  transition: .5s ease
+//  transform: translateY(50px)
+//  align-items: center
+//  position: fixed
+//  z-index: 99
+//  bottom: 0
+//  border-top: 1px solid $head-border-gray
+//  &>li
+//    +w(25%)
+//  label,a
+//    +dfc
+//    height: 37px
+//  svg
+//    +wh(23px)
+//    fill: #303030
+//    opacity: 70%
+//  img
+//    +w(28px)
+//    filter: grayscale(1)
+//  label
+//    +w(100%)
+//    background-color: #fff
+//    transition: .35s ease
+//  ul
+//    +w(25%)
+//    position: absolute
+//    z-index: -1
+//    transition: .35s
+//    transform: translateY(106px)
+//    bottom: 38px
+//    li
+//      border: 1px solid $head-border-gray
+//      background-color: #fff
+//      margin-bottom: -1px
+//      &:first-child
+//        border-top-right-radius: 10px
+//        border-top-left-radius: 10px
+//    a
+//      +font(13px,$f_medium,#6e6e6e)
+//      padding: 8px 0

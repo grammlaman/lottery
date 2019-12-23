@@ -179,26 +179,19 @@
 .page-select
   +w(81px)
 .main
+  margin-top: 91px
   background-image: url('../img/mainview-large.jpg')
-  height: 210vh
-  margin-top: 0
+  &-anchor
+    margin-top: -250px
+    margin-bottom: 250px
 .mainview
-  &-cont
-    height: 90vh
-  &-logo
-    margin-top: 10vh
   &-scroll
     bottom: 30px
   h1
     span:first-child
       font-size: 70px
-    span:last-child
+  h2 span,h1 span:last-child
       font-size: 50px
-  h2
-    span
-      font-size: 50px
-  &-video
-    margin-top: 25px
 .program
   &-cont
     display: flex
@@ -249,6 +242,48 @@
       margin-top: 0
     p span:last-child
       width: 240px
+.last-block
+  .underline
+    +w(100%)
+    padding: 30px 0
+
+.count
+  &-row
+    padding-top: 20px
+  &-span
+    +w(100px)
+    font-size: 24px
+  &-desc
+    font-size: 16px
+
+.foot
+  padding: 0 0 50px
+  &-privacy
+    order: 4
+    margin-top: 0
+    display: flex
+    align-items: center
+    &:before
+      +wh(1px,50px)
+      display: table
+      content: ''
+      background-color: $head-border-gray
+      margin: 0 30px
+  &-name
+    width: 310px
+    flex: 0 0 310px
+  &-copy
+    order: 5
+    width: 410px
+    flex: 0 0 410px
+  &-order-6
+    display: none
+  &-tel
+    order: 6
+  &-order-8
+    order: 7
+
+
 .always
   background-image: url('../img/always-large.jpg')
 .alwaysBgc
@@ -281,33 +316,3 @@
   background-image: url('../img/ideal-large.jpg')
 .idealBgc
   background-image: url('../img/ideal-change-large.jpg')
-.last-block
-  .underline
-    +w(100%)
-    padding: 30px 0
-.foot
-  padding: 0 0 50px
-  &-privacy
-    order: 4
-    margin-top: 0
-    display: flex
-    align-items: center
-    &:before
-      +wh(1px,50px)
-      display: table
-      content: ''
-      background-color: $head-border-gray
-      margin: 0 30px
-  &-name
-    width: 310px
-    flex: 0 0 310px
-  &-copy
-    order: 5
-    width: 410px
-    flex: 0 0 410px
-  &-order-6
-    display: none
-  &-tel
-    order: 6
-  &-order-8
-    order: 7
