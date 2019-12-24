@@ -54,6 +54,9 @@
 .typycal
   padding-top: 120px
   background-position: center
+  &-section
+    +w(850px)
+    top: 70px
   &-right
     margin-left: 70px
     p
@@ -69,35 +72,33 @@
       flex: 0 0 460px
     h2
       margin-bottom: 50px
-.every,.everyBgc,.toBeBgc,.toBe,.nature,.natureBgc,.eat,.eatBgc
-  .section
-    position: relative
-  .typycal-cont
-    +w(500px)
-    margin-left: auto
+  &-position
+    .typycal-cont
+      +w(500px)
+      margin-left: auto
+      h2
+        +w(inherit)
+      .typycal-right
+        position: absolute
+        left: 0
+        margin-left: 0
+  &-every
+    .typycal-cont
+      .typycal-right
+        left: 340px
+        top: 510px
+  &-tobe,&-eat,&-nature
+   .typycal-cont-text>p
+     order: 1
+  &-eat
     h2
-      +w(inherit)
-    .typycal-right
-      position: absolute
-      left: 0
-      margin-left: 0
-.every,.everyBgc
-  .typycal-cont
-    .typycal-right
-      left: 340px
-      bottom: -280px
-.toBe,.toBeBgc,.eat,.eatBgc,.nature,.natureBgc
- .typycal-cont-text>p
-   order: 1
-.eat,.eatBgc
-  h2
-    +w(360px)
-.nature,.natureBgc
-  h2
-    +w(450px)
-.always,.alwaysBgc
-  h2 strong
-    display: block
+      +w(360px)
+  &-nature
+    h2
+      +w(450px)
+  &-always
+    h2 strong
+      display: block
 .last-block
   padding-top: 74px
 

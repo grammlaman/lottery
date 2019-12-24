@@ -5,7 +5,7 @@ pageSelect.onclick = function() {
 let fixed = document.querySelector('.mob-fixed');
 
 window.onload = function () {
-    setInterval('changeBGC()',10000);
+    setInterval('changeBGC()',5000);
 };
 function changeBGC() {
     let arr = document.querySelectorAll('.typycal');
@@ -15,10 +15,20 @@ function changeBGC() {
         if(el.classList.contains(clsBgc)){
             el.classList.remove(clsBgc);
             el.classList.add(cls);
+            let elArr = el.querySelector('.typycal-one');
+            elArr.style.animation = 'fade-zoom-in-image 3s forwards cubic-bezier(0.645, 0.045, 0.355, 1)';
+            setTimeout(function () {
+                elArr.style.animation = '';
+            }, 3000)
         }
         else{
             el.classList.remove(cls);
             el.classList.add(clsBgc);
+            let elArr = el.querySelector('.typycal-two');
+            elArr.style.animation = 'fade-zoom-in-image 3s forwards cubic-bezier(0.645, 0.045, 0.355, 1)';
+            setTimeout(function () {
+                elArr.style.animation = '';
+            }, 3000)
         }
     })
 }
@@ -98,7 +108,7 @@ let regSub = document.getElementById('registration-sub'),
     privSuccess = document.querySelector('.priv-success');
 //* -- Форма входа --*//
 let loginHead = document.getElementById('loginHead'),
-    loginReg = document.getElementById('#loginReg'),
+    loginReg = document.getElementById('loginReg'),
 //    loginHeadNav = document.getElementById('loginHeadNav'),
     forgotBut = document.getElementById('reg-login-forgot'),
     forgotSub = document.getElementById('forgotPassword'),
@@ -178,9 +188,9 @@ if(loginHead){
 
 if(loginReg){
     loginReg.onclick = function () {
-        console.log('test');
         close();
         formShow(reg);
+        regFirstPage.classList.remove('display-none');
     };
 }
 forgotBut.onclick = function(){
@@ -237,6 +247,7 @@ conPartnerBut.forEach(function (el) {
     };
 });
 
+//* -- Рандомайзер --*//
 let random = document.querySelector('.count-random');
 function getRandomInt() {
     let res = Math.round(Math.random() * 100000);
@@ -247,27 +258,24 @@ function getRandomInt() {
     else {res = '00000' + res;}
     return res;}
 if(random){setInterval('random.textContent = getRandomInt()',500);}
-
-
+//* -- Отсчет --*//
 let countHour = document.querySelector('.count-span-hour');
 let countMin = document.querySelector('.count-span-minute');
 let countSec = document.querySelector('.count-span-second');
 if(countSec){
     function CountSec(sec,min,hour) {
-        let content = parseInt(sec.textContent);
-        if (content != 0){
-            content -= 1;
-            if(content < 10){
-                content = '0' + content;
+        if (parseInt(sec.textContent) != 0){
+            sec.textContent -= 1;
+            if(sec.textContent < 10){
+                sec.textContent = '0' + sec.textContent;
             }
         } else {
-            content = 59;
-            CountSec(sec,min,hour);
+            sec.textContent = 59;
             min.textContent -= 1;
-            if(min.textContent < 10){
+            if(parseInt(min.textContent) <= 9){
                 min.textContent = '0' + min.textContent;
             }
-            if(min.textContent*1<0){
+            if((min.textContent.length) == 3){
                 min.textContent = 59;
                 hour.textContent -= 1;
             }
@@ -275,6 +283,6 @@ if(countSec){
     }
     setInterval('CountSec(countSec,countMin,countHour)',1000);
 }
-
+//* -- Отсчет конец --*//
 
 
