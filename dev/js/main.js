@@ -5,7 +5,7 @@ pageSelect.onclick = function() {
 let fixed = document.querySelector('.mob-fixed');
 
 window.onload = function () {
-    setInterval('changeBGC()',5000);
+    setInterval('changeBGC()',10000);
 };
 function changeBGC() {
     let arr = document.querySelectorAll('.typycal');
@@ -19,7 +19,7 @@ function changeBGC() {
             elArr.style.animation = 'fade-zoom-in-image 3s forwards cubic-bezier(0.645, 0.045, 0.355, 1)';
             setTimeout(function () {
                 elArr.style.animation = '';
-            }, 3000)
+            }, 3000);
         }
         else{
             el.classList.remove(cls);
@@ -65,28 +65,6 @@ window.addEventListener('scroll', function(e) {
         if(scrolled<headerHeight) {
             header.classList.remove('head-scrolled');
         } else if (!header.classList.contains('head-scrolled')){header.classList.add('head-scrolled');}
-        //     if(document.getElementById('participate')){
-        //         part.classList.remove('scrolled-hide');
-        //     }
-        //     navBar.classList.remove('mob-scroll');
-        // }
-        // if(scrolled>=headerHeight){
-        //     if (document.getElementById('participate')) {
-        //         if(!part.classList.contains('scrolled-hide')) {
-        //             part.classList.add('scrolled-hide');
-        //             requestAnimationFrame(function () {
-        //                 //* -- Анимация пунктов меню--*//
-        //                 let tl = new TimelineMax();
-        //                 tl.add(TweenMax.staggerFromTo('.navigation>li',0.8,
-        //                     {y:'33px',scale:0,ease: "back.out(1.7)",},
-        //                     {y:0,scale:1,ease: "back.out(1.7)"},.2));
-        //                 tl.add(TweenMax.to('.navigation>li:last-child svg',0.8,
-        //                     {fill:'#0071E3'}));
-        //                 //* -- Анимация пунктов меню конец--*//
-        //             });
-        //         }
-        //     }
-        //     if(!navBar.classList.contains('mob-scroll')){navBar.classList.add('mob-scroll');}
     }
 });
 
@@ -100,6 +78,9 @@ let priv = document.querySelector('.privacy');
 let privLink = document.querySelector('.foot-privacy');
 //* -- Форма регистрации --*//
 let reg = document.querySelector('.reg-form'),
+    terms = document.querySelector('.terms'),
+    termsSub = document.querySelector('#termsSubmit'),
+    termsDec = document.querySelector('#termsDecline'),
     regFirstPage = document.querySelector('.reg-first-page');
     regBut = document.querySelectorAll('.part');
 let regSecondPage = document.querySelector('.reg-second-page'),
@@ -108,7 +89,6 @@ let regSub = document.getElementById('registration-sub'),
     privSuccess = document.querySelector('.priv-success');
 //* -- Форма входа --*//
 let loginHead = document.getElementById('loginHead'),
-    loginReg = document.getElementById('loginReg'),
 //    loginHeadNav = document.getElementById('loginHeadNav'),
     forgotBut = document.getElementById('reg-login-forgot'),
     forgotSub = document.getElementById('forgotPassword'),
@@ -128,6 +108,7 @@ function close (){
     regForgot.classList.add('display-none');
     priv.classList.add('display-none');
     privSuccess.classList.add('display-none');
+    terms.classList.add('display-none');
     header.classList.remove('display-none');
     mainPage.classList.remove('display-none');
 }
@@ -163,11 +144,18 @@ privLink.onclick = function(){formShow(priv);};
 regBut.forEach(function (el) {
     if(el) {
         el.onclick = function () {
-            formShow(reg);
+            formShow(terms);
             regFirstPage.classList.remove('display-none');
         }
     }
 });
+termsSub.onclick = function(){
+  terms.classList.add('display-none');
+  reg.classList.remove('display-none');
+};
+termsDec.onclick = function(){
+    close();
+};
 regSub.onclick = function () {
     regFirstPage.classList.add('display-none');
     regSecondPage.classList.remove('display-none');
@@ -183,14 +171,6 @@ regPassSub.onclick = function () {
 if(loginHead){
     loginHead.onclick = function () {
         formShow(regEnter)
-    };
-}
-
-if(loginReg){
-    loginReg.onclick = function () {
-        close();
-        formShow(reg);
-        regFirstPage.classList.remove('display-none');
     };
 }
 forgotBut.onclick = function(){

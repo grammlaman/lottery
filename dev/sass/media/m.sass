@@ -298,6 +298,8 @@ header
   height: 1126px
   position: relative
   overflow: hidden
+  h2,p,span,svg
+    transition: 3s
   &-one
     z-index: 2
   &-two
@@ -316,7 +318,7 @@ header
     position: absolute
     top: 0
     background-size: cover
-    background-position: bottom
+    background-position: top
   &-section
     +wh(320px,100%)
     padding: 0 10px
@@ -331,6 +333,7 @@ header
       position: relative
       font-family: $f_medium
       font-size: 30px
+      transition: 2s
       span
         position: absolute
         top: 0
@@ -361,13 +364,12 @@ header
   svg
     fill: #303030
     opacity: 50%
-  &-every,&-tobe
+  &-every,&-tobe,&-ideal
     p,span,h2
       color: #fff
     svg
       fill: #fff
 .first,.second
-  transition: 1s ease
   span,p,h2
     color: #303030
   svg
@@ -736,6 +738,18 @@ header
     display: none
   &-fixed
     position: fixed
+.terms
+  padding-bottom: 0
+  .underline
+    margin-top: 20px
+  &-row
+    padding: 20px 0
+    button
+      margin: 20px 0
+      &:last-child
+        border-color: $head-gray
+        span:last-child
+          background-color: $head-gray
 .display-none
   display: none
 .scrolled-hide
