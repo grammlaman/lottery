@@ -158,7 +158,7 @@ regBut.forEach(function (el) {
 });
 termsSub.onclick = function(){
   terms.classList.add('display-none');
-  reg.classList.remove('display-none');
+  regForm.classList.remove('display-none');
 };
 termsDec.onclick = function(){
     close();
@@ -168,7 +168,7 @@ regSub.onclick = function () {
     regSecondPage.classList.remove('display-none');
 };
 regPassSub.onclick = function () {
-    reg.classList.add('display-none');
+    regForm.classList.add('display-none');
     regSecondPage.classList.add('display-none');
     privSuccess.classList.remove('display-none');
 };
