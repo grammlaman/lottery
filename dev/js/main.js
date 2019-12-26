@@ -74,10 +74,10 @@ let youBut = document.querySelector('.mainview-video'),
     youTube = document.querySelector('.youtube'),
     iframe = document.querySelector('iframe');
 //* -- Privacy Policy --*//
-let priv = document.querySelector('.privacy');
+let priv = document.querySelector('.privacy-page');
 let privLink = document.querySelector('.foot-privacy');
 //* -- Форма регистрации --*//
-let reg = document.querySelector('.reg-form'),
+let regForm = document.querySelector('.reg-form'),
     terms = document.querySelector('.terms'),
     termsSub = document.querySelector('#termsSubmit'),
     termsDec = document.querySelector('#termsDecline'),
@@ -94,6 +94,12 @@ let loginHead = document.getElementById('loginHead'),
     forgotSub = document.getElementById('forgotPassword'),
     regForgot = document.querySelector('.reg-forgot'),
     regEnter = document.querySelector('.reg-enter');
+//* -- Футер terms -- *//
+let footTerms = document.querySelector('.foot-terms'),
+    termsPage = document.querySelector('.terms-page');
+//* -- Кабинет выпадающий список -- *//
+let cabBut = document.querySelector('.head-user'),
+    cabList = document.querySelector('.cabinet-list');
 //* -- Кнопка закрытия -- *//
 let formClose = document.querySelectorAll('.close-form');
 
@@ -103,12 +109,13 @@ function close (){
         youTube.classList.add('display-none');
         iframe.src='';
     }
-    reg.classList.add('display-none');
+    regForm.classList.add('display-none');
     regEnter.classList.add('display-none');
     regForgot.classList.add('display-none');
     priv.classList.add('display-none');
     privSuccess.classList.add('display-none');
     terms.classList.add('display-none');
+    termsPage.classList.add('display-none');
     header.classList.remove('display-none');
     mainPage.classList.remove('display-none');
 }
@@ -179,7 +186,17 @@ forgotBut.onclick = function(){
 };
 //* -- Форма входа конец--*//
 
+//* -- Кабинет выпадающий список --*//
+cabBut.onclick = function(){
+  cabList.classList.toggle('cabinet-hidden')
+};
+//* -- Кабинет выпадающий список конец --*//
 
+//* -- Футер термс --*//
+footTerms.onclick = function(){
+  formShow(termsPage);
+};
+//* -- Футер термс конец --*//
 
 //* -- Методы --*//
 let mainMethodForm = document.querySelector('.main-method'),

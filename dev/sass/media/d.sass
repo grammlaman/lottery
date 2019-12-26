@@ -30,9 +30,9 @@ $unit: 'px'
     position: relative
     background-color: inherit
     span
+      position: relative
       transition: .35s ease-in-out
-      &:first-child
-        z-index: 1
+      z-index: 1
       &:last-child
         +wh(100%)
         border-radius: 17px
@@ -40,6 +40,7 @@ $unit: 'px'
         position: absolute
         left: 0
         top: 0
+        z-index: 0
     &:hover
       span
         color: $button-color
