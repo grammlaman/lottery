@@ -101,7 +101,7 @@ let loginHead = document.getElementById('loginHead'),
 let footTerms = document.querySelector('.foot-terms'),
     termsPage = document.querySelector('.terms-page');
 //* -- Кабинет выпадающий список -- *//
-let cabBut = document.querySelector('.button-cabinet'),
+let cabBut = document.getElementById('cabinet-button'),
     cabList = document.querySelector('.cabinet-list');
 //* -- Кнопка закрытия -- *//
 let formClose = document.querySelectorAll('.close-form');
@@ -111,6 +111,10 @@ function close (){
     if(youTube){
         youTube.classList.add('display-none');
         iframe.src='';
+    }
+    let cabList = document.querySelector('.cabinet-list');
+    if(cabList){
+        cabList.classList.add('display-none');
     }
     regForm.classList.add('display-none');
     regEnter.classList.add('display-none');
@@ -155,6 +159,7 @@ privLink.onclick = function(){formShow(priv);};
 regBut.forEach(function (el) {
     if(el) {
         el.onclick = function () {
+            console.log('test');
             formShow(regForm);
             regFirstPage.classList.remove('display-none');
         }
@@ -200,7 +205,10 @@ forgotBut.onclick = function(){
 //* -- Кабинет выпадающий список --*//
 if(cabBut){
     cabBut.onclick = function(){
-        cabList.classList.toggle('cabinet-hidden')
+        let  cabList = document.querySelector('.cabinet-list');
+        if(cabList){
+            cabList.classList.toggle('cabinet-hidden')
+        }
     };
 }
 //* -- Кабинет выпадающий список конец --*//
