@@ -14,6 +14,45 @@ a
   +w($mobile#{$unit})
   margin: 0 auto
   padding: 0 5px
+.button
+  &-blue,&-gray
+    +wh(134px,40px)
+    +dfc
+    overflow: hidden
+    border: 1px solid $button-color
+    border-radius: 20px
+    position: relative
+    span
+      +font(16px,$f_medium,#fff)
+      position: relative
+      z-index: 10
+    span:last-child
+      +wh(100%)
+      display: block
+      background-color: $button-color
+      position: absolute
+      left: 0
+      right: 0
+      top: 0
+      z-index: 0
+  &-gray
+    border-color: #b7b7b7
+    span:last-child
+      background-color: #b7b7b7
+  &-cabinet
+    +wh(50px,33px)
+    border-radius: 10px
+    img
+      +w(20px)
+      position: relative
+      z-index: 10
+    span
+      display: none
+    span:last-child
+      display: block
+  &-withdrawal
+    +w(298px)
+    margin: 0 auto 30px
 header
   +w(100%)
   position: fixed
@@ -120,13 +159,17 @@ header
     box-shadow: 0 5px 5px rgba(0,0,0,0.2)
     li
       height: 46px
-      padding: 15px 50px
       position: relative
       opacity: 1
       visibility: visible
       transition: .5s cubic-bezier(1,-0.37, 0.81, 0.99)
       button
+        +w(100%)
+
+        text-align: left
+        display: block
         color: $head-gray
+        padding: 15px 50px
       &:after
         +wh(80%,1px)
         +af
@@ -147,12 +190,6 @@ header
     li
       opacity: 0
       visibility: hidden
-.participate
-  padding: 8px 22px
-  border-radius: 50px
-  background-color: $button-color
-  span
-    +font(13px,$f_medium,#fff)
 .page-select
   +w(70px)
   position: relative
@@ -180,7 +217,6 @@ header
     margin-bottom: 150px
 .mainview
   &-cont
-    //height: calc(50vh - 146px)
     height: 50vh
     display: flex
     flex-direction: column
@@ -210,9 +246,8 @@ header
     transition: .35s ease
     img
       margin-top: 6px
-  .participate
-    transform: translateY(0)
-    transition: .35s ease
+  .part
+    height: 33px
     position: fixed
     z-index: 99
     bottom: 10px
@@ -239,7 +274,6 @@ header
   &-text
     p
       font-family: $f_medium
-      font-size: 16px
       line-height: 26px
   &-steps
     margin-top: 25px
@@ -323,7 +357,7 @@ header
       +font(50px,$f_thin)
       margin-bottom: -5px
     &>span:last-child
-      +font(16px,$f_medium,#000)
+      font-family: $f_medium
       opacity: 30%
     &-i
       +wh(16px)
@@ -402,7 +436,6 @@ header
       span:last-child
         +w(200px)
         opacity: 70%
-        font-size: 16px
   svg
     fill: #303030
     opacity: 50%
@@ -455,9 +488,6 @@ header
     +font(30px,$f_medium)
     strong
       font-weight: 500
-  p, span
-    font-size: 16px
-    line-height: 24px
   strong
     font-weight: 600
   img
@@ -541,42 +571,21 @@ header
         transition: .15s
         background-color: $button-color
         display: block
+    &-input:checked~label>span:first-child span
+      +wh(9px)
   &-button
     +w(300px)
     margin: auto
-    padding: 8px 0
-    display: block
-    text-align: center
-    border-radius: 20px
-    border: 1px solid #b8b8b8
-    position: relative
-    overflow: hidden
     &-block
       margin-top: 30px
       margin-bottom: 30px
       .reg-comment
         margin-top: 20px
-    span:first-child
-      +font(15px,$f_medium,#fff)
-      position: relative
-      z-index: 1
-    span:last-child
-      +wh(300px,36px)
-      background-color: #b8b8b8
-      display: block
-      position: absolute
-      top: -1px
-      left: -1px
-      border-radius: 20px
     &-long
       &,& span:last-child
         +wh(310px,50px)
         border-radius: 10px
       margin-top: 15px
-    &-red
-      border-color: $button-color
-      span:last-child
-        background-color: $button-color
   &-mt,&-mt-mob
     margin-top: 10px
     &-large
@@ -606,15 +615,21 @@ header
       span:nth-child(2)
         margin-right: auto
         margin-left: 10px
+    input:checked~label
+      background-color: #e5f4fbde
+      &>span:first-child span
+        +wh(9px)
   .underline
     padding: 0
   &-link
     display: block
     margin-top: 15px
-    margin-bottom: 30px
     text-align: center
   &-method
     display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    padding: 0 10px
     span
       +font(18px,$f_semi,$blue)
       position: relative
@@ -626,12 +641,8 @@ header
         position: absolute
         bottom: -5px
         left: 0
-      &:first-child
-        margin-right: 30px
     a
       +font(18px,$f_reg,#9c9c9f)
-      &:first-child
-        margin-right: 30px
     &>span,&>a
       margin-top: 15px
     &-cont
@@ -647,6 +658,12 @@ header
         margin-right: 10px
         span
           +font(18px,$f_bold)
+    &-button
+      +w(300px)
+      &-block
+        display: flex
+        flex-direction: column
+        align-items: center
   &-table
     display: flex
     align-items: flex-end
@@ -663,7 +680,7 @@ header
       &:last-child
         flex: 0 0 90px
     h6
-      +font(16px,$f_semi)
+      font-family: $f_semi
     span
       +font(14px,$f_light)
       display: block
@@ -693,6 +710,15 @@ header
       font-size: 13px
   &-block
     padding: 10px 0
+.partner
+  &-button
+    margin: 30px 0
+  &-span
+    font-size: 11px
+    line-height: 16px
+    color: $head-gray
+    display: block
+    margin-top: 50px
 .close-form
   position: fixed
   top: 15px
@@ -823,23 +849,6 @@ header
   background-color: $head-border-gray
 #nav-lang:checked~div ul
   transform: translateY(0)
-#reg-fn:checked~label>span:first-child span
-  +wh(9px)
-#reg-mn:checked~label>span:first-child span
-  +wh(9px)
-#reg-fee:checked~label>span:first-child span
-  +wh(9px)
-#payment:checked~label>span:first-child span
-  +wh(9px)
-#reg-male:checked~label
-  background-color: #e5f4fbde
-  &>span:first-child span
-    +wh(9px)
-#reg-female:checked~label
-  background-color: #D8F3E6
-  &>span:first-child span
-    +wh(9px)
-
 .always
     background-image: url('../img/always-mob.jpg')
 .alwaysBgc

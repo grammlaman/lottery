@@ -19,7 +19,7 @@ block content
 				.page-select-body
 					a(href='#').head-button
 						span Рус
-			button.participate.head-user
+			button.button-blue.button-cabinet
 				+img('user.png')
 				span My Account
 				span
@@ -43,13 +43,13 @@ block content
 				.reg-method
 					span Main method
 					a.ref-method-link Alternative method
-					//a.aff-method-link Affiliate partner
-					//a.con-method-link Converter partner
+					a.aff-method-link Affiliate partner
+					a.con-method-link Converter partner
 				.reg-cont
 					.reg-block
 						.reg-gray
 							span Tickets bought: 6
-				.reg-method-cont
+				.reg-method-cont.reg-method-fee
 					.reg-block
 						.reg-block-title
 							h3 Number of Tickets
@@ -60,7 +60,7 @@ block content
 							h3 Total Fee
 							span Input error
 						input(type='text')
-						input(type='checkbox' style='display:none' checked)#reg-fee
+						input(type='checkbox' style='display:none' checked).reg-label-input#reg-fee
 						label(for='reg-fee').reg-label
 							span
 								span
@@ -112,7 +112,7 @@ block content
 								h3 CVC
 								span Input error
 							input(type='text')
-						input(type='checkbox' style='display:none')#payment
+						input(type='checkbox' style='display:none').reg-label-input#payment
 						label(for='payment').reg-label
 							span
 								span
@@ -120,7 +120,7 @@ block content
 				.underline
 					div
 				.reg-button-block
-					button.reg-button.reg-button-red
+					button.button-blue
 						span Apply
 						span
 		.reg.ref-method.display-none
@@ -130,8 +130,8 @@ block content
 				.reg-method
 					a.main-method-link Main method
 					span Alternative method
-					//a.aff-method-link Affiliate partner
-					//a.con-method-link Converter partner
+					a.aff-method-link Affiliate partner
+					a.con-method-link Converter partner
 				.reg-cont
 					.reg-block
 						.reg-gray
@@ -155,7 +155,7 @@ block content
 				.underline
 					div
 				.reg-button-block.reg-method-button-block
-					button.reg-button.reg-button-red
+					button.button-blue.reg-method-button
 						span Generate link
 						span
 					span.reg-link #[strong Your link:] linklink2555
@@ -191,7 +191,7 @@ block content
 					h2 Round #[strong.round-number 0520]
 				.reg-method
 					a.main-method-link Main method
-					a.ref-method-link Referral Partner
+					a.ref-method-link Alternative method
 					span Affiliate partner
 					a.con-method-link Converter partner
 				.reg-cont
@@ -217,7 +217,7 @@ block content
 				.underline
 					div
 				.reg-button-block.reg-method-button-block
-					button.reg-button.reg-button-red
+					button.button-blue.reg-method-button
 						span Generate link
 						span
 					span.reg-link #[strong Your link:] linklink2555
@@ -247,6 +247,9 @@ block content
 						span $ 66 680
 						span $ 52 720
 						span $ 13 960
+				button.button-blue.button-withdrawal
+					span Make a withdrawal
+					span
 				.underline
 					div
 				.reg-cont
@@ -259,7 +262,7 @@ block content
 					h2 Round #[strong.round-number 0520]
 				.reg-method
 					a.main-method-link Main method
-					a.ref-method-link Referral Partner
+					a.ref-method-link Alternative method
 					a.aff-method-link Affiliate partner
 					span Converter partner
 				.reg-cont
@@ -285,7 +288,7 @@ block content
 				.underline
 					div
 				.reg-button-block.reg-method-button-block
-					button.reg-button.reg-button-red
+					button.button-blue.reg-method-button
 						span Generate link
 						span
 					span.reg-link #[strong Your link:] linklink2555
@@ -315,6 +318,9 @@ block content
 						span $ 302 890
 						span $ 302 890
 						span $ 58 072
+				button.button-blue.button-withdrawal
+					span Make a withdrawal
+					span
 				.underline
 					div
 				.reg-cont

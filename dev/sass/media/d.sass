@@ -1,4 +1,19 @@
 $unit: 'px'
+.button
+  &-blue,&-gray
+    span
+      transition: .35s ease
+    &:hover
+      span
+        color: $button-color
+      span:last-child
+        transform: translateX(100%)
+  &-gray
+    &:hover
+      span
+        color: #b7b7b7
+  &-withdrawal
+    margin: 0 0 30px auto
 .head
   +w(1042px)
   margin: auto
@@ -31,7 +46,6 @@ $unit: 'px'
     background-color: inherit
     span
       position: relative
-      transition: .35s ease-in-out
       z-index: 1
       &:last-child
         +wh(100%)
@@ -41,34 +55,42 @@ $unit: 'px'
         left: 0
         top: 0
         z-index: 0
-    &:hover
-      span
-        color: $button-color
-        &:last-child
-          transform: translateX(100%)
 .cabinet
   &-list
     li
-      padding: 15px 50px
+      button
+        padding: 15px 50px
+        &:hover
+          text-decoration: underline
 .page-select-header:hover
   cursor: pointer
 .reg
   &-button
     overflow: hidden
-    span
-      transition: .35s ease
-    &:hover
-      span:first-child
-        color: #b8b8b8
-      span:last-child
-        transform: translateX(100%)
-    &-red:hover
-      span:first-child
-        color: $button-color
   &-gray
     &-button:hover
       span:last-child
         transform: translateX(0)
+  &-method
+    &-fee
+      +w(483px)
+      display: flex
+      align-items: flex-start
+      position: relative
+      padding-bottom: 70px
+      .reg-block
+        flex: 0 0 calc(50% - 7.5px)
+        &:first-child
+          margin-right: 15px
+      .reg-label
+        +w(483px)
+        position: absolute
+        left: 0
+  &-table
+    span
+      font-size: 16px
+    div:last-child
+      flex: 0 0 298px
 .typycal
   height: 1630px
   &-bgc
@@ -85,3 +107,9 @@ $unit: 'px'
     button:last-child:hover
       span
         color: $head-gray
+.partner
+  &-span
+    margin-top: 100px
+  &-button
+    margin-top: 50px
+    margin-bottom: 70px

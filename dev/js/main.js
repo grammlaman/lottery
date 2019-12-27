@@ -78,6 +78,9 @@ let priv = document.querySelector('.privacy-page');
 let privLink = document.querySelector('.foot-privacy');
 //* -- Форма регистрации --*//
 let regForm = document.querySelector('.reg-form'),
+    footPart = document.querySelector('.foot-partner'),
+    partSub = document.querySelector('.partner-button'),
+    partnerPage = document.querySelector('.partner-page'),
     terms = document.querySelector('.terms'),
     termsSub = document.querySelector('#termsSubmit'),
     termsDec = document.querySelector('#termsDecline'),
@@ -98,7 +101,7 @@ let loginHead = document.getElementById('loginHead'),
 let footTerms = document.querySelector('.foot-terms'),
     termsPage = document.querySelector('.terms-page');
 //* -- Кабинет выпадающий список -- *//
-let cabBut = document.querySelector('.head-user'),
+let cabBut = document.querySelector('.button-cabinet'),
     cabList = document.querySelector('.cabinet-list');
 //* -- Кнопка закрытия -- *//
 let formClose = document.querySelectorAll('.close-form');
@@ -115,6 +118,7 @@ function close (){
     priv.classList.add('display-none');
     privSuccess.classList.add('display-none');
     terms.classList.add('display-none');
+    partnerPage.classList.add('display-none');
     termsPage.classList.add('display-none');
     header.classList.remove('display-none');
     mainPage.classList.remove('display-none');
@@ -151,14 +155,21 @@ privLink.onclick = function(){formShow(priv);};
 regBut.forEach(function (el) {
     if(el) {
         el.onclick = function () {
-            formShow(terms);
+            formShow(regForm);
             regFirstPage.classList.remove('display-none');
         }
     }
 });
+footPart.onclick = function(){
+  formShow(partnerPage)
+};
+partSub.onclick = function(){
+  formShow(terms)
+};
 termsSub.onclick = function(){
   terms.classList.add('display-none');
-  regForm.classList.remove('display-none');
+  formShow(regForm);
+  regFirstPage.classList.remove('display-none');
 };
 termsDec.onclick = function(){
     close();
@@ -187,9 +198,11 @@ forgotBut.onclick = function(){
 //* -- Форма входа конец--*//
 
 //* -- Кабинет выпадающий список --*//
-cabBut.onclick = function(){
-  cabList.classList.toggle('cabinet-hidden')
-};
+if(cabBut){
+    cabBut.onclick = function(){
+        cabList.classList.toggle('cabinet-hidden')
+    };
+}
 //* -- Кабинет выпадающий список конец --*//
 
 //* -- Футер термс --*//

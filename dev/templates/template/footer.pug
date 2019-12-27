@@ -21,7 +21,7 @@ footer
                             h3 First Name
                             span Input error
                         input(type='text')
-                        input(type='checkbox' style='display:none')#reg-fn
+                        input(type='checkbox' style='display:none').reg-label-input#reg-fn
                         label(for='reg-fn').reg-label
                             span
                                 span
@@ -31,7 +31,7 @@ footer
                             h3 Middle Name
                             span Input error
                         input(type='text')
-                        input(type='checkbox' style='display:none')#reg-mn
+                        input(type='checkbox' style='display:none').reg-label-input#reg-mn
                         label(for='reg-mn').reg-label
                             span
                                 span
@@ -162,7 +162,7 @@ footer
                 .underline
                     div
                 .reg-button-block
-                    button(type='button').reg-button.reg-button-red#registration-sub
+                    button(type='button').button-blue#registration-sub
                         span Continue
                         span
             .reg-second-page.display-none
@@ -185,7 +185,7 @@ footer
                 .underline
                     div
                 .reg-button-block
-                    button.reg-button.reg-button-red#registration-submit
+                    button(type='button').button-blue#registration-submit
                         span Participate
                         span
     form.reg.reg-enter.display-none
@@ -210,11 +210,11 @@ footer
             .underline
                 div
             .reg-button-block
-                a(href='cabinet.html').reg-button.reg-button-red#loginSubmit
+                a(href='cabinet.html').reg-button.button-blue#loginSubmit
                     span Sign in
                     span
                 .reg-gray.reg-mt-large
-                    a#reg-login-forgot Forgot password?
+                    button(type='button')#reg-login-forgot Forgot password?
     form.reg.reg-forgot.display-none
         .section
             button(type='button').close-form
@@ -229,7 +229,7 @@ footer
                         h3 Email
                         span Input error
                     input(type='text')
-                button.reg-button.reg-button-red.reg-button-long#forgotPassword
+                button.reg-button-long.button-blue#forgotPassword
                     span Send me new password
                     span
     .privacy.privacy-page.display-none
@@ -262,12 +262,32 @@ footer
             h3 4. Changes
             p This Privacy Policy may be revised and modified in the future. We will post on this page and notify you via official notifications or emails. Please check back periodically to keep informed of updates or changes to this Privacy Policy. By continuing to access and to use this Website, you are agreeing to be bound by the revised policy.
 
+    .privacy.partner-page.display-none
+        .section
+            button.close-form
+                svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+                    path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+            .privacy-title
+                h2 Get bonus tickets, Get commissions, #[br] Get income permanently!
+            button.button-blue.partner-button
+                span Register
+                span
+            .underline
+                div
+            .partner-row
+                .partner-cont
+                    h3 Affiliate
+                    p Get up to $2 (U.S.) for every ticket bought through your link
+                .partner-cont
+                    h3 Converter
+                    p Get up to 50% of proceeds of every Affiliate in your network
+            span.partner-span * Permanently meaning in case if registered through the link entrants buy tickets repeatedly. First conversion counts only.
     .privacy.terms.display-none
         .section
             button.close-form
                 svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
                     path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
-            div.privacy-title
+            .privacy-title
                 h2 Terms and Conditions
                 +img('logo.png')
             h3 Partner Agreement
@@ -323,10 +343,10 @@ footer
             .underline
                 div
             .terms-row
-                button.reg-button.reg-button-red#termsSubmit
+                button.button-blue#termsSubmit
                     span Submit
                     span
-                button.reg-button.reg-button-red#termsDecline
+                button.button-gray#termsDecline
                     span Decline
                     span
     .privacy.terms-page.display-none
@@ -334,7 +354,7 @@ footer
             button.close-form
                 svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
                     path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
-            div.privacy-title
+            .privacy-title
                 h2 Terms and Conditions
                 +img('logo.png')
             h3 Partner Agreement
