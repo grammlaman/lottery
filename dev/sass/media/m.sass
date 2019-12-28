@@ -56,7 +56,7 @@ a
 header
   +w(100%)
   position: fixed
-  z-index: 99
+  z-index: 100
   top: 0
   transition: .3s
   background-color: #fff
@@ -67,8 +67,6 @@ header
   padding: 17px 0
   transition: .3s ease
   &-logo
-    &,&:after, img
-      transition: .3s ease
     img
       +w(34px)
   &-name
@@ -82,28 +80,11 @@ header
     display: flex
     align-items: center
     background-color: rgba(255,255,255,0.7)
-    &>span:first-child
-      margin-right: 9px
     span
       +font(13px,$f_medium,$head-dark-gray)
   &-login
-    &>span:first-child
+    span
       display: none
-    &-lock
-      display: flex
-      flex-direction: column
-      align-items: center
-      opacity: 50%
-      span
-        display: block
-        &:first-child
-          +wh(8px,10px)
-          border: 2px solid $gray-text
-          border-radius: 4px
-        &:last-child
-          +wh(10px,7px)
-          background-color: $gray-text
-          margin-top: -4px
   &-language
     display: flex
     flex-direction: column
@@ -151,6 +132,25 @@ header
       +w(20px)
     span:nth-child(2)
       display: none
+.page-select
+  +w(70px)
+  position: relative
+  &-header
+    &>span:first-child
+      margin-right: 9px
+  &-body
+    opacity: 0
+    visibility: hidden
+    +w(100%)
+    position: absolute
+    z-index: 99
+    .head-button
+      border-radius: 0
+      border-top: none
+      background-color: #fff
+      &:last-child
+        border-bottom-right-radius: 10px
+        border-bottom-left-radius: 10px
 .cabinet
   &-list
     height: 138px
@@ -190,22 +190,6 @@ header
     li
       opacity: 0
       visibility: hidden
-.page-select
-  +w(70px)
-  position: relative
-  &-body
-    opacity: 0
-    visibility: hidden
-    +w(100%)
-    position: absolute
-    z-index: 99
-    .head-button
-      border-radius: 0
-      border-top: none
-      background-color: #fff
-      &:last-child
-        border-bottom-right-radius: 10px
-        border-bottom-left-radius: 10px
 .main
   background-image: url("../img/mainview-mob.jpg")
   background-position: bottom
@@ -825,6 +809,8 @@ header
   display: none
 .scrolled-hide
   transform: translateY(100px)!important
+#reg-login-forgot
+  +font(16px,$f_reg,$gray-text)
 #stat-slide1:checked~.statistic-slider-cont
   transform: translateX(0px)
   &-label

@@ -1,14 +1,22 @@
-let pageSelect = document.querySelector('.page-select');
-pageSelect.onclick = function() {
-    if(!pageSelect.classList.contains('open')){pageSelect.classList.add('open');return}
-    if(pageSelect.classList.contains('open')){pageSelect.classList.remove('open');}};
-let fixed = document.querySelector('.mob-fixed');
+function query(el) {return document.querySelector(el);}
+function queryAll(el) {return document.querySelectorAll(el);}
+function getId(el) {return document.getElementById(el);}
+function add(el,cls = 'display-none') {el.classList.add(cls)}
+function remove(el,cls = 'display-none') {el.classList.remove(cls)}
+function toggle(el,cls = 'display-none') {el.classList.toggle(cls)}
+function contains(el,cls = 'display-none') {el.classList.contains(cls)}
 
-window.onload = function () {
-    setInterval('changeBGC()',10000);
-};
+//* -- Выбор языка -- *//
+let pageSelect = query('.page-select');
+pageSelect.onclick = function() {
+    if(!contains(pageSelect,'open')){add(pageSelect,'open');return}
+    if(contains(pageSelect,'open')){remove(pageSelect,'open');}};
+let fixed = query('.mob-fixed');
+
+//* -- Смена задних фонов -- *//
+window.onload = function () {setInterval('changeBGC()',10000);};
 function changeBGC() {
-    let arr = document.querySelectorAll('.typycal');
+    let arr = queryAll('.typycal');
     arr.forEach(function (el) {
         let cls = el.getAttribute('data-class'),
             clsBgc = el.getAttribute('data-change');
@@ -33,9 +41,9 @@ function changeBGC() {
     })
 }
 
-
-let mainPage = document.querySelector('.mainPage');
-let header = document.getElementById('header');
+//* -- Действия со скроллами -- *//
+let mainPage = query('.mainPage');
+let header = getId('header');
 window.addEventListener('scroll', function(e) {
     let scrolled = window.pageYOffset;
     let navBar = document.getElementById('navigation'),
@@ -68,205 +76,106 @@ window.addEventListener('scroll', function(e) {
     }
 });
 
-
-//* -- Видео YouTube --*//
-let youBut = document.querySelector('.mainview-video'),
-    youTube = document.querySelector('.youtube'),
-    iframe = document.querySelector('iframe');
-//* -- Privacy Policy --*//
-let priv = document.querySelector('.privacy-page');
-let privLink = document.querySelector('.foot-privacy');
-//* -- Форма регистрации --*//
-let regForm = document.querySelector('.reg-form'),
-    footPart = document.querySelector('.foot-partner'),
-    partSub = document.querySelector('.partner-button'),
-    partnerPage = document.querySelector('.partner-page'),
-    terms = document.querySelector('.terms'),
-    termsSub = document.querySelector('#termsSubmit'),
-    termsDec = document.querySelector('#termsDecline'),
-    regFirstPage = document.querySelector('.reg-first-page');
-    regBut = document.querySelectorAll('.part');
-let regSecondPage = document.querySelector('.reg-second-page'),
-    regPassSub = document.getElementById('registration-submit');
-let regSub = document.getElementById('registration-sub'),
-    privSuccess = document.querySelector('.priv-success');
-//* -- Форма входа --*//
-let loginHead = document.getElementById('loginHead'),
-//    loginHeadNav = document.getElementById('loginHeadNav'),
-    forgotBut = document.getElementById('reg-login-forgot'),
-    forgotSub = document.getElementById('forgotPassword'),
-    regForgot = document.querySelector('.reg-forgot'),
-    regEnter = document.querySelector('.reg-enter');
-//* -- Футер terms -- *//
-let footTerms = document.querySelector('.foot-terms'),
-    termsPage = document.querySelector('.terms-page');
-//* -- Кабинет выпадающий список -- *//
-let cabBut = document.getElementById('cabinet-button'),
-    cabList = document.querySelector('.cabinet-list');
-//* -- Кнопка закрытия -- *//
-let formClose = document.querySelectorAll('.close-form');
-
-
+//* -- Кнопки переходов и показа форм -- *//
 function close (){
-    if(youTube){
-        youTube.classList.add('display-none');
-        iframe.src='';
+    if(youTube){add(youTube);iframe.src='';}
+    let arr= [regForm,regEnter,regForgot,priv,privSuccess,terms,partnerPage,termsPage];
+    for(let i = 0; i < arr.length; i++){
+        add(arr[i]);
     }
-    let cabList = document.querySelector('.cabinet-list');
-    if(cabList){
-        cabList.classList.add('display-none');
-    }
-    regForm.classList.add('display-none');
-    regEnter.classList.add('display-none');
-    regForgot.classList.add('display-none');
-    priv.classList.add('display-none');
-    privSuccess.classList.add('display-none');
-    terms.classList.add('display-none');
-    partnerPage.classList.add('display-none');
-    termsPage.classList.add('display-none');
-    header.classList.remove('display-none');
-    mainPage.classList.remove('display-none');
+    remove(header);
+    remove(mainPage);
 }
-
-formClose.forEach(function (el) {
-    el.onclick = close;
-});
-forgotSub.onclick = close;
-
-
 function formShow(el){
-    close();
-    mainPage.classList.add('display-none');
-    header.classList.add('display-none');
-    el.classList.remove('display-none');
+    if(!contains(mainPage)){
+        add(mainPage);
+        add(header)
+    }
+    remove(el)
 }
-
-
+//* -- Кнопка закрытия -- *//
+let formClose = queryAll('.close-form');
+formClose.forEach(function (el) {el.onclick = close;});
 //* -- Видео YouTube --*//
+let youBut = query('.mainview-video'),
+    youTube = query('.youtube'),
+    iframe = query('iframe');
 if(youBut){
     youBut.onclick = function () {
-        youTube.classList.remove('display-none');
+        remove(youTube);
         iframe.src='https://www.youtube.com/embed/9pvPxG1_r2E';
     };
 }
-//* -- Видео YouTube Конец --*//
-
-//* -- Privacy Policy --*//
-privLink.onclick = function(){formShow(priv);};
-//* -- Privacy Policy Конец --*//
-
 //* -- Форма регистрации --*//
-regBut.forEach(function (el) {
-    if(el) {
-        el.onclick = function () {
-            console.log('test');
-            formShow(regForm);
-            regFirstPage.classList.remove('display-none');
-        }
-    }
-});
-footPart.onclick = function(){
-  formShow(partnerPage)
-};
-partSub.onclick = function(){
-  formShow(terms)
-};
-termsSub.onclick = function(){
-  terms.classList.add('display-none');
-  formShow(regForm);
-  regFirstPage.classList.remove('display-none');
-};
-termsDec.onclick = function(){
-    close();
-};
-regSub.onclick = function () {
-    regFirstPage.classList.add('display-none');
-    regSecondPage.classList.remove('display-none');
-};
-regPassSub.onclick = function () {
-    regForm.classList.add('display-none');
-    regSecondPage.classList.add('display-none');
-    privSuccess.classList.remove('display-none');
-};
-//* -- Форма регистрации Конец --*//
-
+let regBut = queryAll('.part'),
+    regForm = query('.reg-form'),
+    regSub = getId('registration-sub'),
+    regFirstPage = query('.reg-first-page');
+let regSecondPage = query('.reg-second-page'),
+    regPassSub = getId('registration-submit');
+let privSuccess = query('.priv-success');
+regBut.forEach(function(el){el.onclick = function(){formShow(regForm);remove(regFirstPage)}});
+regSub.onclick = function(){add(regFirstPage);remove(regSecondPage)};
+regPassSub.onclick = function(){add(regForm);add(regSecondPage);remove(privSuccess)};
 //* -- Форма входа --*//
-if(loginHead){
-    loginHead.onclick = function () {
-        formShow(regEnter)
-    };
-}
-forgotBut.onclick = function(){
-    regEnter.classList.add('display-none');
-    regForgot.classList.remove('display-none');
-};
-//* -- Форма входа конец--*//
-
+let loginHead = getId('loginHead'),
+    forgotBut = getId('reg-login-forgot'),
+    regForgot = query('.reg-forgot'),
+    regEnter = query('.reg-enter');
+if(loginHead){loginHead.onclick = function () {formShow(regEnter)};}
+forgotBut.onclick = function(){add(regEnter);remove(regForgot)};
+//* -- Privacy Policy --*//
+let priv = query('.privacy-page'),
+    privLink = query('.foot-privacy');
+privLink.onclick = function(){close();formShow(priv);};
+//* -- Футер термс --*//
+let footTerms = query('.foot-terms'),
+    termsPage = query('.terms-page');
+footTerms.onclick = function(){close();formShow(termsPage);};
+//* -- Become a Participant -- *//
+let footPart = query('.foot-partner'),
+    partnerPage = query('.partner-page'),
+    partSub = query('.partner-button'),
+    terms = query('.terms'),
+    termsSub = query('#termsSubmit'),
+    termsDec = query('#termsDecline');
+footPart.onclick = function(){close();formShow(partnerPage);};
+partSub.onclick = function(){add(partnerPage);formShow(terms)};
+termsSub.onclick = function(){add(terms);remove(regForm);remove(regFirstPage);};
+termsDec.onclick = close;
 //* -- Кабинет выпадающий список --*//
+let cabBut = getId('cabinet-button');
 if(cabBut){
     cabBut.onclick = function(){
-        let  cabList = document.querySelector('.cabinet-list');
-        if(cabList){
-            cabList.classList.toggle('cabinet-hidden')
+        let cabList = document.querySelector('.cabinet-list');
+        toggle(cabList,'cabinet-hidden');};}
+
+//* -- Переключения Методов на странице кабинета --*//
+let mainMethodForm = query('.main-method'),
+    refPartnerForm = query('.ref-method'),
+    affPartnerForm = query('.aff-method'),
+    conPartnerForm = query('.con-method'),
+    mainMethodBut = queryAll('.main-method-link'),
+    affPartnerBut = queryAll('.aff-method-link'),
+    conPartnerBut = queryAll('.con-method-link'),
+    refMethodBut = queryAll('.ref-method-link');
+function methodClose(){add(refPartnerForm);add(affPartnerForm);add(conPartnerForm);add(mainMethodForm)}
+function methodSelect(el,elForm){
+    el.forEach(function (el) {
+        el.onclick = function () {
+            methodClose();
+            let form = elForm;
+            remove(form)
         }
-    };
+    })
 }
-//* -- Кабинет выпадающий список конец --*//
-
-//* -- Футер термс --*//
-footTerms.onclick = function(){
-  formShow(termsPage);
-};
-//* -- Футер термс конец --*//
-
-//* -- Методы --*//
-let mainMethodForm = document.querySelector('.main-method'),
-    refPartnerForm = document.querySelector('.ref-method'),
-    affPartnerForm = document.querySelector('.aff-method'),
-    conPartnerForm = document.querySelector('.con-method'),
-    mainMethodBut = document.querySelectorAll('.main-method-link'),
-    affPartnerBut = document.querySelectorAll('.aff-method-link'),
-    conPartnerBut = document.querySelectorAll('.con-method-link'),
-    refMethodBut = document.querySelectorAll('.ref-method-link');
-
-
-
-function closeCabinet(){
-    refPartnerForm.classList.add('display-none');
-    affPartnerForm.classList.add('display-none');
-    conPartnerForm.classList.add('display-none');
-    mainMethodForm.classList.add('display-none');
-}
-mainMethodBut.forEach(function (el) {
-    el.onclick = function () {
-        closeCabinet();
-        mainMethodForm.classList.remove('display-none');
-    }
-});
-
-refMethodBut.forEach(function (el) {
-    el.onclick = function () {
-        closeCabinet();
-        refPartnerForm.classList.remove('display-none');
-    };
-});
-
-affPartnerBut.forEach(function (el) {
-    el.onclick = function () {
-        closeCabinet();
-        affPartnerForm.classList.remove('display-none');
-    };
-});
-
-conPartnerBut.forEach(function (el) {
-    el.onclick = function () {
-        closeCabinet();
-        conPartnerForm.classList.remove('display-none');
-    };
-});
+methodSelect(mainMethodBut,mainMethodForm);
+methodSelect(refMethodBut,refPartnerForm);
+methodSelect(affPartnerBut,affPartnerForm);
+methodSelect(conPartnerBut,conPartnerForm);
 
 //* -- Рандомайзер --*//
-let random = document.querySelector('.count-random');
+let random = query('.count-random');
 function getRandomInt() {
     let res = Math.round(Math.random() * 100000);
     if(res > 9999){res = '0' + res;}
@@ -277,9 +186,9 @@ function getRandomInt() {
     return res;}
 if(random){setInterval('random.textContent = getRandomInt()',500);}
 //* -- Отсчет --*//
-let countHour = document.querySelector('.count-span-hour');
-let countMin = document.querySelector('.count-span-minute');
-let countSec = document.querySelector('.count-span-second');
+let countHour = query('.count-span-hour');
+let countMin = query('.count-span-minute');
+let countSec = query('.count-span-second');
 if(countSec){
     function CountSec(sec,min,hour) {
         if (parseInt(sec.textContent) != 0){
