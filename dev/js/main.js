@@ -176,15 +176,33 @@ methodSelect(conPartnerBut,conPartnerForm);
 
 //* -- Рандомайзер --*//
 let random = query('.count-random');
+let randomInt = 0;
+let currentInt = 0;
 function getRandomInt() {
-    let res = Math.round(Math.random() * 100000);
-    if(res > 9999){res = '0' + res;}
-    else if(res > 999){res = '00' + res;}
-    else if(res > 99){res = '000' + res;}
-    else if(res > 9){res = '0000' + res;}
-    else {res = '00000' + res;}
-    return res;}
-if(random){setInterval('random.textContent = getRandomInt()',500);}
+    let step = Math.round((randomInt - currentInt) / 10);
+
+    if (randomInt > currentInt && step === 0){
+        step = 1;
+    } else if (randomInt < currentInt && step === 0){
+        step = -1;
+    }
+
+    currentInt += step;
+
+    let res = currentInt.toString();
+    for (let i = res.length - 6; i < 0; i++){
+        res = "0" + res;
+    }
+
+    return res;
+}
+function nextRandom(){
+    randomInt = Math.round(Math.random() * 100000);
+}
+if (random) {
+    setInterval('random.textContent = getRandomInt()');
+    setInterval('nextRandom()', 2000);
+}
 //* -- Отсчет --*//
 let countHour = query('.count-span-hour');
 let countMin = query('.count-span-minute');
