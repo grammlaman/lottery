@@ -85,6 +85,8 @@ header
   &-login
     span
       display: none
+    svg
+      fill: $head-dark-gray
   &-language
     display: flex
     flex-direction: column
@@ -419,9 +421,8 @@ header
         font-family: $f_thin
       span:last-child
         +w(200px)
-        opacity: 70%
+        opacity: 50%
   svg
-    fill: #303030
     opacity: 50%
   &-every,&-tobe,&-ideal
     p,span,h2
@@ -518,7 +519,7 @@ header
     opacity: 50%
     span
       line-height: 17px
-  input,select
+  input,select,&-datalist
     +wh(100%,50px)
     +font(18px,$f_semi)
     background-color: #f6f6f6
@@ -537,8 +538,6 @@ header
     background-repeat: no-repeat
     background-position: 260px 0
     background-size: 30px
-  &-datalist::-webkit-calendar-picker-indicator
-    display: none
   &-label
     margin-top: 5px
     display: flex
@@ -675,6 +674,27 @@ header
       +font(16px,$f_reg,$gray-text)
       &:last-child
         margin-top: 30px
+  &-country
+    &-list
+      +wh(310px,0)
+      background-color: #fff
+      overflow-y: scroll
+      transition: .5s ease
+      position: absolute
+      z-index: 99
+      box-shadow: 0 5px 10px rgba(0,0,0,0.3)
+      li
+        button
+          +wh(100%,50px)
+          padding: 0 15px
+          display: flex
+          align-items: center
+      &-active
+        height: 500px
+    img
+      +w(30px)
+      display: block
+      margin-right: 15px
 .priv
   &-success
     h4

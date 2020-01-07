@@ -122,21 +122,24 @@ footer
                                     input(type='text' placeholder='0000')
                 .underline
                     div
-                .reg-cont
+                .reg-cont.reg-country
                     .reg-block.success
                         .reg-block-title
                             h3 Country
                             span Input error
-                        input(list='country' placeholder='Choose your country').reg-datalist
-                        datalist#country
-                            option(value='Russia')
-                            option(value='Great Britain')
-                            option(value='Kazakhstan')
+                        input(type='hidden' placeholder='Choose your country')
+                        .reg-datalist
+                        ul.reg-country-list
+                            each country in countries
+                                li
+                                    button(data-value=(country['value']))
+                                        +img(country['img'])
+                                        span!= country['country']
                         .reg-gray.reg-mt
                             span Same as passport
                 .underline
                     div
-                .reg-cont.reg-row-tab
+                .reg-cont.reg-row-tab.reg-email
                     .reg-block.reg-first
                         .reg-block-title
                             h3 Email
@@ -144,9 +147,9 @@ footer
                         input(type='email')
                         .reg-gray.reg-mt
                             span This email will be used to provide you with additional information
-                    .reg-block.reg-conf
+                    .reg-block
                         .reg-block-title
-                            h3 Confirmation
+                            h3 Confirm Email
                             span Input error
                         input(type='email')
                 .underline
