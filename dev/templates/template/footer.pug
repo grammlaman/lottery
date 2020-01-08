@@ -105,9 +105,11 @@ footer
                             img
                             input(type='text')
                         ul.reg-country-list
+                            - cnt = 0
                             each country in countries
-                                li
-                                    button(type='button')
+                                - cnt++
+                                li(tabIndex!=cnt)
+                                    button(type='button' data-value=country['value'])
                                         +img(country['img'])
                                         span!= country['country']
                         .reg-gray.reg-mt

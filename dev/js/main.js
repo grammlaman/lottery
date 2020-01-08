@@ -254,6 +254,7 @@ window.onload = function () {
             img = country.querySelector('img'),
             input = country.querySelector('input');
         img.setAttribute('src',listImg.getAttribute('src'));
+        input.setAttribute('data-value',element.getAttribute('data-value'));
         input.value = element.querySelector('span').textContent;
         if(contains(countryList,'reg-country-list-active')){
             remove(countryList,'reg-country-list-active')
@@ -263,6 +264,24 @@ window.onload = function () {
     });
     let countryListItems = countryList.querySelectorAll('li'),
         countryNewList = [];
+    country.querySelector('input').addEventListener('keyup',function (e) {
+        if(e.keyCode === 40){
+            countryList.children[0].querySelector('button').focus();
+        }
+    });
+    countryList.addEventListener('keyup',function (e) {
+        let elem = document.activeElement,
+            outLi = elem.parentNode;
+        if(e.keyCode === 40){
+            if(!outLi.nextElementSibling) return;
+            nextLi = outLi.nextElementSibling;
+        }
+        if(e.keyCode === 38){
+            if(!outLi.previousElementSibling) return;
+            nextLi = outLi.previousElementSibling;
+        }
+        nextLi.querySelector('button').focus();
+    });
     country.querySelector('input').addEventListener('input',function (e) {
         let inputValue = this.value;
         if(!countryOpened){
