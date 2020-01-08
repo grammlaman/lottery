@@ -676,7 +676,8 @@ header
         margin-top: 30px
   &-country
     &-list
-      +wh(310px,0)
+      +w(310px)
+      max-height: 0
       background-color: #fff
       overflow-y: scroll
       transition: .5s ease
@@ -690,11 +691,21 @@ header
           display: flex
           align-items: center
       &-active
-        height: 500px
+        max-height: 500px
     img
       +w(30px)
       display: block
       margin-right: 15px
+  &-datalist
+    display: flex
+    align-items: center
+    input
+      +wh(70%!important)
+      background-image: none
+      border: none
+      background-color: transparent!important
+      padding: 0
+
 .priv
   &-success
     h4
@@ -728,7 +739,7 @@ header
   top: 15px
   right: 15px
 .success
-  input,select
+  input,select,.reg-datalist
     background-color: #e5f4fbde!important
     border-color: $button-color!important
 .error
@@ -738,7 +749,6 @@ header
   .reg-block-title
     span
       display: block
-
 .foot
   padding: 0 0 50px
   &-order-0
