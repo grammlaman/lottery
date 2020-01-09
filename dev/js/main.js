@@ -94,7 +94,7 @@ window.onload = function () {
                 el.checked = true;
                 for(let i = 0; i < el.elem.children[2].children[0].children.length; i++){
                     let item = el.elem.children[2].children[0].children[i];
-                    TweenMax.to(item,2,{duration: 1, y:-100})
+                    TweenMax.to(item,2,{duration: 1, y:0})
                 }
             }
         })
