@@ -17,10 +17,22 @@ window.onload = function () {
     };
     let fixed = query('.mob-fixed');
 
+    //* -- Объявление переменных выезжающего текста -- *//
+    let bgcArr = queryAll('.typycal'),
+        bgcCollection = [];
+    bgcArr.forEach(function (el) {
+        let elObj = {
+            elem : el,
+            top : el.getBoundingClientRect().top,
+            height : el.getBoundingClientRect().height,
+            checked : false
+        };
+        bgcCollection.push(elObj);
+    });
+
     //* -- Смена задних фонов -- *//
     function changeBGC() {
-        let arr = queryAll('.typycal');
-        arr.forEach(function (el) {
+        bgcArr.forEach(function (el) {
             let cls = el.getAttribute('data-class'),
                 clsBgc = el.getAttribute('data-change');
             if(el.classList.contains(clsBgc)){
@@ -44,7 +56,6 @@ window.onload = function () {
         })
     }
     setInterval(changeBGC,10000);
-
     //* -- Действия со скроллами -- *//
     let mainPage = query('.mainPage');
     let header = getId('header');
@@ -76,6 +87,17 @@ window.onload = function () {
                 header.classList.remove('head-scrolled');
             } else if (!header.classList.contains('head-scrolled')){header.classList.add('head-scrolled');}
         }
+
+        //* -- Анимация выезжающего текста -- *//
+        bgcCollection.forEach(function (el){
+            if((scrolled >= (el.top - ((window.innerHeight)))) && (el.checked == false)){
+                el.checked = true;
+                for(let i = 0; i < el.elem.children[2].children[0].children.length; i++){
+                    el.elem.children[2].children[0].children[i].style.animation = 'lazy-text-bgc 1.5s ease'
+                }
+            }
+        })
+
     });
 
     //* -- Кнопки переходов и показа форм -- *//

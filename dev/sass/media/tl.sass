@@ -82,21 +82,21 @@
       flex: 0 0 460px
     h2
       margin-bottom: 50px
-  &-position
+  &-position,&-position-choice
     .typycal-cont
       +w(500px)
       margin-left: auto
       h2
         +w(inherit)
-      .typycal-right
-        position: absolute
-        left: 0
-        margin-left: 0
+    .typycal-right
+      position: absolute
+      margin-left: 0
+  &-position
+    .typycal-right
+      transform: translateX(-120%)
   &-every
-    .typycal-cont
-      .typycal-right
-        left: 340px
-        top: 510px
+    .typycal-right
+      transform: translateY(340px)
   &-tobe,&-eat,&-nature
    .typycal-cont-text>p
      order: 1
