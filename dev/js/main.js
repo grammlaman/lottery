@@ -93,7 +93,8 @@ window.onload = function () {
             if((scrolled >= (el.top - ((window.innerHeight)))) && (el.checked == false)){
                 el.checked = true;
                 for(let i = 0; i < el.elem.children[2].children[0].children.length; i++){
-                    el.elem.children[2].children[0].children[i].style.animation = 'lazy-text-bgc 1.5s ease'
+                    let item = el.elem.children[2].children[0].children[i];
+                    TweenMax.to(item,2,{duration: 1, y:-100})
                 }
             }
         })
