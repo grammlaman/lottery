@@ -20,12 +20,29 @@ window.onload = function () {
     //* -- Объявление переменных выезжающего текста -- *//
     let bgcArr = queryAll('.typycal'),
         bgcCollection = [];
+    let programmBlock = query('.program');
+    bgcCollection.push({
+        elem : programmBlock,
+        top : programmBlock.getBoundingClientRect().top,
+        height : programmBlock.getBoundingClientRect().height
+    });
+    let countBlock = query('.count');
+    bgcCollection.push({
+        elem : countBlock,
+        top :countBlock.getBoundingClientRect().top,
+        height : countBlock.getBoundingClientRect().height
+    });
+    let statisticBlock = query('.statistic');
+    bgcCollection.push({
+        elem : statisticBlock,
+        top : statisticBlock.getBoundingClientRect().top,
+        height : statisticBlock.getBoundingClientRect().height
+    });
     bgcArr.forEach(function (el) {
         let elObj = {
             elem : el,
             top : el.getBoundingClientRect().top,
-            height : el.getBoundingClientRect().height,
-            checked : false
+            height : el.getBoundingClientRect().height
         };
         bgcCollection.push(elObj);
     });
@@ -56,6 +73,7 @@ window.onload = function () {
         })
     }
     setInterval(changeBGC,10000);
+
     //* -- Действия со скроллами -- *//
     let mainPage = query('.mainPage');
     let header = getId('header');
@@ -89,16 +107,12 @@ window.onload = function () {
         }
 
         //* -- Анимация выезжающего текста -- *//
-        bgcCollection.forEach(function (el){
-            if((scrolled >= (el.top - ((window.innerHeight)))) && (el.checked == false)){
-                el.checked = true;
-                for(let i = 0; i < el.elem.children[2].children[0].children.length; i++){
-                    let item = el.elem.children[2].children[0].children[i];
-                    TweenMax.to(item,2,{duration: 1, y:0})
-                }
+        if(bgcCollection.length > 0){
+            if((scrolled >= (bgcCollection[0].top - (window.innerHeight - 100)))){
+                TweenMax.staggerFromTo(bgcCollection[0].elem.querySelectorAll('.gs'),.8, {y:-80,opacity:0},{y:0,opacity:1},.3)
+                bgcCollection.shift();
             }
-        })
-
+        }
     });
 
     //* -- Кнопки переходов и показа форм -- *//
@@ -330,4 +344,3 @@ window.onload = function () {
         img.setAttribute('src','');
     });
 };
-
