@@ -13,9 +13,10 @@ const gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     clean_CSS = require('gulp-clean-css'),
     autoprefixer = require('gulp-autoprefixer'),
-    minifyjs = require('gulp-js-minify'),
+    minifyjs = require('gulp-uglify-es').default,
     grid_template = 'flex',
     pretty = true;
+const imageminMozjpeg = require('imagemin-mozjpeg');
 /* --==[ Пути ]==--*/
 // html | pug
 const
@@ -184,8 +185,9 @@ gulp.task('browserSync', function() {
 gulp.task('move_images', function() {
     return gulp.src(img['src_all'])
         .pipe(
-            flatten({ includeParents: 0 })
+            flatten({ includeParents: 1 })
         )
+
         .pipe(
             gulp.dest(img['dest'])
         )
@@ -201,7 +203,11 @@ gulp.task('move_fonts', function() {
 });
 gulp.task('min_main', function() {
     return gulp.src(img['src_all'])
-        .pipe(imagemin())
+        .pipe(
+            imagemin(
+                [imageminMozjpeg({quality: 50})]
+            )
+        )
         .pipe(
             gulp.dest(img['dest'])
         )
@@ -216,7 +222,7 @@ gulp.task('watch', function() {
 
 });
 
-//gulp.task('minify',['min_main','min_css','min_js']);
+gulp.task('minify',gulp.parallel('min_main','min_css','min_js'));
 
 
 //gulp.task('default', ['watch','html','js', 'move_fonts','css' ,'css_libs','browserSync','move_images','media_query']);

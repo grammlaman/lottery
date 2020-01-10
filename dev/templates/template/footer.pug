@@ -108,10 +108,10 @@ footer
                             - cnt = 0
                             each country in countries
                                 - cnt++
-                                li(tabIndex!=cnt)
-                                    button(type='button' data-value=country['value'])
-                                        +img(country['img'])
-                                        span!= country['country']
+                                li(tabIndex!=cnt data-value=country['value'] data-img=country['img'] data-country=country['country'])
+                                    //button(type='button' data-value=country['value'])
+                                    //    +img(country['img'])(class='lazyload')
+                                    //    span!= country['country']
                         .reg-gray.reg-mt
                             span Same as passport
                 .underline
@@ -445,6 +445,7 @@ footer
                 span Terms and Conditions
             button.foot-partner
                 span Become a Participant
+
     - if(greensock)
         +inc('js','js/greensock.js')
     +inc('js','js/main.js',true)

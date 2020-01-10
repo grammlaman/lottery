@@ -8,7 +8,7 @@ function toggle(el,cls = 'display-none') {el.classList.toggle(cls)}
 function contains(el,cls = 'display-none') {return el.classList.contains(cls)}
 
 window.onload = function () {
-
+    let a = 3;
     //* -- Выбор языка -- *//
     let pageSelect = query('.page-select');
     pageSelect.onclick = function() {
@@ -109,7 +109,7 @@ window.onload = function () {
         //* -- Анимация выезжающего текста -- *//
         if(bgcCollection.length > 0){
             if((scrolled >= (bgcCollection[0].top - (window.innerHeight - 100)))){
-                TweenMax.staggerFromTo(bgcCollection[0].elem.querySelectorAll('.gs'),.8, {y:-80,opacity:0},{y:0,opacity:1},.3)
+                TweenMax.staggerTo(bgcCollection[0].elem.querySelectorAll('.gs'),.8,{y:0,opacity:1},.3)
                 bgcCollection.shift();
             }
         }
@@ -269,9 +269,32 @@ window.onload = function () {
     //* -- Выбор страны -- *//
     let country = query('.reg-datalist'),
         countryOpened = false,
+        cashed = false,
         countryList = query('.reg-country-list');
+    let countryListItems = [],
+        countryNewList = [];
     function countryListToggle(){
+
         let countryList = query('.reg-country-list');
+        if(!cashed){
+            let outList = '', items = countryList.querySelectorAll('li');
+            items.forEach(function (el) {
+                let li = `
+                    <li>
+                        <button type="button" data-value="${el.dataset.value}">
+                            <img src="img/${el.dataset.img}" class="lazyload" alt="">
+                            <span>${el.dataset.country}</span>
+                        </button>
+                    </li>
+                `;
+                outList+= li;
+            });
+            countryList.innerHTML = outList;
+            countryListItems = countryList.querySelectorAll('li');
+            cashed = true;
+        }
+
+
         if(!contains(countryList,'reg-country-list-active')){
             add(countryList,'reg-country-list-active');
         }
@@ -287,6 +310,8 @@ window.onload = function () {
                 element = element.parentNode;
             }
         }
+
+
         let listImg = element.querySelector('img'),
             img = country.querySelector('img'),
             input = country.querySelector('input');
@@ -299,8 +324,7 @@ window.onload = function () {
         let countryShowCont = query('.reg-country');
         add(countryShowCont,'success');
     });
-    let countryListItems = countryList.querySelectorAll('li'),
-        countryNewList = [];
+
     country.querySelector('input').addEventListener('keyup',function (e) {
         if(e.keyCode === 40){
             countryList.children[0].querySelector('button').focus();
@@ -308,6 +332,7 @@ window.onload = function () {
     });
     countryList.addEventListener('keyup',function (e) {
         let elem = document.activeElement,
+            nextLi = '',
             outLi = elem.parentNode;
         if(e.keyCode === 40){
             if(!outLi.nextElementSibling) return;
@@ -317,6 +342,7 @@ window.onload = function () {
             if(!outLi.previousElementSibling) return;
             nextLi = outLi.previousElementSibling;
         }
+        if(nextLi)
         nextLi.querySelector('button').focus();
     });
     country.querySelector('input').addEventListener('input',function (e) {
