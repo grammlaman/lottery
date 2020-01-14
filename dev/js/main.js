@@ -18,36 +18,19 @@ window.onload = function () {
     let fixed = query('.mob-fixed');
 
     //* -- Объявление переменных выезжающего текста -- *//
-    let bgcArr = queryAll('.typycal'),
-        bgcCollection = [];
-    let programmBlock = query('.program');
-    bgcCollection.push({
-        elem : programmBlock,
-        top : programmBlock.getBoundingClientRect().top,
-        height : programmBlock.getBoundingClientRect().height
-    });
-    let countBlock = query('.count');
-    bgcCollection.push({
-        elem : countBlock,
-        top :countBlock.getBoundingClientRect().top,
-        height : countBlock.getBoundingClientRect().height
-    });
-    let statisticBlock = query('.statistic');
-    bgcCollection.push({
-        elem : statisticBlock,
-        top : statisticBlock.getBoundingClientRect().top,
-        height : statisticBlock.getBoundingClientRect().height
-    });
-    bgcArr.forEach(function (el) {
+    let animCollection = [];
+    let animArr = queryAll('.anim');
+    animArr.forEach(function (el) {
         let elObj = {
             elem : el,
             top : el.getBoundingClientRect().top,
             height : el.getBoundingClientRect().height
         };
-        bgcCollection.push(elObj);
+        animCollection.push(elObj);
     });
 
     //* -- Смена задних фонов -- *//
+    let bgcArr = queryAll('.typycal');
     function changeBGC() {
         bgcArr.forEach(function (el) {
             let cls = el.getAttribute('data-class'),
@@ -79,45 +62,49 @@ window.onload = function () {
     let header = getId('header');
     window.addEventListener('scroll', function(e) {
         let scrolled = window.pageYOffset;
-        let scrollF = document.getElementById('scroll-1'),
-            scrollS = document.getElementById('scroll-2');
-        if(!header.classList.contains('display-none')){
-            if(document.getElementById('first-view')) {
+        let scrollF = getId('scroll-1'),
+            scrollS = getId('scroll-2');
+        if(!contains(header)){
+            if(getId('first-view')) {
                 let firstView = document.getElementById('first-view').getClientRects()[0].height,
                     mainView = document.getElementById('main-view').getClientRects()[0].height;
                 if (scrolled >= firstView - 1) {
-                    scrollF.classList.add('display-none');
-                    scrollS.classList.remove('display-none')
+                    add(scrollF);
+                    remove(scrollS);
                 }
                 if (scrolled < firstView - 1) {
-                    scrollF.classList.remove('display-none');
-                    scrollS.classList.add('display-none')
+                    remove(scrollF);
+                    add(scrollS);
                 }
                 if (scrolled >= (mainView - 500)) {
-                    scrollS.classList.add('scrolled-hide')
+                    add(scrollS,'scrolled-hide')
                 }
                 if (scrolled < (mainView - 500)) {
-                    scrollS.classList.remove('scrolled-hide')
+                    remove(scrollS,'scrolled-hide')
                 }
             }
             let headerHeight = header.getClientRects()[0].height;
             if(scrolled<headerHeight) {
-                header.classList.remove('head-scrolled');
-            } else if (!header.classList.contains('head-scrolled')){header.classList.add('head-scrolled');}
+                remove(header,'head-scrolled');
+            } else if (!contains(header,'head-scrolled')){
+                add(header,'head-scrolled');
+            }
         }
 
         //* -- Анимация выезжающего текста -- *//
-        if(bgcCollection.length > 0){
-            if((scrolled >= (bgcCollection[0].top - (window.innerHeight - 100)))){
-                TweenMax.staggerTo(bgcCollection[0].elem.querySelectorAll('.gs'),.8,{y:0,opacity:1},.3)
-                bgcCollection.shift();
+        if(animCollection.length > 0){
+            if((scrolled >= (animCollection[0].top - (window.innerHeight - 100)))){
+                TweenMax.staggerTo(animCollection[0].elem.querySelectorAll('.gs'),.5,{y:0,opacity:1},.3);
+                animCollection.shift();
             }
         }
     });
 
     //* -- Кнопки переходов и показа форм -- *//
     function close (){
-        if(youTube){add(youTube);iframe.src='';}
+        if(youTube){
+            add(youTube);iframe.src='';
+        }
         let arr= [regForm,regEnter,regForgot,priv,privSuccess,terms,partnerPage,termsPage];
         for(let i = 0; i < arr.length; i++){
             add(arr[i]);
@@ -134,7 +121,9 @@ window.onload = function () {
     }
     //* -- Кнопка закрытия -- *//
     let formClose = queryAll('.close-form');
-    formClose.forEach(function (el) {el.onclick = close;});
+    formClose.forEach(function (el) {
+        el.onclick = close;
+    });
     //* -- Видео YouTube --*//
     let youBut = query('.mainview-video'),
         youTube = query('.youtube'),
@@ -153,24 +142,49 @@ window.onload = function () {
     let regSecondPage = query('.reg-second-page'),
         regPassSub = getId('registration-submit');
     let privSuccess = query('.priv-success');
-    regBut.forEach(function(el){el.onclick = function(){formShow(regForm);remove(regFirstPage)}});
-    regSub.onclick = function(){add(regFirstPage);remove(regSecondPage)};
-    regPassSub.onclick = function(){add(regForm);add(regSecondPage);remove(privSuccess)};
+    regBut.forEach(function(el){
+        el.onclick = function(){
+            formShow(regForm);
+            remove(regFirstPage)
+        }
+    });
+    regSub.onclick = function(){
+        add(regFirstPage);
+        remove(regSecondPage)
+    };
+    regPassSub.onclick = function(){
+        add(regForm);
+        add(regSecondPage);
+        remove(privSuccess)
+    };
     //* -- Форма входа --*//
     let loginHead = getId('loginHead'),
         forgotBut = getId('reg-login-forgot'),
         regForgot = query('.reg-forgot'),
         regEnter = query('.reg-enter');
-    if(loginHead){loginHead.onclick = function () {formShow(regEnter)};}
-    forgotBut.onclick = function(){add(regEnter);remove(regForgot)};
+    if(loginHead){
+        loginHead.onclick = function(){
+            formShow(regEnter)
+        };
+    }
+    forgotBut.onclick = function(){
+        add(regEnter);
+        remove(regForgot)
+    };
     //* -- Privacy Policy --*//
     let priv = query('.privacy-page'),
         privLink = query('.foot-privacy');
-    privLink.onclick = function(){close();formShow(priv);};
+    privLink.onclick = function(){
+        close();
+        formShow(priv);
+    };
     //* -- Футер термс --*//
     let footTerms = query('.foot-terms'),
         termsPage = query('.terms-page');
-    footTerms.onclick = function(){close();formShow(termsPage);};
+    footTerms.onclick = function(){
+        close();
+        formShow(termsPage);
+    };
     //* -- Become a Participant -- *//
     let footPart = query('.foot-partner'),
         partnerPage = query('.partner-page'),
@@ -178,9 +192,19 @@ window.onload = function () {
         terms = query('.terms'),
         termsSub = query('#termsSubmit'),
         termsDec = query('#termsDecline');
-    footPart.onclick = function(){close();formShow(partnerPage);};
-    partSub.onclick = function(){add(partnerPage);formShow(terms)};
-    termsSub.onclick = function(){add(terms);remove(regForm);remove(regFirstPage);};
+    footPart.onclick = function(){
+        close();
+        formShow(partnerPage);
+    };
+    partSub.onclick = function(){
+        add(partnerPage);
+        formShow(terms)
+    };
+    termsSub.onclick = function(){
+        add(terms);
+        remove(regForm);
+        remove(regFirstPage);
+    };
     termsDec.onclick = close;
 
     //* -- Кабинет выпадающий список --*//
@@ -188,7 +212,9 @@ window.onload = function () {
     if(cabBut){
         cabBut.onclick = function(){
             let cabList = query('.cabinet-list');
-            toggle(cabList,'cabinet-hidden');};}
+            toggle(cabList,'cabinet-hidden');
+        };
+    }
 
     //* -- Переключения Методов на странице кабинета --*//
     let mainMethodForm = query('.main-method'),
@@ -199,7 +225,11 @@ window.onload = function () {
         affPartnerBut = queryAll('.aff-method-link'),
         conPartnerBut = queryAll('.con-method-link'),
         refMethodBut = queryAll('.ref-method-link');
-    function methodClose(){add(refPartnerForm);add(affPartnerForm);add(conPartnerForm);add(mainMethodForm)}
+    function methodClose(){
+        add(refPartnerForm);
+        add(affPartnerForm);
+        add(conPartnerForm);
+        add(mainMethodForm)}
     function methodSelect(el,elForm){
         el.forEach(function (el) {
             el.onclick = function () {
@@ -274,7 +304,6 @@ window.onload = function () {
     let countryListItems = [],
         countryNewList = [];
     function countryListToggle(){
-
         let countryList = query('.reg-country-list');
         if(!cashed){
             let outList = '', items = countryList.querySelectorAll('li');
@@ -282,7 +311,7 @@ window.onload = function () {
                 let li = `
                     <li>
                         <button type="button" data-value="${el.dataset.value}">
-                            <img src="img/${el.dataset.img}" class="lazyload" alt="">
+                            <img src="img/flags/${el.dataset.img}" class="lazyload" alt="">
                             <span>${el.dataset.country}</span>
                         </button>
                     </li>
@@ -293,8 +322,6 @@ window.onload = function () {
             countryListItems = countryList.querySelectorAll('li');
             cashed = true;
         }
-
-
         if(!contains(countryList,'reg-country-list-active')){
             add(countryList,'reg-country-list-active');
         }
@@ -310,8 +337,6 @@ window.onload = function () {
                 element = element.parentNode;
             }
         }
-
-
         let listImg = element.querySelector('img'),
             img = country.querySelector('img'),
             input = country.querySelector('input');
@@ -324,7 +349,6 @@ window.onload = function () {
         let countryShowCont = query('.reg-country');
         add(countryShowCont,'success');
     });
-
     country.querySelector('input').addEventListener('keyup',function (e) {
         if(e.keyCode === 40){
             countryList.children[0].querySelector('button').focus();
@@ -369,4 +393,22 @@ window.onload = function () {
         let img = country.querySelector('img');
         img.setAttribute('src','');
     });
+
+    //* -- Анимация главного экрана -- *//
+    let mainAnim = {
+        item : query('.mainview'),
+        checked : false
+        };
+    if(mainAnim.item){
+        if(mainAnim.checked !== true){
+            TweenMax.to(mainAnim.item.querySelectorAll('.gsm')[0],3,{scale:1,opacity:1});
+            TweenMax.to(mainAnim.item.querySelectorAll('.gsm')[1],2,{delay:1,scale:1,opacity:1});
+            mainAnim.checked = true;
+        }
+    }
+
+    let statSlider = query('.statistic-slider-cont');
+    statSlider.addEventListener('swipe',function (e) {
+
+    })
 };

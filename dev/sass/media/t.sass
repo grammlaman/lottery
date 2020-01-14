@@ -32,7 +32,6 @@
   &-name
     +w(160px)
     font-size: 18px
-    color: #000
     margin-right: auto
   &-button
     padding: 11px 14px
@@ -179,6 +178,11 @@
   &-country
     &-list
       +w(483px)
+  &-birthday
+    &-year
+      input
+        padding-left: 20px
+        text-align: left
 .priv
   &-success
     p,span
@@ -249,6 +253,7 @@
   &-section
     +w(728px)
     top: 50px
+    margin: auto
   &-bgc
     background-position: top
   &-cont
@@ -278,11 +283,13 @@
 
 .count
   &-row
-    padding-top: 20px
+    padding: 20px 0
   &-span
     +w(100px)
     font-size: 24px
-
+  &-description
+    span
+      font-size: 16px
 .foot
   padding: 0 0 50px
   &-privacy

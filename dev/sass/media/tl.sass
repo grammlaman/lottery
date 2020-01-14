@@ -28,12 +28,12 @@
   right: 30px
 .privacy
   padding: 127px 0 70px
+.underline
+  +w(815px)
 .mainview
   h1
     margin-top: 35px
 .program
-  &-cont
-    justify-content: center
   &-text
     flex: 0 0 510px
     margin-right: 74px
@@ -41,26 +41,33 @@
       font-family: $f_semi
       font-size: 24px
       line-height: 40px
+  &-cont
+    justify-content: center
+    padding-bottom: 0
   &-steps
+    margin-top: 10px
     flex: 0 0 193px
     h5
       font-size: 20px
       margin-bottom: 30px
     span
       font-size: 20px
+  .underline
+    margin: 88px auto 0
 .statistic
   padding: 73px 0 115px
   h2
     font-size: 50px
-.underline
-  +w(815px)
-.program
-  &-cont
-    padding-bottom: 0
-  &-steps
-    margin-top: 10px
-  .underline
-    margin: 88px auto 0
+.count
+  padding-top: 73px
+  h3
+    font-size: 50px
+  &-description
+    padding-bottom: 115px
+  &-span
+    font-size: 30px
+  &-desc
+    font-size: 16px
 .typycal
   padding-top: 120px
   background-position: center
@@ -115,17 +122,6 @@
   padding-bottom: 0
   .underline
     +w(100%)
-.count
-  padding-top: 73px
-  h3
-    font-size: 50px
-  &-row
-    padding-bottom: 115px
-  &-span
-    font-size: 30px
-  &-desc
-    font-size: 16px
-
 .foot
   &-name
     +w(330px)

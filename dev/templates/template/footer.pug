@@ -6,7 +6,7 @@ footer
                     path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
             .reg-first-page.display-none
                 .reg-title#reg-title
-                    h2 Electronic Immigrant Investor Visa Lottery Entry Form
+                    h2 Registration form
                     +img('logo.png')
                 .reg-gray.reg-mt
                     span Personal Information
@@ -35,7 +35,7 @@ footer
                         label(for='reg-mn').reg-label
                             span
                                 span
-                            span No First Name
+                            span No Middle Name
                 .underline
                     div
                 .reg-cont
@@ -61,13 +61,13 @@ footer
                                         path(fill-rule="evenodd" clip-rule="evenodd" d="M7.29877 2.00762C7.29877 3.1164 6.4163 4.01524 5.32773 4.01524C4.23915 4.01524 3.35668 3.1164 3.35668 2.00762C3.35668 0.898842 4.23915 0 5.32773 0C6.4163 0 7.29877 0.898842 7.29877 2.00762ZM8.82345 5.71582C8.82345 5.71582 9.84059 8.79316 9.66459 9.54058C9.56555 9.95506 8.8844 10.4572 8.11717 10.8533L9.84059 16.4884L7.01621 16.4846L7.00936 23.1863C6.95755 23.7013 6.60021 23.8949 6.15907 23.8949C5.72021 23.8949 5.36212 23.7135 5.31183 23.197H5.03907C4.98955 23.712 4.62917 23.8857 4.19107 23.8857C3.75069 23.8857 3.39183 23.6968 3.34079 23.181L3.33317 16.4846L0.685547 16.493L2.49507 10.973C1.63259 10.5623 0.812785 9.99925 0.704594 9.54058C0.541547 8.84268 1.52821 5.74325 1.52821 5.74325C1.66307 5.29754 2.20936 4.45411 3.68059 4.53639L6.6505 4.52725C8.16974 4.53639 8.70993 5.42554 8.82345 5.71582Z" fill="black")
                 .underline
                     div
-                .reg-cont
+                .reg-cont.reg-birthday
                     .reg-block
                         .reg-block-title
                             h3 Date of Birth
                             span Input error
-                        .reg-row-tab
-                            .reg-first.reg-block-three
+                        .reg-row
+                            .reg-birthday-month.reg-block-three.reg-first
                                 span.reg-gray Month
                                 select
                                     option(value='january') January
@@ -82,18 +82,17 @@ footer
                                     option(value='october') October
                                     option(value='november') November
                                     option(value='december') December
-                            .reg-row.reg-mt-mob
-                                .reg-row-mini.reg-first.reg-block-three
-                                    span.reg-gray Day
-                                    select
-                                        -for(let i = 1; i <= 31; i++)
-                                            - if(i<10)
-                                                option(value!=i)!='0'+i
-                                                - continue
-                                            option(value!=i)!=i
-                                .reg-row-mini.reg-block-three
-                                    span.reg-gray Year
-                                    input(type='text' placeholder='0000')
+                            .reg-birthday-day.reg-first.reg-block-three
+                                span.reg-gray Day
+                                select
+                                    -for(let i = 1; i <= 31; i++)
+                                        - if(i<10)
+                                            option(value!=i)!='0'+i
+                                            - continue
+                                        option(value!=i)!=i
+                            .reg-birthday-year.reg-block-three
+                                span.reg-gray Year
+                                input(type='text' placeholder='0000')
                 .underline
                     div
                 .reg-cont.reg-country
@@ -102,16 +101,13 @@ footer
                             h3 Country
                             span Input error
                         .reg-datalist
-                            img
+                            img(src='/img' alt='')
                             input(type='text')
                         ul.reg-country-list
                             - cnt = 0
                             each country in countries
                                 - cnt++
                                 li(tabIndex!=cnt data-value=country['value'] data-img=country['img'] data-country=country['country'])
-                                    //button(type='button' data-value=country['value'])
-                                    //    +img(country['img'])(class='lazyload')
-                                    //    span!= country['country']
                         .reg-gray.reg-mt
                             span Same as passport
                 .underline
