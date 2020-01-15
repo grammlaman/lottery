@@ -28,6 +28,24 @@ window.onload = function () {
         };
         animCollection.push(elObj);
     });
+    //* -- Анимация выезжающего текста -- *//
+    let scrolledLoad = window.pageYOffset;
+    function textAnimation() {
+        if(window.pageYOffset) {
+            if (!animCollection.length) return;
+            animCollection.forEach(
+                (el) => {
+                    let div = el.top - (window.innerHeight - 100);
+                    if((el.top - (window.innerHeight - 100)) < 0) {// return;
+                        TweenMax.staggerTo(el.elem.querySelectorAll('.gs'), .5, {y: 0, opacity: 1}, .3);
+                    }
+
+                }
+            );
+        }
+    }
+    textAnimation();
+
 
     //* -- Смена задних фонов -- *//
     let bgcArr = queryAll('.typycal');
@@ -90,14 +108,13 @@ window.onload = function () {
                 add(header,'head-scrolled');
             }
         }
-
-        //* -- Анимация выезжающего текста -- *//
-        if(animCollection.length > 0){
-            if((scrolled >= (animCollection[0].top - (window.innerHeight - 100)))){
-                TweenMax.staggerTo(animCollection[0].elem.querySelectorAll('.gs'),.5,{y:0,opacity:1},.3);
-                animCollection.shift();
-            }
+        if(!animCollection.length) return;
+        if((scrolled - scrolledLoad) >= (animCollection[0].top - (window.innerHeight - 100))){
+            TweenMax.staggerTo(animCollection[0].elem.querySelectorAll('.gs'),.5,{y:0,opacity:1},.3);
+            animCollection.shift();
         }
+
+
     });
 
     //* -- Кнопки переходов и показа форм -- *//
@@ -406,9 +423,4 @@ window.onload = function () {
             mainAnim.checked = true;
         }
     }
-
-    let statSlider = query('.statistic-slider-cont');
-    statSlider.addEventListener('swipe',function (e) {
-
-    })
 };
