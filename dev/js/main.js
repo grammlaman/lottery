@@ -1,21 +1,20 @@
 
-function query(el) {return document.querySelector(el);}
-function queryAll(el) {return document.querySelectorAll(el);}
-function getId(el) {return document.getElementById(el);}
+function query(el,doc = document) {return doc.querySelector(el);}
+function queryAll(el,doc = document) {return doc.querySelectorAll(el);}
+function getId(el,doc = document) {return doc.getElementById(el);}
 function add(el,cls = 'display-none') {el.classList.add(cls)}
 function remove(el,cls = 'display-none') {el.classList.remove(cls)}
 function toggle(el,cls = 'display-none') {el.classList.toggle(cls)}
 function contains(el,cls = 'display-none') {return el.classList.contains(cls)}
 
 window.onload = function () {
-    let a = 3;
+
     //* -- Выбор языка -- *//
     let pageSelect = query('.page-select');
     pageSelect.onclick = function() {
         if(!contains(pageSelect,'open')){add(pageSelect,'open');}
         else{remove(pageSelect,'open');}
     };
-    let fixed = query('.mob-fixed');
 
     //* -- Объявление переменных выезжающего текста -- *//
     let animCollection = [];
@@ -35,8 +34,7 @@ window.onload = function () {
             if (!animCollection.length) return;
             animCollection.forEach(
                 (el) => {
-                    let div = el.top - (window.innerHeight - 100);
-                    if((el.top - (window.innerHeight - 100)) < 0) {// return;
+                    if((el.top - (window.innerHeight - 100)) < 0) {
                         TweenMax.staggerTo(el.elem.querySelectorAll('.gs'), .5, {y: 0, opacity: 1}, .3);
                     }
 
@@ -45,7 +43,6 @@ window.onload = function () {
         }
     }
     textAnimation();
-
 
     //* -- Смена задних фонов -- *//
     let bgcArr = queryAll('.typycal');
@@ -74,6 +71,13 @@ window.onload = function () {
         })
     }
     setInterval(changeBGC,10000);
+
+    //* -- Кнопка скроллов при обновлении страницы -- *//
+    if(document.getElementById('first-view')){
+        if (scrolledLoad >= document.getElementById('first-view').getClientRects()[0].height){
+            add(getId('scroll-1'));
+        }
+    }
 
     //* -- Действия со скроллами -- *//
     let mainPage = query('.mainPage');
@@ -113,7 +117,6 @@ window.onload = function () {
             TweenMax.staggerTo(animCollection[0].elem.querySelectorAll('.gs'),.5,{y:0,opacity:1},.3);
             animCollection.shift();
         }
-
 
     });
 
@@ -234,32 +237,23 @@ window.onload = function () {
     }
 
     //* -- Переключения Методов на странице кабинета --*//
-    let mainMethodForm = query('.main-method'),
-        refPartnerForm = query('.ref-method'),
-        affPartnerForm = query('.aff-method'),
-        conPartnerForm = query('.con-method'),
-        mainMethodBut = queryAll('.main-method-link'),
-        affPartnerBut = queryAll('.aff-method-link'),
-        conPartnerBut = queryAll('.con-method-link'),
-        refMethodBut = queryAll('.ref-method-link');
-    function methodClose(){
-        add(refPartnerForm);
-        add(affPartnerForm);
-        add(conPartnerForm);
-        add(mainMethodForm)}
-    function methodSelect(el,elForm){
-        el.forEach(function (el) {
+    let cabObj = {
+        form : [query('.main-method'),query('.ref-method'),query('.aff-method'),query('.con-method')],
+        but : [queryAll('.main-method-link'),queryAll('.ref-method-link'),queryAll('.aff-method-link'),queryAll('.con-method-link')],
+        Close : function () {
+            this.form.forEach(function (el) {
+                add(el)
+            })
+        }
+    };
+    for(let i = 0; i < 4; i++){
+        cabObj.but[i].forEach(function (el) {
             el.onclick = function () {
-                methodClose();
-                let form = elForm;
-                remove(form)
+                cabObj.Close();
+                remove(cabObj.form[i])
             }
         })
     }
-    methodSelect(mainMethodBut,mainMethodForm);
-    methodSelect(refMethodBut,refPartnerForm);
-    methodSelect(affPartnerBut,affPartnerForm);
-    methodSelect(conPartnerBut,conPartnerForm);
 
     //* -- Рандомайзер --*//
     let random = query('.count-random');
@@ -423,4 +417,7 @@ window.onload = function () {
             mainAnim.checked = true;
         }
     }
+
+    let statFlagsItem = queryAll('.statistic-row-item');
+    TweenMax.staggerTo(statFlagsItem,10,{x:-200,ease:'none',repeat:-1},2);
 };

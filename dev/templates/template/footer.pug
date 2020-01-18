@@ -8,8 +8,6 @@ footer
                 .reg-title#reg-title
                     h2 Registration form
                     +img('logo.png')
-                .reg-gray.reg-mt
-                    span Personal Information
                 .reg-cont.reg-row-tab
                     .reg-block.reg-first.reg-block-three.error
                         .reg-block-title
@@ -68,7 +66,6 @@ footer
                             span Input error
                         .reg-row
                             .reg-birthday-month.reg-block-three.reg-first
-                                span.reg-gray Month
                                 select
                                     option(value='january') January
                                     option(value='february') February
@@ -82,17 +79,18 @@ footer
                                     option(value='october') October
                                     option(value='november') November
                                     option(value='december') December
+                                span.reg-gray.reg-mt Month
                             .reg-birthday-day.reg-first.reg-block-three
-                                span.reg-gray Day
                                 select
                                     -for(let i = 1; i <= 31; i++)
                                         - if(i<10)
                                             option(value!=i)!='0'+i
                                             - continue
                                         option(value!=i)!=i
+                                span.reg-gray.reg-mt Day
                             .reg-birthday-year.reg-block-three
-                                span.reg-gray Year
                                 input(type='text' placeholder='0000')
+                                span.reg-gray.reg-mt Year
                 .underline
                     div
                 .reg-cont.reg-country
@@ -244,7 +242,7 @@ footer
                 svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
                     path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
             .privacy-title
-                h2 Get bonus tickets, Get commissions, #[br] Get income permanently!
+                h2 Get commissions and income permanently!
             button.button-blue.partner-button
                 span Register
                 span
@@ -257,7 +255,7 @@ footer
                 .partner-cont
                     h3 Converter
                     p Get up to 50% of proceeds of every Affiliate in your network
-            span.partner-span * Permanently meaning in case if registered through the link entrants buy tickets repeatedly. First conversion counts only.
+            span.partner-span * Permanently meaning in case if registered through the link entrants buy tickets repeatedly.
     .privacy.terms.display-none
         .section
             button.close-form

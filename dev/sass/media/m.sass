@@ -367,6 +367,20 @@ header
       span
         +font(11px,$f_reg,#000)
         opacity: 30%
+  &-row
+    +w(100%)
+    margin-top: 50px
+    position: relative
+    &-item
+      position: absolute
+      display: flex
+      align-items: center
+      transform: translateX(500px)
+  &-img
+    +w(30px)
+    margin-right: 10px
+  &-name
+    +font(14px,$f_semi)
 .typycal
   height: 1126px
   position: relative
@@ -716,7 +730,8 @@ header
     display: flex
     align-items: center
     input
-      +wh(70%!important)
+      +w( calc(100% - 50px)!important)
+      height: 100%
       background-image: none
       border: none
       background-color: transparent!important
@@ -726,6 +741,8 @@ header
     margin: auto
     padding: 0 5px
   &-birthday
+    .reg-mt
+      display: block
     &-month
       +w(150px)
     &-day,&-year
