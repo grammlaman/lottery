@@ -43,7 +43,6 @@ window.onload = function () {
         }
     }
     textAnimation();
-
     //* -- Смена задних фонов -- *//
     let bgcArr = queryAll('.typycal');
     function changeBGC() {
@@ -79,6 +78,35 @@ window.onload = function () {
         }
     }
 
+    //* -- Анимация флагов на главной странице -- *//
+    let statFlagsItem = queryAll('.statistic-row-item');
+    let statFlagsItemCheck = false;
+    if(statFlagsItem){
+        function flagsAnimStart() {
+            let example = window.innerWidth;
+            statFlagsItem.forEach(function (el) {
+                el.style.transform = 'translateX('+example+'px)';
+                el.style.opacity = '1';
+            });
+            return statFlagsItem;
+        }
+        function requestAnimationFrame() {
+            let example = window.innerWidth;
+            let exMult = 1.5;
+            let cnt = 2;
+            if(example<500){cnt = 2}
+            else if(example<1000){cnt = 3}
+            else if(example<1440){cnt = 4}
+            else {exMult = 2; cnt = 5}
+            let tl = new TimelineMax({repeat:-1});
+            tl.add(TweenMax.staggerTo(statFlagsItem,cnt*exMult,{x:-200,ease:'linear'},exMult));
+        }
+        if(statFlagsItem[0].getBoundingClientRect().top <= window.innerHeight - 250){
+            statFlagsItemCheck = true;
+            flagsAnimStart();
+            requestAnimationFrame();
+        }
+    }
     //* -- Действия со скроллами -- *//
     let mainPage = query('.mainPage');
     let header = getId('header');
@@ -117,6 +145,36 @@ window.onload = function () {
             TweenMax.staggerTo(animCollection[0].elem.querySelectorAll('.gs'),.5,{y:0,opacity:1},.3);
             animCollection.shift();
         }
+        let statFlagsItem = queryAll('.statistic-row-item');
+        if(statFlagsItem){
+            if(!statFlagsItemCheck){
+                if(scrolled >= statFlagsItem[0].getBoundingClientRect().top){
+                    statFlagsItemCheck = true;
+                    flagsAnimStart()
+                    requestAnimationFrame();
+                }
+            }
+        }
+
+        let firstViewOpacity = 1;
+        if(scrolled == 0){
+            firstViewOpacity = 1
+        }
+        if(scrolled >= 100){
+            firstViewOpacity = 0.5
+        }
+        if(scrolled >= 200){
+            firstViewOpacity = 0.2
+        }
+        if(scrolled >= 300){
+            firstViewOpacity = 0.05
+        }
+        if(scrolled >= 400){
+            firstViewOpacity = 0
+        }
+        firstView = document.querySelector('#first-view');
+        firstView.querySelector('img').style.opacity = firstViewOpacity;
+        firstView.querySelector('h1').style.opacity = firstViewOpacity;
 
     });
 
@@ -255,6 +313,47 @@ window.onload = function () {
         })
     }
 
+    let timerCheck = false;
+    //* -- Отсчет --*//
+    function timer(){
+        let countHour = query('.count-span-hour');
+        let countMin = query('.count-span-minute');
+        let countSec = query('.count-span-second');
+        function CountSec(sec,min,hour) {
+            if (parseInt(sec.textContent) != 0){
+                sec.textContent -= 1;
+                if(sec.textContent < 10){
+
+                    sec.textContent = '0' + sec.textContent;
+                }
+            } else {
+                sec.textContent = 59;
+                min.textContent -= 1;
+                if(parseInt(min.textContent) <= 9){
+                    min.textContent = '0' + min.textContent;
+                }
+                if((min.textContent.length) == 3){
+                    min.textContent = 59;
+                    hour.textContent -= 1;
+                    if(hour.textContent < 10){
+                        hour.textContent = '0' + hour.textContent
+                    }
+                }
+            }
+            if((hour.textContent == 0)&&(min.textContent == 0)&&(sec.textContent == 0)){
+                return timerCheck = true;
+            }
+        }
+        setInterval(function(){
+            if(!timerCheck){
+                CountSec(countSec,countMin,countHour)
+            }
+        },1000);
+    }
+    if(query('.count-span-second')){
+        timer();
+    }
+    //* -- Отсчет конец --*//
     //* -- Рандомайзер --*//
     let random = query('.count-random');
     let randomInt = 0;
@@ -278,34 +377,12 @@ window.onload = function () {
     }
     if (random) {
         setInterval(function(){random.textContent = getRandomInt()});
-        setInterval(function(){nextRandom()}, 2500);
+        setInterval(function(){
+           if(!timerCheck){
+               nextRandom()
+           }
+        }, 2500);
     }
-    //* -- Отсчет --*//
-    let countHour = query('.count-span-hour');
-    let countMin = query('.count-span-minute');
-    let countSec = query('.count-span-second');
-    if(countSec){
-        function CountSec(sec,min,hour) {
-            if (parseInt(sec.textContent) != 0){
-                sec.textContent -= 1;
-                if(sec.textContent < 10){
-                    sec.textContent = '0' + sec.textContent;
-                }
-            } else {
-                sec.textContent = 59;
-                min.textContent -= 1;
-                if(parseInt(min.textContent) <= 9){
-                    min.textContent = '0' + min.textContent;
-                }
-                if((min.textContent.length) == 3){
-                    min.textContent = 59;
-                    hour.textContent -= 1;
-                }
-            }
-        }
-        setInterval(function(){CountSec(countSec,countMin,countHour)},1000);
-    }
-    //* -- Отсчет конец --*//
 
     //* -- Выбор страны -- *//
     let country = query('.reg-datalist'),
@@ -418,6 +495,7 @@ window.onload = function () {
         }
     }
 
-    let statFlagsItem = queryAll('.statistic-row-item');
-    TweenMax.staggerTo(statFlagsItem,10,{x:-200,ease:'none',repeat:-1},2);
+
+
+
 };
