@@ -110,6 +110,7 @@ window.onload = function () {
     //* -- Действия со скроллами -- *//
     let mainPage = query('.mainPage');
     let header = getId('header');
+    let  firstView = document.querySelector('#first-view');
     window.addEventListener('scroll', function(e) {
         let scrolled = window.pageYOffset;
         let scrollF = getId('scroll-1'),
@@ -172,9 +173,8 @@ window.onload = function () {
         if(scrolled >= 400){
             firstViewOpacity = 0
         }
-        firstView = document.querySelector('#first-view');
-        firstView.querySelector('img').style.opacity = firstViewOpacity;
-        firstView.querySelector('h1').style.opacity = firstViewOpacity;
+        TweenMax.to(firstView.querySelector('img'),.15,{opacity:firstViewOpacity});
+        TweenMax.to(firstView.querySelector('h1'),.15,{opacity:firstViewOpacity});
 
     });
 
