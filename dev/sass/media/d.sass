@@ -96,10 +96,12 @@ $unit: 'px'
         border-bottom: 1px solid $head-dark-gray
       li:hover
         background-color: $head-border-gray
-#reg-login-forgot:hover
-  text-decoration: underline
-  color: $button-color
+#reg-login-forgot,#reg-login-enter
+  &:hover
+    text-decoration: underline
+    color: $button-color
 .reg,.privacy
+  min-height: calc(100vh - 259px)
   img
     right: -50px
 .program

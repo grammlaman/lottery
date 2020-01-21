@@ -1,0 +1,435 @@
+extends template/main
+append vars
+	-
+		page_title= 'Главная страница'
+		greensock = false
+block content
+	header.display-none#header
+		.head
+			a(href='/').head-logo
+				+img('logo.png')
+			a(href='/').head-name
+				span Electronic Immigrant Investor Visa Lottery
+			.page-select.head-language-select
+				.page-select-header.head-button
+					span Eng
+					span.head-language-arrow
+						span
+						span
+				.page-select-body
+					a(href='#').head-button
+						span Рус
+			button.button-blue.button-cabinet#cabinet-button
+				+img('user.png')
+				span My Account
+				span
+		ul.cabinet-list.cabinet-hidden
+			li.section
+				button
+					span Change my data
+			li.section
+				button
+					span Send my tickets again
+			li.section
+				a(href='/')
+					span Log out
+		.head-underline
+			div
+	main.mainPage
+		form.reg.reg-enter
+			a(href='/').close-cabinet
+				svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+					path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+			.section
+				.reg-title
+					h2 Sign in
+					+img('logo.png')
+				.reg-cont
+					.reg-block
+						.reg-block-title
+							h3 Email
+							span Input error
+						input(type='text')
+					.reg-block
+						.reg-block-title
+							h3 Password
+							span Input error
+						input(type='password')
+				.underline
+					div
+				.reg-button-block
+					button(type='button').reg-button.button-blue#loginSubmit
+						span Sign in
+						span
+					.reg-gray.reg-mt-large
+						button(type='button')#reg-login-forgot Forgot password?
+		form.reg.reg-forgot.display-none
+			a(href='localhost').close-cabinet
+				svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+					path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+			.section
+				.reg-title
+					h2 Forgot password?
+					+img('logo.png')
+				.reg-cont
+					.reg-block
+						.reg-block-title
+							h3 Email
+							span Input error
+						input(type='text')
+					button.reg-button-long.button-blue#forgotPassword
+						span Send me new password
+						span
+					.reg-gray.reg-mt-large
+						button(type='button')#reg-login-enter Sign in
+		form.reg.main-method.display-none
+			.section
+				.reg-title
+					h2 Round #[strong.round-number 0520]
+				.reg-method
+					span Main method
+					a.ref-method-link Alternative method
+				.reg-cont
+					.reg-block
+						.reg-gray
+							span Tickets bought: 6
+				.reg-method-cont.reg-method-fee
+					.reg-block
+						.reg-block-title
+							h3 Number of Tickets
+							span Input error
+						input(type='text')
+					.reg-block
+						.reg-block-title
+							h3 Total Fee
+							span Input error
+						input(type='text')
+						input(type='checkbox' style='display:none' checked).reg-label-input#reg-fee
+						label(for='reg-fee').reg-label
+							span
+								span
+							span I want to participate in every round
+				.underline
+					div
+				.reg-cont
+					.reg-block.reg-row-img
+						div
+							.reg-block-title
+								h3 CARD HOLDER NAME
+								span Input error
+							input(type='text')
+						+img('visa.png')
+					.reg-block
+						.reg-block-title
+							h3 CARD NUMBER
+							span Input error
+						input(type='text')
+					.reg-block
+						.reg-block-title
+							h3 VALID THRU
+							span Input error
+						.reg-row
+							.reg-first.reg-row-mini.reg-block-three
+								select
+									option(value='01') 01
+									option(value='02') 02
+									option(value='03') 03
+									option(value='04') 04
+									option(value='05') 05
+									option(value='06') 06
+									option(value='07') 07
+									option(value='08') 08
+									option(value='09') 09
+									option(value='10') 10
+									option(value='11') 11
+									option(value='12') 12
+							.reg-row-mini.reg-block-three
+								select
+									option(value='2024') 2024
+									option(value='2023') 2023
+									option(value='2022') 2022
+									option(value='2021') 2021
+									option(value='2020') 2020
+					.reg-block
+						.reg-row-mini.reg-block-three
+							.reg-block-title
+								h3 CVC
+								span Input error
+							input(type='text')
+						input(type='checkbox' style='display:none').reg-label-input#payment
+						label(for='payment').reg-label
+							span
+								span
+							span I authorize payment
+				.underline
+					div
+				.reg-button-block
+					button.button-blue
+						span Apply
+						span
+		.reg.ref-method.display-none
+			.section
+				.reg-title
+					h2 Round #[strong.round-number 0520]
+				.reg-method
+					a.main-method-link Main method
+					span Alternative method
+				.reg-cont
+					.reg-block
+						.reg-gray
+							span Get 1 ticket for every 10 tickets bought through your link
+				.reg-method-cont
+					.reg-block-title
+						h6 How to get:
+					.reg-row-tab
+						.reg-method-step.reg-gray.reg-mt-mob
+							span
+								span 1
+							span Create link
+						.reg-method-step.reg-gray.reg-mt-mob
+							span
+								span 2
+							span Share with anyone
+						.reg-method-step.reg-gray.reg-mt-mob
+							span
+								span 3
+							span Receive tickets permanently
+				.underline
+					div
+				.reg-button-block.reg-method-button-block
+					button.button-blue.reg-method-button
+						span Generate link
+						span
+					span.reg-link #[strong Your link:] linklink2555
+				.underline
+					div
+				.reg-table
+					div
+						span Clickthroughs
+						span Registrations
+						span Purchases
+						span Tickets recieved
+					div
+						h6 Current Round
+						span 7
+						span 7
+						span 6
+						span 0
+					div
+						h6 All time
+						span 34
+						span 34
+						span 33
+						span 3
+				.underline
+					div
+				.reg-cont
+					.reg-block.reg-links
+						a(href='#') Promotional Materials
+						a(href='mailto:partner@ivlottery.com') Privacy Participation
+	footer
+		.privacy.privacy-page.display-none
+			.section
+				button.close-form
+					svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+						path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+				div.privacy-title
+					h2 Privacy Policy
+					+img('logo.png')
+				h3 1. Information collection
+				p This Privacy Policy explains how information is collected, used and disclosed by this Website with respect to user's access and use of our service. When using this Website, we ask for certain information from you:#[br]#[br]#[strong "Personal Information"] We collect personal data for stat purpose. Users who contact us via email, the email addresses and information you submitted voluntarily will also be collected.
+				h3 2. Information usage
+				p Your information will not be shared with others and is only used internally for the purposes described below:
+				ul
+					li
+						span •
+						span to provide our services or information you request, and to process and complete any transactions;
+					li
+						span •
+						span respond to your emails, submissions, questions, comments, requests, and complaints and provide customer service;
+					li
+						span •
+						span to analyze usage and trends with anonymous user data, and to improve the quality of our service and user experience;
+					li
+						span •
+						span to send you confirmations, updates, security alerts, and support and administrative messages and otherwise facilitate your use of, and our administration and operation of, our services.
+				h3 3. Cookies
+				p Cookies are required on this Website. We use them to collect visitors preferences and thus to better optimize the user experience. Users can disable cookies in their browser settings.
+				h3 4. Changes
+				p This Privacy Policy may be revised and modified in the future. We will post on this page and notify you via official notifications or emails. Please check back periodically to keep informed of updates or changes to this Privacy Policy. By continuing to access and to use this Website, you are agreeing to be bound by the revised policy.
+
+		.privacy.partner-page.display-none
+			.section
+				button.close-form
+					svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+						path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+				.privacy-title
+					h2 Get commissions and income permanently!
+				button.button-blue.partner-button
+					span Register
+					span
+				.underline
+					div
+				.partner-row
+					.partner-cont
+						h3 Affiliate
+						p Get up to $2 (U.S.) for every ticket bought through your link
+					.partner-cont
+						h3 Converter
+						p Get up to 50% of proceeds of every Affiliate in your network
+				span.partner-span * Permanently meaning in case if registered through the link entrants buy tickets repeatedly.
+		.privacy.terms.display-none
+			.section
+				button.close-form
+					svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+						path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+				.privacy-title
+					h2 Terms and Conditions
+					+img('logo.png')
+				h3 Partner Agreement
+				ul
+					li
+						span 1)
+						span Prior to joining the Partner Program as a Partner, you undertake to read, understand and accept the Terms and Conditions of the Partner Program.
+					li
+						span 2)
+						span The Terms and Conditions of the Partner Program may change. In this event the Partner will be notified by email.
+					li
+						span 3)
+						span Only persons over 18 years of age can participate in the Partner Program.
+					li
+						span 4)
+						span  A Partner is fully responsible for the safety of their personal data including username and password. The Partner Program bears no responsibility for the loss of personal data.
+					li
+						span 5)
+						span Website owner is entitled to decline any Partner application to join the Partner Program, and there is no obligation to explain the reason for the rejection.
+					li
+						span 6)
+						span Partner Program is entitled to make amendments to the existing Terms and Conditions. The existing Terms and Conditions are the Terms and Conditions displayed on the Partner Program website at the moment. It is impossible to trace the history of revisions. Should the terms of the Partner Program be amended, Partners will be notified by the email address provided by them at the time of registration
+					li
+						span 7)
+						span When publishing promotional materials, the Partner must strictly observe all applicable laws, regulatory requirements and ethical standards. They must only use promotional materials which have been moderated and approved by the website owner. When preparing their own materials, the Affiliate must send them for review and approval. In case of non-compliance with this paragraph of the Terms and Conditions, a penalty shall be enforced which may result in the termination of the partnership and a fine. For the clarification and resolution of issues, the Partner has the right to send email.
+					li
+						span 8)
+						span Partners are not allowed to promote the Electronic Immigrant Investor Visa Lottery program by way of email spam, contextual advertising mentioning the Electronic Immigrant Investor Visa Lottery program and ClickUnder/PopUnder types of advertising. If such actions are discovered, the Partner's personal account will be closed, any accrued funds will be annulled and commission fees will be withheld. It is also forbidden to use false information about the Electronic Immigrant Investor Visa Lottery program.
+					li
+						span 9)
+						span The use of 'cookie stuffing' techniques by Partners is prohibited:
+						p - the opening of the Electronic Immigrant Investor Visa Lottery program website in iframe with sides of zero length or in an invisible zone;
+						p - adding tags, cookie scripts and other similar actions.
+						p Partner prohibited the use of contextual advertising mentioning the Electronic Immigrant Investor Visa Lottery program.
+						p Should a Partner violate these Terms and Conditions, their personal account will be blocked and deleted.
+					li
+						span 10)
+						span  Only one registration in the Partner Program is allowed per participant. Repeat registration as a sub-affiliate is strictly forbidden.
+					li
+						span 11)
+						span  A Partner is prohibited to register their personal entrant account via their own affiliate link. Partners are also prohibited from colluding with other entrants.
+				h3 Partner Commission
+				p A Partner's earnings are not fixed. They depend on the revenue generated from the entrants who have registered after following the Affiliate link.
+				p The Partner Program reserves the right to revise Terms and Conditions at its sole discretion and without notice.
+				h3 Commission Payouts
+				p Your commission will be automatically transferred to your Partner Account on the weekly basis providing that its amount exceeds $100 (U.S.), which is the minimum amount for withdrawal. Otherwise the funds will be kept and added to the profit of the following week until the required amount is accumulated.
+				p Partner Program has the right to delay payments to the Partners for the period up to 1 month in case of unforeseen technical failures on the part of the Partner Program and when required to check the Affiliate and the source of his traffic.
+				h3 How to place a record for withdrawing funds?
+				p Check the account info before sending the request. Contact the Partner Program if you request the withdrawal for the first time. The following withdrawals would be automated.
+				h3 Dispute Resolution Procedure
+				p Partners can challenge any issues, and Partner Program will consider all concerns when the evidence and reasons are provided. They should be sent to the email address of the Partner Program Support Team. Complaints and requests will be reviewed within 15 days of the date of receiving the correspondence about the dispute, and the Partner will be notified of the outcome. The use of swear words, insults and false information in the correspondence is forbidden.
+				p It is forbidden to release any private information about the Electronic Immigrant Investor Visa Lottery program such as the number of Partners, the revenue amount etc. without a prior written permission from the company.
+				.underline
+					div
+				.terms-row
+					button.button-blue#termsSubmit
+						span Submit
+						span
+					button.button-gray#termsDecline
+						span Decline
+						span
+		.privacy.terms-page.display-none
+			.section
+				button.close-form
+					svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+						path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+				.privacy-title
+					h2 Terms and Conditions
+					+img('logo.png')
+				h3 Partner Agreement
+				ul
+					li
+						span 1)
+						span Prior to joining the Partner Program as a Partner, you undertake to read, understand and accept the Terms and Conditions of the Partner Program.
+					li
+						span 2)
+						span The Terms and Conditions of the Partner Program may change. In this event the Partner will be notified by email.
+					li
+						span 3)
+						span Only persons over 18 years of age can participate in the Partner Program.
+					li
+						span 4)
+						span  A Partner is fully responsible for the safety of their personal data including username and password. The Partner Program bears no responsibility for the loss of personal data.
+					li
+						span 5)
+						span Website owner is entitled to decline any Partner application to join the Partner Program, and there is no obligation to explain the reason for the rejection.
+					li
+						span 6)
+						span Partner Program is entitled to make amendments to the existing Terms and Conditions. The existing Terms and Conditions are the Terms and Conditions displayed on the Partner Program website at the moment. It is impossible to trace the history of revisions. Should the terms of the Partner Program be amended, Partners will be notified by the email address provided by them at the time of registration
+					li
+						span 7)
+						span When publishing promotional materials, the Partner must strictly observe all applicable laws, regulatory requirements and ethical standards. They must only use promotional materials which have been moderated and approved by the website owner. When preparing their own materials, the Affiliate must send them for review and approval. In case of non-compliance with this paragraph of the Terms and Conditions, a penalty shall be enforced which may result in the termination of the partnership and a fine. For the clarification and resolution of issues, the Partner has the right to send email.
+					li
+						span 8)
+						span Partners are not allowed to promote the Electronic Immigrant Investor Visa Lottery program by way of email spam, contextual advertising mentioning the Electronic Immigrant Investor Visa Lottery program and ClickUnder/PopUnder types of advertising. If such actions are discovered, the Partner's personal account will be closed, any accrued funds will be annulled and commission fees will be withheld. It is also forbidden to use false information about the Electronic Immigrant Investor Visa Lottery program.
+					li
+						span 9)
+						span The use of 'cookie stuffing' techniques by Partners is prohibited:
+						p - the opening of the Electronic Immigrant Investor Visa Lottery program website in iframe with sides of zero length or in an invisible zone;
+						p - adding tags, cookie scripts and other similar actions.
+						p Partner prohibited the use of contextual advertising mentioning the Electronic Immigrant Investor Visa Lottery program.
+						p Should a Partner violate these Terms and Conditions, their personal account will be blocked and deleted.
+					li
+						span 10)
+						span  Only one registration in the Partner Program is allowed per participant. Repeat registration as a sub-affiliate is strictly forbidden.
+					li
+						span 11)
+						span  A Partner is prohibited to register their personal entrant account via their own affiliate link. Partners are also prohibited from colluding with other entrants.
+				h3 Partner Commission
+				p A Partner's earnings are not fixed. They depend on the revenue generated from the entrants who have registered after following the Affiliate link.
+				p The Partner Program reserves the right to revise Terms and Conditions at its sole discretion and without notice.
+				h3 Commission Payouts
+				p Your commission will be automatically transferred to your Partner Account on the weekly basis providing that its amount exceeds $100 (U.S.), which is the minimum amount for withdrawal. Otherwise the funds will be kept and added to the profit of the following week until the required amount is accumulated.
+				p Partner Program has the right to delay payments to the Partners for the period up to 1 month in case of unforeseen technical failures on the part of the Partner Program and when required to check the Affiliate and the source of his traffic.
+				h3 How to place a record for withdrawing funds?
+				p Check the account info before sending the request. Contact the Partner Program if you request the withdrawal for the first time. The following withdrawals would be automated.
+				h3 Dispute Resolution Procedure
+				p Partners can challenge any issues, and Partner Program will consider all concerns when the evidence and reasons are provided. They should be sent to the email address of the Partner Program Support Team. Complaints and requests will be reviewed within 15 days of the date of receiving the correspondence about the dispute, and the Partner will be notified of the outcome. The use of swear words, insults and false information in the correspondence is forbidden.
+				p It is forbidden to release any private information about the Electronic Immigrant Investor Visa Lottery program such as the number of Partners, the revenue amount etc. without a prior written permission from the company.
+		.foot
+			.section
+				.underline.foot-order-0
+					div
+				a(href='#').foot-logo
+					+img('logo.png')
+				a(href='#').foot-name
+					span Electronic Immigrant Investor Visa Lottery
+				.underline.mob-only.foot-order-3
+					div
+				a.foot-privacy
+					span Privacy Policy
+				span.foot-copy Copyright © 2019 Department of Immigration Affairs Inc. All rights reserved.
+				.underline.foot-order-6
+					div
+				a(href='tel:18880000000').foot-tel
+					svg(width="10" height="9" viewBox="0 0 10 9" xmlns="http://www.w3.org/2000/svg")
+						path(d="M8.99062 6.97377C8.96516 6.89706 8.8032 6.78406 8.50484 6.63504C8.42401 6.58807 8.30884 6.52423 8.15981 6.44325C8.01065 6.36227 7.87527 6.28764 7.75389 6.21945C7.63227 6.15127 7.51833 6.08522 7.41187 6.02139C7.39485 6.0086 7.34159 5.97137 7.2521 5.90944C7.16252 5.84769 7.08698 5.80186 7.02507 5.77197C6.9633 5.74226 6.90253 5.7273 6.84286 5.7273C6.75765 5.7273 6.65121 5.78807 6.52341 5.90944C6.39561 6.03097 6.27838 6.16298 6.17189 6.30587C6.06539 6.44869 5.95243 6.5807 5.83323 6.70216C5.71385 6.82367 5.61576 6.88437 5.53914 6.88437C5.50068 6.88437 5.45272 6.87364 5.39525 6.85249C5.3378 6.83119 5.29409 6.81295 5.26409 6.79824C5.23436 6.78321 5.18333 6.75348 5.11083 6.70859C5.0382 6.66383 4.99781 6.63932 4.9893 6.63504C4.4055 6.31109 3.9048 5.94032 3.48712 5.52282C3.06958 5.10508 2.69877 4.60442 2.3749 4.02055C2.37065 4.01202 2.34609 3.97152 2.30138 3.89911C2.2566 3.82663 2.22675 3.77556 2.21184 3.74565C2.19693 3.71585 2.17882 3.67215 2.15755 3.61463C2.13628 3.55711 2.1256 3.5092 2.1256 3.4708C2.1256 3.39414 2.18634 3.29607 2.3078 3.17673C2.42924 3.05747 2.56139 2.94449 2.7041 2.83803C2.84692 2.73156 2.97893 2.61433 3.10041 2.48653C3.22185 2.35867 3.28257 2.25218 3.28257 2.16697C3.28257 2.10734 3.26766 2.04656 3.23786 1.98478C3.20804 1.92288 3.16223 1.84734 3.10041 1.7578C3.03857 1.66831 3.00129 1.61509 2.98849 1.59796C2.92463 1.4915 2.85865 1.37751 2.79039 1.25605C2.72212 1.13461 2.64761 0.999244 2.5666 0.850107C2.48566 0.701038 2.42179 0.585933 2.37486 0.504973C2.22579 0.206722 2.11288 0.0447118 2.03615 0.0192326C2.0063 0.00644818 1.96153 0 1.90192 0C1.7868 0 1.63661 0.02127 1.45125 0.0639444C1.26582 0.106552 1.1199 0.151241 1.01335 0.198192C0.800272 0.287638 0.574429 0.54758 0.335757 0.977929C0.118422 1.37843 0.00976562 1.77484 0.00976562 2.16686C0.00976562 2.28183 0.0172213 2.39368 0.0321327 2.50245C0.0470441 2.61111 0.0736877 2.73365 0.112086 2.87004C0.150416 3.0064 0.181336 3.10769 0.204711 3.17364C0.228108 3.23965 0.27179 3.35789 0.335734 3.52841C0.399589 3.69888 0.437987 3.80324 0.450772 3.84159C0.599908 4.25924 0.776763 4.6321 0.981291 4.96026C1.31781 5.50571 1.77704 6.06941 2.35872 6.65114C2.94042 7.23282 3.50401 7.69203 4.0495 8.02867C4.37762 8.23318 4.75061 8.41001 5.1682 8.55926C5.20657 8.57198 5.31093 8.61029 5.48134 8.67437C5.65181 8.73827 5.77009 8.78195 5.8361 8.80539C5.90212 8.82885 6.00344 8.8598 6.13968 8.89819C6.27621 8.93659 6.39863 8.96323 6.50729 8.97826C6.61601 8.99297 6.72789 9.00056 6.84289 9.00056C7.23488 9.00056 7.63131 8.89184 8.03188 8.67452C8.46218 8.43594 8.72206 8.21005 8.81155 7.99681C8.85861 7.89037 8.90319 7.74442 8.9458 7.55899C8.98854 7.37365 9.00976 7.22348 9.00976 7.10838C9.0099 7.04853 9.00347 7.00386 8.99062 6.97377Z")
+					span 1─888─000 0000
+				.underline.foot-order-8
+					div
+				span.foot-address 100 California St, San Francisco, CA  94111, United States
+				a(href='mailto:info@ivlottery.com').foot-mail
+					span info@ivprogram.com
+				button.foot-partner
+					span Become a Partner
+
+		- if(greensock)
+			+inc('js','js/greensock.js')
+		+inc('js','js/main.js',true)

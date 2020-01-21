@@ -112,7 +112,6 @@
     margin: 0
     &-block
       margin-top: 60px
-      margin-bottom: 60px
     &,span:last-child
       +wh(134px,40px)
     &-long
@@ -195,6 +194,8 @@
       padding: 30px 0
   &-info
     padding-top: 30px
+.reg-form,.priv-success
+  padding-top: 145px
 .partner
   &-row
     display: flex
@@ -294,6 +295,8 @@
   &-description
     span
       font-size: 16px
+.close-reg
+  top: 100px
 .foot
   padding: 0 0 50px
   &-privacy
@@ -314,6 +317,9 @@
     order: 5
     width: 410px
     flex: 0 0 410px
+  &-address
+    width: 310px
+    flex: 0 0 310px
   &-order-6
     display: none
   &-tel
@@ -323,7 +329,10 @@
   &-terms
     flex: 0 0 70%
     text-align: left
-
+  &-mail,&-partner
+    margin-top: 0
+  &-copy,&-tel,&-address,&-privacy,&-mail,&-terms,&-partner
+    font-size: 13px
 .terms
   padding-bottom: 0
   .underline

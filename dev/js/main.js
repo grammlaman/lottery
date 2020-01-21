@@ -81,7 +81,7 @@ window.onload = function () {
     //* -- Анимация флагов на главной странице -- *//
     let statFlagsItem = queryAll('.statistic-row-item');
     let statFlagsItemCheck = false;
-    if(statFlagsItem){
+    if(statFlagsItem[0]){
         function flagsAnimStart() {
             let example = window.innerWidth;
             statFlagsItem.forEach(function (el) {
@@ -107,6 +107,7 @@ window.onload = function () {
             requestAnimationFrame();
         }
     }
+    let closeReg = queryAll('.close-reg');
     //* -- Действия со скроллами -- *//
     let mainPage = query('.mainPage');
     let header = getId('header');
@@ -137,17 +138,28 @@ window.onload = function () {
             let headerHeight = header.getClientRects()[0].height;
             if(scrolled<headerHeight) {
                 remove(header,'head-scrolled');
+                if(closeReg[0]){
+                    closeReg.forEach(function (el) {
+                        el.style.transform = '';
+                    })
+                }
             } else if (!contains(header,'head-scrolled')){
                 add(header,'head-scrolled');
+                if(closeReg[0]){
+                    closeReg.forEach(function (el) {
+                        el.style.transform = 'translateY(-30px)';
+                    })
+                }
             }
         }
-        if(!animCollection.length) return;
-        if((scrolled - scrolledLoad) >= (animCollection[0].top - (window.innerHeight - 100))){
-            TweenMax.staggerTo(animCollection[0].elem.querySelectorAll('.gs'),.5,{y:0,opacity:1},.3);
-            animCollection.shift();
+        if(animCollection.length){
+            if((scrolled - scrolledLoad) >= (animCollection[0].top - (window.innerHeight - 100))){
+                TweenMax.staggerTo(animCollection[0].elem.querySelectorAll('.gs'),.5,{y:0,opacity:1},.3);
+                animCollection.shift();
+            }
         }
         let statFlagsItem = queryAll('.statistic-row-item');
-        if(statFlagsItem){
+        if(statFlagsItem[0]){
             if(!statFlagsItemCheck){
                 if(scrolled >= statFlagsItem[0].getBoundingClientRect().top){
                     statFlagsItemCheck = true;
@@ -156,26 +168,26 @@ window.onload = function () {
                 }
             }
         }
-
-        let firstViewOpacity = 1;
-        if(scrolled == 0){
-            firstViewOpacity = 1
+        if(firstView){
+            let firstViewOpacity = 1;
+            if(scrolled == 0){
+                firstViewOpacity = 1
+            }
+            if(scrolled >= 100){
+                firstViewOpacity = 0.5
+            }
+            if(scrolled >= 200){
+                firstViewOpacity = 0.2
+            }
+            if(scrolled >= 300){
+                firstViewOpacity = 0.05
+            }
+            if(scrolled >= 400){
+                firstViewOpacity = 0
+            }
+            TweenMax.to(firstView.querySelector('img'),.15,{opacity:firstViewOpacity});
+            TweenMax.to(firstView.querySelector('h1'),.15,{opacity:firstViewOpacity});
         }
-        if(scrolled >= 100){
-            firstViewOpacity = 0.5
-        }
-        if(scrolled >= 200){
-            firstViewOpacity = 0.2
-        }
-        if(scrolled >= 300){
-            firstViewOpacity = 0.05
-        }
-        if(scrolled >= 400){
-            firstViewOpacity = 0
-        }
-        TweenMax.to(firstView.querySelector('img'),.15,{opacity:firstViewOpacity});
-        TweenMax.to(firstView.querySelector('h1'),.15,{opacity:firstViewOpacity});
-
     });
 
     //* -- Кнопки переходов и показа форм -- *//
@@ -183,7 +195,7 @@ window.onload = function () {
         if(youTube){
             add(youTube);iframe.src='';
         }
-        let arr= [regForm,regEnter,regForgot,priv,privSuccess,terms,partnerPage,termsPage];
+        let arr= [regFirstPage,regSecondPage,priv,privSuccess,terms,partnerPage,termsPage];
         for(let i = 0; i < arr.length; i++){
             add(arr[i]);
         }
@@ -213,42 +225,44 @@ window.onload = function () {
         };
     }
     //* -- Форма регистрации --*//
-    let regBut = queryAll('.part'),
-        regForm = query('.reg-form'),
+    let regForm = query('.reg-form'),
         regSub = getId('registration-sub'),
         regFirstPage = query('.reg-first-page');
     let regSecondPage = query('.reg-second-page'),
         regPassSub = getId('registration-submit');
     let privSuccess = query('.priv-success');
-    regBut.forEach(function(el){
-        el.onclick = function(){
-            formShow(regForm);
-            remove(regFirstPage)
-        }
-    });
-    regSub.onclick = function(){
-        add(regFirstPage);
-        remove(regSecondPage)
-    };
-    regPassSub.onclick = function(){
-        add(regForm);
-        add(regSecondPage);
-        remove(privSuccess)
-    };
-    //* -- Форма входа --*//
-    let loginHead = getId('loginHead'),
-        forgotBut = getId('reg-login-forgot'),
-        regForgot = query('.reg-forgot'),
-        regEnter = query('.reg-enter');
-    if(loginHead){
-        loginHead.onclick = function(){
-            formShow(regEnter)
+    if(regForm){
+        regSub.onclick = function(){
+            add(regFirstPage);
+            remove(regSecondPage)
+        };
+        regPassSub.onclick = function(){
+            add(regForm);
+            add(regSecondPage);
+            remove(privSuccess)
         };
     }
-    forgotBut.onclick = function(){
-        add(regEnter);
-        remove(regForgot)
-    };
+    //* -- Форма входа --*//
+    let loginSub = getId('loginSubmit'),
+        forgotBut = getId('reg-login-forgot'),
+        logintBut = getId('reg-login-enter'),
+        regForgot = query('.reg-forgot'),
+        regEnter = query('.reg-enter');
+    if(loginSub){
+        loginSub.onclick = function(){
+            add(regEnter);
+            remove(query('.main-method'))
+            remove(header)
+        };
+        forgotBut.onclick = function(){
+            add(regEnter);
+            remove(regForgot)
+        };
+        logintBut.onclick = function(){
+            add(regForgot);
+            remove(regEnter)
+        };
+    }
     //* -- Privacy Policy --*//
     let priv = query('.privacy-page'),
         privLink = query('.foot-privacy');
@@ -257,12 +271,7 @@ window.onload = function () {
         formShow(priv);
     };
     //* -- Футер термс --*//
-    let footTerms = query('.foot-terms'),
-        termsPage = query('.terms-page');
-    footTerms.onclick = function(){
-        close();
-        formShow(termsPage);
-    };
+    let termsPage = query('.terms-page');
     //* -- Become a Participant -- *//
     let footPart = query('.foot-partner'),
         partnerPage = query('.partner-page'),
@@ -300,7 +309,9 @@ window.onload = function () {
         but : [queryAll('.main-method-link'),queryAll('.ref-method-link'),queryAll('.aff-method-link'),queryAll('.con-method-link')],
         Close : function () {
             this.form.forEach(function (el) {
-                add(el)
+                if(el){
+                    add(el)
+                }
             })
         }
     };
@@ -308,7 +319,9 @@ window.onload = function () {
         cabObj.but[i].forEach(function (el) {
             el.onclick = function () {
                 cabObj.Close();
-                remove(cabObj.form[i])
+                if(cabObj.form[i]){
+                    remove(cabObj.form[i])
+                }
             }
         })
     }
@@ -417,71 +430,77 @@ window.onload = function () {
     }
     if(country){
         country.onclick = countryListToggle;
+        countryList.addEventListener('click',function (e) {
+            let element = e.target;
+            if(!(element.tagName == "BUTTON") ){
+                while(element.tagName != 'BUTTON'){
+                    element = element.parentNode;
+                }
+            }
+            let listImg = element.querySelector('img'),
+                img = country.querySelector('img'),
+                input = country.querySelector('input');
+            img.setAttribute('src',listImg.getAttribute('src'));
+            input.setAttribute('data-value',element.getAttribute('data-value'));
+            input.value = element.querySelector('span').textContent;
+            if(contains(countryList,'reg-country-list-active')){
+                remove(countryList,'reg-country-list-active')
+            }
+            let countryShowCont = query('.reg-country');
+            let countryBlock = countryShowCont.querySelector('.reg-block');
+            if(contains(countryBlock,'error')){remove(countryBlock,'error')}
+            add(countryBlock,'success');
+        });
+        country.querySelector('input').addEventListener('keyup',function (e) {
+            if(e.keyCode === 40){
+                countryList.children[0].querySelector('button').focus();
+            }
+        });
+        countryList.addEventListener('keyup',function (e) {
+            let elem = document.activeElement,
+                nextLi = '',
+                outLi = elem.parentNode;
+            if(e.keyCode === 40){
+                if(!outLi.nextElementSibling) return;
+                nextLi = outLi.nextElementSibling;
+            }
+            if(e.keyCode === 38){
+                if(!outLi.previousElementSibling) return;
+                nextLi = outLi.previousElementSibling;
+            }
+            if(nextLi)
+                nextLi.querySelector('button').focus();
+        });
+        country.querySelector('input').addEventListener('input',function (e) {
+            let inputValue = this.value;
+            if(!countryOpened){
+                if(!contains(countryList,'reg-country-list-active')){
+                    add(countryList,'reg-country-list-active');
+                }
+            }
+            countryOpened = true;
+            countryNewList = [];
+            countryListItems.forEach(function (li) {
+                let span = li.querySelector('span'),
+                    str = ''+span.textContent,
+                    finded = str.search(inputValue);
+                if(finded > -1){
+                    countryNewList.push(li);
+                }
+            });
+            countryList.innerHTML = '';
+            countryNewList.forEach(function(li){
+                countryList.append(li);
+            });
+            let img = country.querySelector('img');
+            img.setAttribute('src','');
+            country.querySelector('input').setAttribute('data-value','')
+            let countryShowCont = query('.reg-country');
+            let countryBlock = countryShowCont.querySelector('.reg-block');
+            if(contains(countryBlock,'success')){remove(countryBlock,'success')}
+            add(countryBlock,'error');
+        });
     }
-    countryList.addEventListener('click',function (e) {
-        let element = e.target;
-        if(!(element.tagName == "BUTTON") ){
-            while(element.tagName != 'BUTTON'){
-                element = element.parentNode;
-            }
-        }
-        let listImg = element.querySelector('img'),
-            img = country.querySelector('img'),
-            input = country.querySelector('input');
-        img.setAttribute('src',listImg.getAttribute('src'));
-        input.setAttribute('data-value',element.getAttribute('data-value'));
-        input.value = element.querySelector('span').textContent;
-        if(contains(countryList,'reg-country-list-active')){
-            remove(countryList,'reg-country-list-active')
-        }
-        let countryShowCont = query('.reg-country');
-        add(countryShowCont,'success');
-    });
-    country.querySelector('input').addEventListener('keyup',function (e) {
-        if(e.keyCode === 40){
-            countryList.children[0].querySelector('button').focus();
-        }
-    });
-    countryList.addEventListener('keyup',function (e) {
-        let elem = document.activeElement,
-            nextLi = '',
-            outLi = elem.parentNode;
-        if(e.keyCode === 40){
-            if(!outLi.nextElementSibling) return;
-            nextLi = outLi.nextElementSibling;
-        }
-        if(e.keyCode === 38){
-            if(!outLi.previousElementSibling) return;
-            nextLi = outLi.previousElementSibling;
-        }
-        if(nextLi)
-        nextLi.querySelector('button').focus();
-    });
-    country.querySelector('input').addEventListener('input',function (e) {
-        let inputValue = this.value;
-        if(!countryOpened){
-            if(!contains(countryList,'reg-country-list-active')){
-                add(countryList,'reg-country-list-active');
-            }
-        }
-        countryOpened = true;
-        countryNewList = [];
-        countryListItems.forEach(function (li) {
-            let span = li.querySelector('span'),
-                str = ''+span.textContent,
-                finded = str.search(inputValue);
-            if(finded > -1){
-                countryNewList.push(li);
-            }
-        });
-        countryList.innerHTML = '';
-        countryNewList.forEach(function(li){
-            countryList.append(li);
-        });
-        let img = country.querySelector('img');
-        img.setAttribute('src','');
-    });
-
     //* -- Анимация главного экрана -- *//
     let mainAnim = {
         item : query('.mainview'),

@@ -157,7 +157,7 @@ header
         border-bottom-left-radius: 10px
 .cabinet
   &-list
-    height: 138px
+    max-height: 138px
     transition: .5s ease
     background-color: #fff
     box-shadow: 0 5px 5px rgba(0,0,0,0.2)
@@ -167,9 +167,8 @@ header
       opacity: 1
       visibility: visible
       transition: .5s cubic-bezier(1,-0.37, 0.81, 0.99)
-      button
+      button,a
         +w(100%)
-
         text-align: left
         display: block
         color: $head-gray
@@ -184,12 +183,12 @@ header
         right: 0
         left: 0
       &:last-child
-        button
+        button,a
           color: $red
         &:after
           display: none
   &-hidden
-    height: 0
+    max-height: 0
     overflow: hidden
     li
       opacity: 0
@@ -516,7 +515,7 @@ header
       color: #c4c4c4
       margin-right: 15px
 .reg
-  padding: 95px 0 0
+  padding: 95px 0 30px
   &-cont
     padding: 20px 0
   &-row
@@ -589,7 +588,6 @@ header
     margin: auto
     &-block
       margin-top: 30px
-      margin-bottom: 30px
       .reg-comment
         margin-top: 20px
     &-long
@@ -638,8 +636,7 @@ header
     text-align: center
   &-method
     display: flex
-    justify-content: space-between
-    flex-wrap: wrap
+    justify-content: flex-start
     padding: 0 10px
     span
       +font(18px,$f_semi,$blue)
@@ -675,6 +672,8 @@ header
         display: flex
         flex-direction: column
         align-items: center
+    &>span:first-child,&>a:first-child
+      margin-right: 20px
   &-table
     display: flex
     align-items: flex-end
@@ -779,16 +778,20 @@ header
     color: $head-gray
     display: block
     margin-top: 50px
-.close-form
+.close-form,.close-cabinet
   position: fixed
   top: 15px
   right: 15px
+  z-index: 100
+.close-reg
+  top: 90px
+  transition: .35s ease
 .success
   input,select,.reg-datalist
     background-color: #e5f4fbde!important
     border-color: $button-color!important
 .error
-  input,select
+  input,select,.reg-datalist
     background-color: #FFECEC!important
     border-color: #C7132A!important
   .reg-block-title
@@ -798,7 +801,7 @@ header
   transform: translateY(-30px)
   opacity: 0
 .foot
-  padding: 0 0 50px
+  padding: 0 0 70px
   &-order-0
     order: 0
   &-order-3
@@ -817,7 +820,7 @@ header
     flex-wrap: wrap
     justify-content: space-between
   &-copy,&-tel,&-address
-    font-size: 13px
+    font-size: 12px
     line-height: 16px
     margin: 24px 0
   .underline
@@ -844,28 +847,28 @@ header
       line-height: 21px
       color: $gray-text
   &-privacy
-    margin-top: -35px
     order: 5
   &-tel
     color: $gray-text
-    order: 9
+    order: 8
     span
       margin-left: 5px
   &-mail
-    margin-top: -5px
     order: 10
   &-privacy,&-mail,&-terms,&-partner
-    font-size: 13px
+    font-size: 12px
     line-height: 16px
     text-decoration: underline
     color: $red
-  &-copy,&-name
+  &-copy,&-name,&-address
     +w(160px)
     flex: 0 0 160px
     display: block
   &-terms,&-partner
     order: 20
     font-family: $f_reg
+  &-mail,&-partner
+    margin-top: 24px
 .mob
   &-none
     display: none
@@ -887,7 +890,7 @@ header
   display: none
 .scrolled-hide
   transform: translateY(100px)!important
-#reg-login-forgot
+#reg-login-forgot,#reg-login-enter
   +font(16px,$f_reg,$gray-text)
 #stat-slide1:checked~.statistic-slider-cont
   transform: translateX(0px)
