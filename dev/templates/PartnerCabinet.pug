@@ -4,7 +4,7 @@ append vars
 		page_title= 'Главная страница'
 		greensock = false
 block content
-	header#header
+	header.display-none#header
 		.head
 			a(href='#').head-logo
 				+img('logo.png')
@@ -28,12 +28,61 @@ block content
 				button
 					span Change my data
 			li.section
-				button
+				a(href='/ParticipantCabinet.html')
+					span Participant Cabinet
+			li.section
+				a(href='/')
 					span Log out
 		.head-underline
 			div
 	main.mainPage
-		.reg.aff-method
+		form.reg.reg-enter
+			a(href='/').close-cabinet
+				svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+					path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+			.section
+				.reg-title
+					h2 Sign in
+					+img('logo.png')
+				.reg-cont
+					.reg-block
+						.reg-block-title
+							h3 Email
+							span Input error
+						input(type='text')
+					.reg-block
+						.reg-block-title
+							h3 Password
+							span Input error
+						input(type='password')
+				.underline
+					div
+				.reg-button-block
+					button(type='button').reg-button.button-blue#loginSubmit
+						span Sign in
+						span
+					.reg-gray.reg-mt-large
+						button(type='button')#reg-login-forgot Forgot password?
+		form.reg.reg-forgot.display-none
+			a(href='localhost').close-cabinet
+				svg(width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+					path(fill-rule="evenodd" clip-rule="evenodd" d="M8.91602 7.07076C8.40664 6.56138 7.58077 6.56138 7.07139 7.07076C6.56201 7.58014 6.56201 8.40601 7.07139 8.91539L12.2975 14.1415L7.07078 19.3683C6.5614 19.8777 6.5614 20.7035 7.07078 21.2129C7.58016 21.7223 8.40602 21.7223 8.9154 21.2129L14.1422 15.9862L19.3689 21.2129C19.8783 21.7223 20.7041 21.7223 21.2135 21.2129C21.7229 20.7035 21.7229 19.8777 21.2135 19.3683L15.9868 14.1415L21.2129 8.91542C21.7223 8.40604 21.7223 7.58017 21.2129 7.07079C20.7035 6.56141 19.8777 6.56141 19.3683 7.07079L14.1422 12.2969L8.91602 7.07076Z" fill="#C14747")
+			.section
+				.reg-title
+					h2 Forgot password?
+					+img('logo.png')
+				.reg-cont
+					.reg-block
+						.reg-block-title
+							h3 Email
+							span Input error
+						input(type='text')
+					button.reg-button-long.button-blue#forgotPassword
+						span Send me new password
+						span
+					.reg-gray.reg-mt-large
+						button(type='button')#reg-login-enter Sign in
+		.reg.aff-method.display-none
 			.section
 				.reg-title
 					h2 Round #[strong.round-number 0520]

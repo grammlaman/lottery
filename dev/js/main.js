@@ -195,18 +195,17 @@ window.onload = function () {
         if(youTube){
             add(youTube);iframe.src='';
         }
-        let arr= [regFirstPage,regSecondPage,priv,privSuccess,terms,partnerPage,termsPage];
-        for(let i = 0; i < arr.length; i++){
-            add(arr[i]);
-        }
-        remove(header);
-        remove(mainPage);
+        if(!contains(priv)){add(priv)}
+        if(!contains(partnerPage)){add(partnerPage)}
+        if(!contains(terms)){add(terms)}
+        if(header){if(contains(header)){remove(header)}}
+        if(mainPage){if(contains(mainPage)){remove(mainPage)}}
+        if(regForm){if(contains(regForm)){remove(regForm)}}
     }
     function formShow(el){
-        if(!contains(mainPage)){
-            add(mainPage);
-            add(header)
-        }
+        if(header){if(!contains(header)){add(header)}}
+        if(mainPage){if(!contains(mainPage)){add(mainPage)}}
+        if(regForm){if(!contains(regForm)){add(regForm)}}
         remove(el)
     }
     //* -- Кнопка закрытия -- *//
@@ -251,7 +250,8 @@ window.onload = function () {
     if(loginSub){
         loginSub.onclick = function(){
             add(regEnter);
-            remove(query('.main-method'))
+            if(query('.main-method')){remove(query('.main-method'));}
+            if(query('.aff-method')){remove(query('.aff-method'));}
             remove(header)
         };
         forgotBut.onclick = function(){
@@ -272,27 +272,26 @@ window.onload = function () {
     };
     //* -- Футер термс --*//
     let termsPage = query('.terms-page');
-    //* -- Become a Participant -- *//
-    let footPart = query('.foot-partner'),
-        partnerPage = query('.partner-page'),
+    //* -- Become a Partner -- *//
+    let partnerPage = query('.partner-page'),
+        partnerButton = query('.foot-partner'),
         partSub = query('.partner-button'),
         terms = query('.terms'),
         termsSub = query('#termsSubmit'),
         termsDec = query('#termsDecline');
-    footPart.onclick = function(){
-        close();
-        formShow(partnerPage);
-    };
-    partSub.onclick = function(){
-        add(partnerPage);
-        formShow(terms)
-    };
-    termsSub.onclick = function(){
-        add(terms);
-        remove(regForm);
-        remove(regFirstPage);
-    };
-    termsDec.onclick = close;
+    if(partnerPage){
+        partnerButton.onclick = function(){formShow(partnerPage)}
+    }
+    if(partSub){
+        partSub.onclick = function(){
+            close();
+            formShow(terms)
+        };
+    }
+    if(termsSub){
+        termsSub.onclick = close;
+        termsDec.onclick = close;
+    }
 
     //* -- Кабинет выпадающий список --*//
     let cabBut = getId('cabinet-button');

@@ -6,7 +6,7 @@
 .cabinet
   &-list
     li
-      button
+      button,a
         padding: 15px 60px
       &:after
         +w(100%)
@@ -23,9 +23,12 @@
 .privacy
   h3
     margin: 50px 0 20px
-.close-form,.close-cabinet
-  top: 30px
-  right: 30px
+.close
+  &-form,&-cabinet
+    top: 30px
+    right: 30px
+  &-reg
+    top: 100px
 .privacy
   padding: 127px 0 70px
 .underline

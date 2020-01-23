@@ -157,7 +157,7 @@ header
         border-bottom-left-radius: 10px
 .cabinet
   &-list
-    max-height: 138px
+    max-height: 183px
     transition: .5s ease
     background-color: #fff
     box-shadow: 0 5px 5px rgba(0,0,0,0.2)
@@ -169,6 +169,7 @@ header
       transition: .5s cubic-bezier(1,-0.37, 0.81, 0.99)
       button,a
         +w(100%)
+        +font(14px,$f_reg)
         text-align: left
         display: block
         color: $head-gray
@@ -355,17 +356,6 @@ header
     &>span:last-child
       font-family: $f_medium
       opacity: 30%
-    &-i
-      +wh(16px)
-      +dfc
-      border-radius: 100%
-      border: 1px solid #E0E0E0
-      position: absolute
-      top: 10px
-      right: 110px
-      span
-        +font(11px,$f_reg,#000)
-        opacity: 30%
   &-row
     +w(100%)
     margin-top: 50px
