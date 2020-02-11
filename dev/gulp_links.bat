@@ -13,4 +13,6 @@ npm link gulp-autoprefixer && ^
 npm link gulp-sourcemaps && ^
 npm link gulp-clean-css && ^
 npm link gulp-js-minify && ^
+npm link gulp-uglify-es && ^
+npm link imagemin-mozjpeg && ^
 gulp
